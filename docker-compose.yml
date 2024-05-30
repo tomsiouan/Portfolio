@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  web_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mps
+    image: mps
+    restart: always
+    ports:
+      - "80:80"
