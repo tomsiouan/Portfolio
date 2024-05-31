@@ -4,6 +4,8 @@ export default defineNuxtConfig({
   srcDir: 'src/',
   css: ['~/assets/css/main.css'],
   modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     'nuxt-icon'
   ],
@@ -33,6 +35,9 @@ export default defineNuxtConfig({
       }
     ],
     defaultLocale: "fr-FR",
+  },
+  colorMode: {
+    classSuffix: ''
   },
   //TailWindCSS
   postcss: {
