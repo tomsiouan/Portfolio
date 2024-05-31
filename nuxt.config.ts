@@ -13,6 +13,27 @@ export default defineNuxtConfig({
       pathPrefix: false,
     }
   ],
+  // i18n
+  i18n: {
+    lazy: true,
+    langDir: 'locales/',
+    strategy: 'prefix_except_default',
+    locales: [
+      {
+        code: "fr-FR",
+        iso: "fr-FR",
+        name: "Fr",
+        file: "fr-FR.json"
+      },
+      {
+        code: "en-US",
+        iso: "en-US",
+        name: "En",
+        file: "en-US.json"
+      }
+    ],
+    defaultLocale: "fr-FR",
+  },
   //TailWindCSS
   postcss: {
     plugins: {

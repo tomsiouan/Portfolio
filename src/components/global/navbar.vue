@@ -3,7 +3,7 @@
 </script>
 
 <template>
-
+  <lang-switcher/>
 </template>
 
 <style scoped>
