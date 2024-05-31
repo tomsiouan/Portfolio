@@ -29,7 +29,7 @@ Start the development server on `http://localhost:3000`:
 yarn dev
 ```
 
-# Dependencies
+## Dependencies
 
 - i18n
 - auto-animate
