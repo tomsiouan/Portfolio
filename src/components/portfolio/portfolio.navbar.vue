@@ -72,10 +72,10 @@ onBeforeUnmount(() => {
 
           <!-- Liens de navigation au centre -->
           <nav class="flex-1 md:flex hidden justify-center gap-8" aria-label="desktop-navbar">
-            <NuxtLink :to="localPath('/portfolio/about')" class="nav-link">About</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/projects')" class="nav-link">Projects</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/stages')" class="nav-link">Stages</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/contact')" class="nav-link">Contact</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/about')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/projects')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>
           </nav>
 
           <div class="flex-3 md:flex hidden">

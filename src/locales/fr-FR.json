@@ -3,5 +3,10 @@
   "home-subtitle": "Site de stockage personnel",
 
   "portfolio-home-title": "Bienvenu sur mon portfolio",
-  "portfolio-home-subtitle": "Ceci est un sous titre"
+  "portfolio-home-subtitle": "Ceci est un sous titre",
+
+  "nav-about": "À propos",
+  "nav-projects": "Projets",
+  "nav-stages": "Stages",
+  "nav-contact": "Me contacter"
 }
