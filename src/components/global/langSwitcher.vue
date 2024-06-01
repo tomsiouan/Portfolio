@@ -26,9 +26,9 @@ const handleMouseLeave = () => {
         v-for="(item, index) in locales"
         :key="typeof item === 'object' ? item.code : item"
         :class="[
-        'px-2 py-1 transition duration-200',
-        language === item.code ? (hoveredLocale !== null && hoveredLocale !== item.code ? 'bg-white text-gray-800' : 'bg-gray-800 text-white') : 'bg-white text-gray-800',
-        language !== item.code && 'hover:bg-gray-800 hover:text-white',
+        'px-2.5 py-0.5 transition duration-200',
+        language === item.code ? (hoveredLocale !== null && hoveredLocale !== item.code ? 'bg-white text-gray-80' : 'bg-gray-80 text-white') : 'bg-white text-gray-80',
+        language !== item.code && 'hover:bg-gray-80 hover:text-white',
         index === 0 ? 'rounded-l-lg' : '',
         index === locales.length - 1 ? 'rounded-r-lg' : ''
       ]"
@@ -42,5 +42,5 @@ const handleMouseLeave = () => {
 </template>
 
 <style scoped>
-/* Ajout de styles personnalisés si nécessaire */
+
 </style>
