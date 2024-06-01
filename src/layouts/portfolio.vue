@@ -3,8 +3,9 @@
 </script>
 
 <template>
-<h1>Layout portfolio</h1>
+  <PortfolioNavbar />
   <slot />
+  <PortfolioFooter />
 </template>
 
 <style scoped>

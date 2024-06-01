@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./src/components/**/*.{js,vue,ts}",
@@ -8,56 +9,41 @@ export default {
     "./src/app.vue",
     "./src/error.vue",
   ],
+  darkMode: 'class',
   theme: {
-    // TODO: change names and check sizes
-    screens: {
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
-
-      'md': '768px',
-      // => @media (min-width: 768px) { ... }
-
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
-    },
-    colors: {
-      // TODO: setup color palette
-      'blue': '#1fb6ff',
-      'purple': '#7e5bef',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'green': '#13ce66',
-      'yellow': '#ffc82c',
-      'gray-dark': '#273444',
-      'gray': '#8492a6',
-      'gray-light': '#d3dce6',
-    },
-    fontFamily: {
-      // TODO: setup fonts
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
-    },
     extend: {
-      // TODO: setup spacing
+      colors: {
+        primary: '#ff5454',
+        secondary: '#333333',
+        tertiary: '#fafafa',
+
+        gray: {
+          80: '#333333',
+          50: '#7e7e7e',
+          20: '#c7c7c7',
+          5: '#ececec',
+        },
+
+        black: '#000000',
+        white: '#ffffff',
+
+        dark: '#1a202c',
+        'dark-primary': '#ff4545',
+        'dark-secondary': '#222222',
+
+      },
       spacing: {
         '128': '32rem',
         '144': '36rem',
       },
-      // TODO: setup border radius
       borderRadius: {
         '4xl': '2rem',
-      }
-    }
+      },
+    },
+    fontFamily: {
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
   },
   plugins: [],
-}
-
-module.exports = {
-  darkMode: 'class',
-}
+};
