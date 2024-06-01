@@ -86,9 +86,6 @@ onBeforeUnmount(() => {
       </div>
     </div>
   </header>
-  <div class="h-screen">
-    <!-- Contenu pour permettre le défilement -->
-  </div>
 </template>
 
 <style scoped>
