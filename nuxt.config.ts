@@ -37,6 +37,8 @@ export default defineNuxtConfig({
     defaultLocale: "fr-FR",
   },
   colorMode: {
+    preference: 'system',
+    fallback: 'light',
     classSuffix: ''
   },
   //TailWindCSS
