@@ -49,7 +49,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header class="fixed top-0 w-full z-30">
-    <div class="container mx-auto">
+    <div class="container mx-auto max-w-screen-xl">
       <div class="md:md-8 my-4 backdrop-blur-sm rounded-2xl bg-zinc-800/10 dark:bg-white/10 px-6 py-4">
         <div class="flex items-center gap-8">
           <!-- Logo à gauche -->
