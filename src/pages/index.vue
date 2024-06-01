@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { NuxtLink } from '#components'
-const appConfig = useAppConfig()
-
-console.log(appConfig.theme)
 
 const localPath = useLocalePath();
 

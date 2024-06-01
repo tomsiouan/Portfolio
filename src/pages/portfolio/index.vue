@@ -9,7 +9,7 @@ const localPath = useLocalePath();
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold">
+  <h1 class="text-3xl font-bold h-screen">
     {{ $t("portfolio-home-title") }}
   </h1>
 
