@@ -72,10 +72,10 @@ onBeforeUnmount(() => {
 
           <!-- Liens de navigation au centre -->
           <nav class="flex-1 md:flex hidden justify-center gap-8" aria-label="desktop-navbar">
-            <NuxtLink :to="localPath('/portfolio/about')">About</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/projects')">Projects</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/stages')">Stages</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/contact')">Contact</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/about')" class="nav-link">About</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/projects')" class="nav-link">Projects</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/stages')" class="nav-link">Stages</NuxtLink>
+            <NuxtLink :to="localPath('/portfolio/contact')" class="nav-link">Contact</NuxtLink>
           </nav>
 
           <div class="flex-3 md:flex hidden">
@@ -98,5 +98,28 @@ onBeforeUnmount(() => {
 
 .letter-s {
   transition: left 0.5s;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  transform: translateY(2px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
 }
 </style>
