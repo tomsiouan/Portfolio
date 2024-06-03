@@ -9,6 +9,10 @@ const localPath = useLocalePath();
 </script>
 
 <template>
+
+  <div class="max-w-7xl mx-auto h-screen">
+    <Icon name="CCO"></Icon>
+  </div>
   <h1 class="text-3xl font-bold h-screen">
     {{ $t("portfolio-home-title") }}
   </h1>
