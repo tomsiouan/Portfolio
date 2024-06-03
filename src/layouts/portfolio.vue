@@ -4,9 +4,9 @@
 
 <template>
   <div class="dark:bg-gray-80 dark:text-tertiary theme-transition text-transition">
-    <PortfolioNavbar />
+    <Navbar />
     <slot />
-    <PortfolioFooter />
+    <Footer />
   </div>
 </template>
 

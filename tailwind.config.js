@@ -39,10 +39,22 @@ export default {
       borderRadius: {
         '4xl': '2rem',
       },
+      keyframes: {
+        slideInFromRight: {
+          '0%': { transform: 'translateX(-100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+      },
+      animation: {
+        'slide-in-right': 'slideInFromRight 1s ease-out forwards',
+      },
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['sans-serif'],
+      serif: ['Movement', 'serif'],
+      movementThin: ['Movement-thin', 'serif'],
+      movementBlack: ['Movement-black', 'serif'],
+      kineticLight: ['Kinetic-light', 'serif'],
     },
   },
   plugins: [],

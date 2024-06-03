@@ -26,14 +26,12 @@ const handleScroll = () => {
     }
   });
 
-  // Déplace le "S" plus près de "T" seulement après que les autres lettres aient disparu
   if (allLettersHidden && scrollPosition > threshold) {
     const offset = Math.min(maxOffset, scrollPosition - threshold);
     if (letterS) {
       letterS.style.left = `${-offset}px`;
     }
   } else if (letterS) {
-    // Reset the position of 'S' if not all letters are hidden or scrollPosition is not enough
     letterS.style.left = '0px';
   }
 };
@@ -54,7 +52,7 @@ onBeforeUnmount(() => {
         <div class="flex items-center gap-8">
           <!-- Logo à gauche -->
           <h1 class="uppercase text-2xl flex-1 max-w-fit">
-            <NuxtLink :to="localPath('/portfolio')" class="router-link-active router-link-exact-active">
+            <NuxtLink :to="localPath('/')" class="router-link-active router-link-exact-active">
               <span class="relative" id="logo">
                 <span class="letter letter-t relative">T</span>
                 <span class="letter letter-o active relative" style="opacity: 1;">o</span>
@@ -72,10 +70,10 @@ onBeforeUnmount(() => {
 
           <!-- Liens de navigation au centre -->
           <nav class="flex-1 md:flex hidden justify-center gap-8" aria-label="desktop-navbar">
-            <NuxtLink :to="localPath('/portfolio/about')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/projects')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
-            <NuxtLink :to="localPath('/portfolio/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>
+            <NuxtLink :to="localPath('/about')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
+            <NuxtLink :to="localPath('/projects')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
+            <NuxtLink :to="localPath('/stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
+            <NuxtLink :to="localPath('/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>
           </nav>
 
           <div class="flex-3 md:flex hidden">
