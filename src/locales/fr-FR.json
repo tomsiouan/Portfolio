@@ -1,12 +1,25 @@
 {
-  "home-title": "MPS",
-  "home-subtitle": "Site de stockage personnel",
+  "home-title": "Tom Siouan",
+  "home-first-subtitle": "Étudiant en BUT Informatique",
+  "home-second-subtitle": "à l'IUT Nord-Franche-Comté situé à Belfort(FR).",
 
-  "portfolio-home-title": "Tom SIOUAN",
-  "portfolio-home-subtitle": "Étudiant en informatique",
+  "home-slogan": "Développeur full stack",
 
   "nav-about": "À propos",
   "nav-projects": "Projets",
   "nav-stages": "Stages",
-  "nav-contact": "Me contacter"
+  "nav-contact": "Me contacter",
+
+  "section-title-about-me": "À propos",
+  "section-about-me-first-paragraph": "Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux, les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup de projets qui rassemblent chaque module pour nous former et devenir plus indépendants. Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe, pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches, donc tout le monde a quelque chose à faire, moi compris bien sûr.",
+  "section-about-me-second-paragraph": "J'ai commencé à m'intéresser à l'informatique à l'age de 12 ans puis au collège j'ai eu mon premier ordinateur. C'est donc à partir de cette période que j'ai vraiment commencer à toucher au domaine. Programmation, jeux vidéo et mathématiques, me fascinait. Cela m'a permis de continuer à avancer dans un domaine agréable où je peux me développer, travailler en équipe.",
+
+  "section-title-projects": "Mes Projets",
+  "section-title-stages": "Stages",
+  "section-title-contact": "Me contacter",
+
+  "footer-first": "Étudiant en informatique",
+  "footer-second": "Basé à Belfort (90), France",
+  "footer-third": "Je travaille actuellement sur des projets personnels en plus de ceux de l'école.",
+  "footer-used-techno": "Site web réalisé avec"
 }

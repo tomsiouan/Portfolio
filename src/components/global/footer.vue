@@ -6,13 +6,13 @@
     <div class="container mx-auto max-w-screen-xl">
       <div class="mb-8">
         <div>
-          <p>Computer sciences student</p>
-          <p>Based in Belfort(90), France</p>
-          <p>I am currently working on side projects in addition to those for school.</p>
+          <p>{{$t("footer-first")}}</p>
+          <p>{{$t("footer-second")}}</p>
+          <p>{{$t("footer-third")}}</p>
         </div>
       </div>
       <div class="footer-lower flex justify-between md:flex-row flex-col gap-4">
-        <small>website made using <a href="https://nuxt.com" class="text-blue-500 underline hover:text-blue-400">nuxt</a>, <a href="https://tailwindcss.com" class="text-blue-500 underline hover:text-blue-400">tailwindcss</a></small>
+        <small>{{$t("footer-used-techno")}} <a href="https://nuxt.com" class="text-blue-500 underline hover:text-blue-400">nuxt</a>, <a href="https://tailwindcss.com" class="text-blue-500 underline hover:text-blue-400">tailwindcss</a></small>
         <small>tomsiouan.fr 2024 ©</small>
       </div>
     </div>

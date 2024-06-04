@@ -1,12 +1,25 @@
 {
-  "home-title": "MPS",
-  "home-subtitle": "Personnal stockage website.",
+  "home-title": "Tom Siouan",
+  "home-first-subtitle": "Computer Science Student",
+  "home-second-subtitle": "at IUT Nord-Franche-Comté located in Belfort (FR).",
 
-  "portfolio-home-title": "Welcome to my portfolio !",
-  "portfolio-home-subtitle": "This is a subtitle.",
+  "home-slogan": "Full Stack Developer",
 
   "nav-about": "About",
   "nav-projects": "Projects",
-  "nav-stages": "Stages",
-  "nav-contact": "Contact"
+  "nav-stages": "Internships",
+  "nav-contact": "Contact",
+
+  "section-title-about-me": "About me",
+  "section-about-me-first-paragraph": "Hello! To introduce myself, I am a first-year Computer Science student, where we learn many fields such as algorithms, optimization, networks, databases, and MCD and MR representations. We do a lot of projects that bring together each module to train us and become more independent. In such projects, I am used to managing time and working in a team to ensure that we progress. I also often handle task distribution, so everyone has something to do, including myself, of course.",
+  "section-about-me-second-paragraph": "I started getting interested in computer science at the age of 12, and then in middle school, I got my first computer. From that time, I really started getting into the field. Programming, video games, and mathematics fascinated me. This allowed me to continue progressing in an enjoyable field where I can develop myself and work in a team.",
+
+  "section-title-projects": "My Projects",
+  "section-title-stages": "Internships",
+  "section-title-contact": "Contact me",
+
+  "footer-first": "Computer sciences student",
+  "footer-second": "Based in Belfort(90), France",
+  "footer-third": "I am currently working on side projects in addition to those for school.",
+  "footer-used-techno": "Website made using"
 }

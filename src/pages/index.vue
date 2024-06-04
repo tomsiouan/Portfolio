@@ -82,8 +82,10 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   if (observer) {
-    if (title.value) observer.unobserve(title.value);
-    if (subtitle.value) observer.unobserve(title.value);
+    if (title.value) {
+      observer.unobserve(title.value);
+      if (subtitle.value) observer.unobserve(title.value);
+    }
     if (developerText.value) observer.unobserve(developerText.value);
   }
   window.removeEventListener('scroll', handleScroll);
@@ -94,14 +96,14 @@ onBeforeUnmount(() => {
   <div class="flex max-w-screen-2xl mx-auto h-screen pt-40 cursor-s-resize relative">
     <div class="left">
       <h1 ref="title" class="text-5xl font-kineticLight font-bold opacity-0">
-        Tom Siouan
+        {{ $t("home-title") }}
       </h1>
       <div ref="subtitle" class="flex flex-col mt-4">
         <span ref="subtitle" class="font-kineticLight text-lg opacity-0">
-          Étudiant en BUT Informatique
+          {{ $t("home-first-subtitle") }}
         </span>
         <span ref="subtitle" class="negative-margin-1 font-kineticLight text-lg opacity-0">
-          à l'IUT Nord-Franche-Comté situé à Belfort(FR).
+          {{ $t("home-second-subtitle") }}
         </span>
       </div>
     </div>
@@ -109,22 +111,20 @@ onBeforeUnmount(() => {
       <span></span>
     </a>
   </div>
-  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 overflow-x-hidden text-9xl font-movementBlack opacity-0 overflow-y-hidden whitespace-nowrap" ref="developerText">
-    Développeur full stack
+  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack opacity-0 overflow-y-hidden whitespace-nowrap" ref="developerText">
+    {{ $t("home-slogan") }}
   </div>
   <div id="aboutMe"></div>
-  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
-    <h2>About Me</h2>
+  <div class="max-w-screen-xl mx-auto mt-32 w-screen h-screen">
+    <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
     <div class="flex flex-row">
-      <div class="w-1/2 text-justify font-kineticLight text-lg">
+      <div class="w-1/2 flex flex-col text-justify font-kineticLight text-lg">
         <p ref="aboutMeParagraph" class="opacity-0">
-          Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
-          l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
-          les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
-          de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
-          Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
-          pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
-          donc tout le monde a quelque chose à faire, moi compris bien sûr.
+          {{$t("section-about-me-first-paragraph")}}
+        </p>
+
+        <p ref="aboutMeSubParagraph" class="mt-10 opacity-100">
+          {{$t("section-about-me-second-paragraph")}}
         </p>
       </div>
       <div class="w-1/2 text-center font-kineticLight text-lg">
@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
   </div>
   <div id="projects"></div>
   <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
-    <h2>Projects</h2>
+    <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
     <div class="flex flex-row">
       <div class="w-1/2 text-justify font-kineticLight text-lg">
         <p>
@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
   </div>
   <div id="stages"></div>
   <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
-    <h2>Stages</h2>
+    <h2 ref="titleStages" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-stages")}}</h2>
     <div class="flex flex-row">
       <div class="w-1/2 text-justify font-kineticLight text-lg">
         <p>
@@ -174,7 +174,7 @@ onBeforeUnmount(() => {
   </div>
   <div id="contactMe"></div>
   <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
-    <h2>Contact Me</h2>
+    <h2 ref="titleContact" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-contact")}}</h2>
     <div class="flex flex-row">
       <div class="w-1/2 text-justify font-kineticLight text-lg">
         <p>
