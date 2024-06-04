@@ -29,7 +29,10 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
       } else if (developerText.value instanceof HTMLElement && entry.target === developerText.value) {
         setTimeout(() => {
           developerText?.value?.classList.add('animate-increaseOpacity');
-        }, (1000));
+          developerText?.value?.addEventListener('animationend', () => {
+            developerText?.value?.classList.remove('animate-increaseOpacity');
+          }, { once: true });
+        }, 1000);
       } else if (aboutMeParagraph.value instanceof HTMLElement && entry.target === aboutMeParagraph.value) {
         aboutMeParagraph.value.classList.add('animate-slide-in-right');
         aboutMeParagraph?.value?.classList.add('animate-increaseOpacity');
@@ -87,6 +90,7 @@ onBeforeUnmount(() => {
       if (subtitle.value) observer.unobserve(title.value);
     }
     if (developerText.value) observer.unobserve(developerText.value);
+    if (aboutMeParagraph.value) observer.unobserve(aboutMeParagraph.value);
   }
   window.removeEventListener('scroll', handleScroll);
 });
@@ -111,7 +115,7 @@ onBeforeUnmount(() => {
       <span></span>
     </a>
   </div>
-  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack opacity-0 overflow-y-hidden whitespace-nowrap" ref="developerText">
+  <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
     {{ $t("home-slogan") }}
   </div>
   <div id="aboutMe"></div>
@@ -201,10 +205,6 @@ onBeforeUnmount(() => {
   margin-top: -0.35rem;
 }
 
-*,*::before,*::after { box-sizing: border-box; }
-body { font: 16px/1.6em Poppins, BlinkMacSystemFont, "-apple-system", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #111; color: #fff; text-align: center; }
-section { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-
 .mouseDown {
   font-size: 0.9em;
   border: 2px solid rgb(0, 0, 0);
@@ -238,5 +238,18 @@ section { height: 100vh; display: flex; flex-direction: column; justify-content:
 
 .mouseDown:hover span {
   animation-duration: 0.7s;
+}
+
+@keyframes scroll {
+  0%, 20% {
+    transform: translateY(0) scaleY(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1.2em) scaleY(1.5);
+    opacity: 0.01;
+  }
 }
 </style>
