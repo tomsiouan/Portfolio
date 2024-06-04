@@ -105,16 +105,16 @@ onBeforeUnmount(() => {
         </span>
       </div>
     </div>
-    <a ref="mouseDown" class="mouseDown absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#section1" title="Scroll Down">
+    <a ref="mouseDown" class="mouseDown absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
       <span></span>
     </a>
   </div>
   <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 overflow-x-hidden text-9xl font-movementBlack opacity-0 overflow-y-hidden whitespace-nowrap" ref="developerText">
     Développeur full stack
   </div>
-  <div id="section1"></div>
+  <div id="aboutMe"></div>
   <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
-    <h2>Section 2</h2>
+    <h2>About Me</h2>
     <div class="flex flex-row">
       <div class="w-1/2 text-justify font-kineticLight text-lg">
         <p ref="aboutMeParagraph" class="opacity-0">
@@ -131,6 +131,66 @@ onBeforeUnmount(() => {
         <p>test</p>
       </div>
       </div>
+  </div>
+  <div id="projects"></div>
+  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
+    <h2>Projects</h2>
+    <div class="flex flex-row">
+      <div class="w-1/2 text-justify font-kineticLight text-lg">
+        <p>
+          Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
+          l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
+          les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
+          de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
+          Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
+          pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
+          donc tout le monde a quelque chose à faire, moi compris bien sûr.
+        </p>
+      </div>
+      <div class="w-1/2 text-center font-kineticLight text-lg">
+        <p>test</p>
+      </div>
+    </div>
+  </div>
+  <div id="stages"></div>
+  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
+    <h2>Stages</h2>
+    <div class="flex flex-row">
+      <div class="w-1/2 text-justify font-kineticLight text-lg">
+        <p>
+          Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
+          l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
+          les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
+          de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
+          Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
+          pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
+          donc tout le monde a quelque chose à faire, moi compris bien sûr.
+        </p>
+      </div>
+      <div class="w-1/2 text-center font-kineticLight text-lg">
+        <p>test</p>
+      </div>
+    </div>
+  </div>
+  <div id="contactMe"></div>
+  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
+    <h2>Contact Me</h2>
+    <div class="flex flex-row">
+      <div class="w-1/2 text-justify font-kineticLight text-lg">
+        <p>
+          Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
+          l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
+          les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
+          de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
+          Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
+          pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
+          donc tout le monde a quelque chose à faire, moi compris bien sûr.
+        </p>
+      </div>
+      <div class="w-1/2 text-center font-kineticLight text-lg">
+        <p>test</p>
+      </div>
+    </div>
   </div>
 </template>
 
