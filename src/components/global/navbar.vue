@@ -36,8 +36,33 @@ const handleScroll = () => {
   }
 };
 
+const redirectOnPageOrHome = async () => {
+  if (location.pathname !== '/') {
+    await navigateTo(localPath('/'))
+  } else {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+
+  document.querySelectorAll('.nav-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const id = anchor.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        const targetElement = document.querySelector(id);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  });
 });
 
 onBeforeUnmount(() => {
@@ -52,7 +77,8 @@ onBeforeUnmount(() => {
         <div class="flex items-center gap-8">
           <!-- Logo à gauche -->
           <h1 class="uppercase text-2xl flex-1 max-w-fit">
-            <NuxtLink :to="localPath('/')" class="router-link-active router-link-exact-active">
+            <!--<NuxtLink :to="localPath('/')" class="router-link-active router-link-exact-active">-->
+            <a @click="redirectOnPageOrHome" class="cursor-pointer">
               <span class="relative" id="logo">
                 <span class="letter letter-t relative">T</span>
                 <span class="letter letter-o active relative" style="opacity: 1;">o</span>
@@ -65,15 +91,20 @@ onBeforeUnmount(() => {
                 <span class="letter letter-a active relative" style="opacity: 1;">a</span>
                 <span class="letter letter-n active relative" style="opacity: 1;">n</span>
               </span>
-            </NuxtLink>
+            </a>
+            <!--</NuxtLink>-->
           </h1>
 
           <!-- Liens de navigation au centre -->
           <nav class="flex-1 md:flex hidden justify-center gap-8" aria-label="desktop-navbar">
-            <NuxtLink :to="localPath('/about')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
+            <!--<NuxtLink :to="localPath('/about')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
             <NuxtLink :to="localPath('/projects')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
             <NuxtLink :to="localPath('/stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
-            <NuxtLink :to="localPath('/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>
+            <NuxtLink :to="localPath('/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>-->
+            <a href="#aboutMe" class="nav-link">{{ $t("nav-about") }}</a>
+            <a href="#projects" class="nav-link">{{ $t("nav-projects") }}</a>
+            <a href="#stages" class="nav-link">{{ $t("nav-stages") }}</a>
+            <a href="#contactMe" class="nav-link">{{ $t("nav-contact") }}</a>
           </nav>
 
           <div class="flex-3 md:flex hidden">
