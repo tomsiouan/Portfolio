@@ -14,7 +14,7 @@ const handleError = () => clearError({ redirect: '/' });
 <template>
   <div class="error-page w-screen h-screen overflow-x-hidden">
     <h1 class="text">{{ error?.statusCode === 404 ? 'Page not found' : 'Oops, something went wrong!' }}</h1>
-    <NuxtLink :to="localPath('/')">Go back Home</NuxtLink>
+    <NuxtLink v-if="error?.statusCode === 404" :to="localPath('/')">Go back Home</NuxtLink>
   </div>
 </template>
 
