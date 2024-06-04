@@ -15,6 +15,14 @@ export default defineNuxtConfig({
       pathPrefix: false,
     }
   ],
+  app: {
+    head: {
+      title: 'Tom SIOUAN',
+      meta: [
+        { name: 'description', content: 'Description de votre site' }
+      ]
+    }
+  },
   // i18n
   i18n: {
     lazy: true,
