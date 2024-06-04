@@ -44,9 +44,14 @@ export default {
           '0%': { transform: 'translateX(-100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
+        kfOpacity: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         'slide-in-right': 'slideInFromRight 1s ease-out forwards',
+        'increaseOpacity': 'kfOpacity 2.5s ease-in-out forwards',
       },
     },
     fontFamily: {

@@ -24,6 +24,10 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
             span.classList.add('animate-slide-in-right');
           }, (index + 2) * 100);
         });
+      } else if (developerText.value instanceof HTMLElement && entry.target === developerText.value) {
+        setTimeout(() => {
+          developerText?.value?.classList.add('animate-increaseOpacity');
+        }, (1000));
       }
       observer.unobserve(entry.target);
     }
@@ -51,6 +55,7 @@ onMounted(() => {
     observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
     if (title.value) observer.observe(title.value);
     if (subtitle.value) observer.observe(subtitle.value);
+    if (developerText.value) observer.observe(developerText.value);
     window.addEventListener('scroll', handleScroll);
   }
 
@@ -72,6 +77,7 @@ onBeforeUnmount(() => {
   if (observer) {
     if (title.value) observer.unobserve(title.value);
     if (subtitle.value) observer.unobserve(title.value);
+    if (developerText.value) observer.unobserve(developerText.value);
   }
   window.removeEventListener('scroll', handleScroll);
 });
@@ -88,7 +94,7 @@ onBeforeUnmount(() => {
           Étudiant en BUT Informatique
         </span>
         <span ref="subtitle" class="negative-margin-1 font-kineticLight text-lg opacity-0">
-          à l'IUT Nord-Franche-Comté situé à Belfort.
+          à l'IUT Nord-Franche-Comté situé à Belfort(FR).
         </span>
       </div>
     </div>
@@ -96,11 +102,28 @@ onBeforeUnmount(() => {
       <span></span>
     </a>
   </div>
-  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack opacity-100 whitespace-nowrap" ref="developerText">
+  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 overflow-x-hidden text-9xl font-movementBlack opacity-0 whitespace-nowrap" ref="developerText">
     Développeur full stack
   </div>
-  <div id="section1" class="max-w-screen-xl mx-auto w-screen h-screen bg-amber-400">
+  <div id="section1"></div>
+  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
     <h2>Section 2</h2>
+    <div class="flex flex-row">
+      <div class="w-1/2 text-justify font-kineticLight text-lg">
+        <p>
+          Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
+          l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
+          les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
+          de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
+          Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
+          pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
+          donc tout le monde a quelque chose à faire, moi compris bien sûr.
+        </p>
+      </div>
+      <div class="w-1/2 text-center font-kineticLight text-lg">
+        <p>test</p>
+      </div>
+      </div>
   </div>
 </template>
 
@@ -151,7 +174,8 @@ section { height: 100vh; display: flex; flex-direction: column; justify-content:
   transition: border 0.2s ease-out;
 }
 
-.mouseDown:hover { border: 2px solid rgba(255, 255, 255, 0.7); }
+.mouseDown:hover { border: 2px solid rgba(204, 204, 204, 0.7); }
+.mouseDown:hover span { background-color: rgba(204, 204, 204, 0.7); }
 
 .mouseDown span {
   display: block;
