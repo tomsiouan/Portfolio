@@ -10,6 +10,8 @@ const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
 
+const aboutMeParagraph = ref<HTMLElement | null>(null);
+
 let observer: IntersectionObserver | null = null;
 
 const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
@@ -28,6 +30,10 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
         setTimeout(() => {
           developerText?.value?.classList.add('animate-increaseOpacity');
         }, (1000));
+      } else if (aboutMeParagraph.value instanceof HTMLElement && entry.target === aboutMeParagraph.value) {
+        aboutMeParagraph.value.classList.add('animate-slide-in-right');
+        aboutMeParagraph?.value?.classList.add('animate-increaseOpacity');
+        observer.unobserve(entry.target);
       }
       observer.unobserve(entry.target);
     }
@@ -56,6 +62,7 @@ onMounted(() => {
     if (title.value) observer.observe(title.value);
     if (subtitle.value) observer.observe(subtitle.value);
     if (developerText.value) observer.observe(developerText.value);
+    if (aboutMeParagraph.value) observer.observe(aboutMeParagraph.value);
     window.addEventListener('scroll', handleScroll);
   }
 
@@ -102,7 +109,7 @@ onBeforeUnmount(() => {
       <span></span>
     </a>
   </div>
-  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 overflow-x-hidden text-9xl font-movementBlack opacity-0 whitespace-nowrap" ref="developerText">
+  <div class="absolute top-2/3 left-1/2 transform -translate-x-1/2 overflow-x-hidden text-9xl font-movementBlack opacity-0 overflow-y-hidden whitespace-nowrap" ref="developerText">
     Développeur full stack
   </div>
   <div id="section1"></div>
@@ -110,7 +117,7 @@ onBeforeUnmount(() => {
     <h2>Section 2</h2>
     <div class="flex flex-row">
       <div class="w-1/2 text-justify font-kineticLight text-lg">
-        <p>
+        <p ref="aboutMeParagraph" class="opacity-0">
           Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
           l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
           les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
@@ -134,35 +141,10 @@ onBeforeUnmount(() => {
   margin-top: -0.35rem;
 }
 
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.opacity-0 {
-  opacity: 0;
-}
-
-@keyframes scrollFade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 *,*::before,*::after { box-sizing: border-box; }
 body { font: 16px/1.6em Poppins, BlinkMacSystemFont, "-apple-system", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #111; color: #fff; text-align: center; }
 section { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
 
-/* MOUSE SCROLL ANIMATION */
 .mouseDown {
   font-size: 0.9em;
   border: 2px solid rgb(0, 0, 0);
@@ -196,18 +178,5 @@ section { height: 100vh; display: flex; flex-direction: column; justify-content:
 
 .mouseDown:hover span {
   animation-duration: 0.7s;
-}
-
-@keyframes scroll {
-  0%, 20% {
-    transform: translateY(0) scaleY(1);
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(1.2em) scaleY(1.5);
-    opacity: 0.01;
-  }
 }
 </style>
