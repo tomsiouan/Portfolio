@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-import { PROJECT_LIST } from "~/server/services/projects";
+import {FRAMEWORKS, LANGUAGES, PROJECT_LIST, PROJECTS_TYPES} from "~/server/services/projects";
+import autoAnimate from "@formkit/auto-animate";
 
 definePageMeta({
   layout: 'portfolio'
@@ -20,9 +21,24 @@ const mouseDown = ref<HTMLElement | null>(null);
 
 const aboutMeParagraph = ref<HTMLElement | null>(null);
 
-const projects = ref(Object.values(PROJECT_LIST));
+const projects = Object.values(PROJECT_LIST);
 
 let observer: IntersectionObserver | null = null;
+
+const selectedTags = ref<string[]>([]);
+
+const filteredProjects = computed(() => {
+  if (selectedTags.value.length === 0) return projects;
+  return projects.filter(project => selectedTags.value.every(tag => project.tags.includes(tag)));
+});
+
+const toggleTag = (tag: string) => {
+  if (selectedTags.value.includes(tag)) {
+    selectedTags.value = selectedTags.value.filter(t => t !== tag);
+  } else {
+    selectedTags.value.push(tag);
+  }
+};
 
 const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
   entries.forEach((entry) => {
@@ -52,6 +68,8 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
     }
   });
 };
+
+const projectList = ref<HTMLElement | null>(null);
 
 const handleScroll = () => {
   const scrollPosition = window.scrollY;
@@ -91,6 +109,10 @@ onMounted(() => {
       }
     });
   });
+
+  if (projectList.value) {
+    autoAnimate(projectList.value);
+  }
 });
 
 onBeforeUnmount(() => {
@@ -149,10 +171,27 @@ onBeforeUnmount(() => {
   <div id="projects"></div>
   <div class="max-w-screen-xl mx-auto mt-28 w-screen">
     <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
+    <div class="mb-4">
+      <h2 class="font-bold text-xl mb-2">Filter by Tags</h2>
+      <div class="flex flex-wrap gap-2">
+        <button
+            v-for="tag in [...Object.values(LANGUAGES), ...Object.values(FRAMEWORKS), ...Object.values(PROJECTS_TYPES)]"
+            :key="tag"
+            @click="toggleTag(tag)"
+            :class="{
+            'bg-blue-500 text-white': selectedTags.includes(tag),
+            'bg-gray-200 text-gray-700': !selectedTags.includes(tag)
+          }"
+            class="px-3 py-1 rounded-full font-semibold cursor-pointer transition-colors duration-300"
+        >
+          #{{ tag }}
+        </button>
+      </div>
+    </div>
     <div class="px-4 py-5 ">
-      <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div ref="projectList" class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <Card
-            v-for="(project, index) in projects"
+            v-for="(project, index) in filteredProjects"
             :key="index"
             :imageUrl="project.imageUrl"
             :title="project.title"
