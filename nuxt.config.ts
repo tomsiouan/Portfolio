@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: 'src/',
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    '~/assets/css/transitions.css'
+  ],
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
@@ -16,12 +19,16 @@ export default defineNuxtConfig({
     }
   ],
   app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
+    },
     head: {
       title: 'Tom SIOUAN',
       meta: [
-        { name: 'description', content: 'Description de votre site' }
+        { name: 'description', content: 'Portfolio rassemblant mes projets, mes compétences et plus encore.' }
       ]
-    }
+    },
   },
   // i18n
   i18n: {
