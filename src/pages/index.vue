@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { PROJECT_LIST } from "~/server/services/projects";
 
 definePageMeta({
   layout: 'portfolio'
 });
+
+interface Project {
+  imageUrl: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
 
 const title = ref<HTMLElement | null>(null);
 const subtitle = ref<HTMLElement | null>(null);
@@ -11,6 +19,8 @@ const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
 
 const aboutMeParagraph = ref<HTMLElement | null>(null);
+
+const projects = ref(Object.values(PROJECT_LIST));
 
 let observer: IntersectionObserver | null = null;
 
@@ -137,27 +147,23 @@ onBeforeUnmount(() => {
       </div>
   </div>
   <div id="projects"></div>
-  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
+  <div class="max-w-screen-xl mx-auto mt-28 w-screen">
     <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
-    <div class="flex flex-row">
-      <div class="w-1/2 text-justify font-kineticLight text-lg">
-        <p>
-          Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
-          l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
-          les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
-          de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
-          Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
-          pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
-          donc tout le monde a quelque chose à faire, moi compris bien sûr.
-        </p>
-      </div>
-      <div class="w-1/2 text-center font-kineticLight text-lg">
-        <p>test</p>
+    <div class="px-4 py-5 ">
+      <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <Card
+            v-for="(project, index) in projects"
+            :key="index"
+            :imageUrl="project.imageUrl"
+            :title="project.title"
+            :description="project.description"
+            :tags="project.tags"
+        />
       </div>
     </div>
   </div>
   <div id="stages"></div>
-  <div class="max-w-screen-xl mx-auto mt-28 w-screen h-screen">
+  <div class="max-w-screen-xl mx-auto mt-28 w-screen">
     <h2 ref="titleStages" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-stages")}}</h2>
     <div class="flex flex-row">
       <div class="w-1/2 text-justify font-kineticLight text-lg">
