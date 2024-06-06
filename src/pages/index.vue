@@ -160,8 +160,8 @@ onBeforeUnmount(() => {
         </span>
         </div>
       </div>
-      <a ref="mouseDown" class="mouseDown absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
-        <span></span>
+      <a ref="mouseDown" class="mouseDown absolute border-2 border-black dark:border-tertiary bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
+        <span class="bg-dark dark:bg-tertiary"></span>
       </a>
     </div>
     <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
@@ -272,7 +272,6 @@ onBeforeUnmount(() => {
 
 .mouseDown {
   font-size: 0.9em;
-  border: 2px solid rgb(0, 0, 0);
   display: block;
   width: 1.7em;
   height: 2.8em;
@@ -286,7 +285,6 @@ onBeforeUnmount(() => {
 
 .mouseDown span {
   display: block;
-  background: #000000;
   width: 0.2em;
   height: 0.3em;
   margin: 0.7em auto 0;
