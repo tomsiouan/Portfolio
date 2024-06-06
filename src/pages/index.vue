@@ -19,6 +19,8 @@ const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
 
+let animationEnd = false;
+
 const aboutMeParagraph = ref<HTMLElement | null>(null);
 
 const projects = Object.values(PROJECT_LIST);
@@ -67,6 +69,8 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
           developerText?.value?.classList.add('animate-increaseOpacity');
           developerText?.value?.addEventListener('animationend', () => {
             developerText?.value?.classList.remove('animate-increaseOpacity');
+            developerText?.value?.classList.add('opacity-100');
+            animationEnd = true;
           }, { once: true });
         }, 1000);
       } else if (aboutMeParagraph.value instanceof HTMLElement && entry.target === aboutMeParagraph.value) {
@@ -85,8 +89,10 @@ const handleScroll = () => {
   const scrollPosition = window.scrollY;
   const maxScroll = window.innerHeight;
   if (developerText.value) {
-    const opacity = 1 - Math.min(scrollPosition / (maxScroll / 2), 1);
-    developerText.value.style.opacity = opacity.toString();
+    if (animationEnd) {
+      const opacity = 1 - Math.min(scrollPosition / (maxScroll / 2), 1);
+      developerText.value.style.opacity = opacity.toString();
+    }
     developerText.value.style.transform = `translateX(-50%) translateX(${-Math.max(0, scrollPosition * 0.5)}px)`;
   }
   if (mouseDown.value) {
