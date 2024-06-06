@@ -226,13 +226,7 @@ onBeforeUnmount(() => {
       <div class="flex flex-row">
         <div class="w-1/2 text-justify font-kineticLight text-lg">
           <p>
-            Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où
-            l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux,
-            les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup
-            de projets qui rassemblent chaque module pour nous former et devenir plus indépendants.
-            Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe,
-            pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches,
-            donc tout le monde a quelque chose à faire, moi compris bien sûr.
+            Carousel ici
           </p>
         </div>
         <div class="w-1/2 text-center font-kineticLight text-lg">
