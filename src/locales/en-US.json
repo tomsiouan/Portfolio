@@ -23,5 +23,29 @@
   "footer-third": "I am currently working on side projects in addition to those for school.",
   "footer-used-techno": "Website made using",
 
-  "today": "now"
+  "today": "today",
+
+  "heldia-title": "Heldia",
+  "heldia-image-alt": "image of the game titled Heldia",
+  "heldia-description": "Project involving the creation of a 2D RPG video game.",
+
+  "portfolio-title": "Portfolio",
+  "portfolio-image-alt": "image of the portfolio (current site)",
+  "portfolio-description": "Website you are currently on.",
+
+  "stuckwin-title": "Stuckwin",
+  "stuckwin-image-alt": "image of the console game coded in Java",
+  "stuckwin-description": "A game developed as part of a first-year tutored project.",
+
+  "flask-website-title": "Flask e-commerce site",
+  "flask-website-image-alt": "image of the e-commerce site coded with Flask",
+  "flask-website-description": "An e-commerce site developed as part of a first-year tutored project.",
+
+  "vm-title": "Virtual Machine",
+  "vm-image-alt": "image of the virtual machine",
+  "vm-description": "Virtual machine created as part of a tutored project.",
+
+  "hackaton-title": "Hackathon - Belfort 2023",
+  "hackaton-image-alt": "image of the Belfort 2023 hackathon",
+  "hackaton-description": "Problem-solving."
 }

@@ -53,10 +53,10 @@ export const PROJECT_LIST: Record<string, Project> = {
     heldia: {
         image: {
             imageUrl: "/images/heldia.png",
-            alt: 'image du jeux intitulé Heldia'
+            alt: 'heldia-image-alt'
         },
-        title: "Heldia",
-        description: "Projet consistant en la réalisation d'un jeux vidéo RPG 2D.",
+        title: "heldia-title",
+        description: "heldia-description",
         years: [
             YEARS["2023"],
             YEARS.NOW
@@ -71,10 +71,10 @@ export const PROJECT_LIST: Record<string, Project> = {
     portfolio: {
         image: {
             imageUrl: "/images/portfolio.png",
-            alt: 'image du portfolio (site actuel)'
+            alt: 'portfolio-image-alt'
         },
-        title: "Portfolio",
-        description: "Site sur lequel vous êtes actuellement.",
+        title: "portfolio-title",
+        description: "portfolio-description",
         years: [
             YEARS["2024"]
         ],
@@ -86,13 +86,13 @@ export const PROJECT_LIST: Record<string, Project> = {
         ],
         route: "/portfolio/project/personnal/portfolio"
     },
-    consoleJavaGame: {
+    stuckwin: {
         image: {
             imageUrl: "/images/stuckwin.png",
-            alt: "image du jeux console en java"
+            alt: "stuckwin-image-alt"
         },
-        title: "Jeux console en java",
-        description: "Un jeux développé dans le cadre d'un projet tuteuré en première année.",
+        title: "stuckwin-title",
+        description: "stuckwin-description",
         years: [
             YEARS["2023"]
         ],
@@ -105,10 +105,10 @@ export const PROJECT_LIST: Record<string, Project> = {
     flaskWebsite: {
         image: {
             imageUrl: "/images/flask_ecommerce_website.png",
-            alt: 'image du site de e-commerce codé avec flask'
+            alt: 'flask-website-image-alt'
         },
-        title: "Site de e-commerce",
-        description: "Un site de e-commerce développé cadre d'un projet tuteuré en première année.",
+        title: "flask-website-title",
+        description: "flask-website-description",
         years: [
             YEARS["2023"]
         ],
@@ -124,10 +124,10 @@ export const PROJECT_LIST: Record<string, Project> = {
     virtualMachine: {
         image: {
             imageUrl: "/images/vm.png",
-            alt: 'image de la virtual machine',
+            alt: 'vm-image-alt',
         },
-        title: "Machine virtuelle",
-        description: "Machine virtuelle créée dans le cadre d'un projet tuteuré.",
+        title: "vm-title",
+        description: "vm-description",
         years: [
             YEARS["2023"]
         ],
@@ -140,10 +140,10 @@ export const PROJECT_LIST: Record<string, Project> = {
     hackatonBelfort2023: {
         image: {
             imageUrl: "/images/hackaton.png",
-            alt: 'image du hackaton de belfort 2023'
+            alt: 'hackaton-image-alt'
         },
-        title: "Hackaton Belfort 2023",
-        description: "Résolution de problèmes.",
+        title: "hackaton-title",
+        description: "hackaton-description",
         years: [
             YEARS["2023"]
         ],

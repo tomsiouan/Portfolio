@@ -27,11 +27,11 @@ const props = defineProps<Project>();
         <img
             class="w-full"
             :src="props.image.imageUrl"
-            :alt="props.image.alt"
+            :alt="$t(props.image.alt)"
         >
       </div>
       <div class="px-6 py-4">
-        <div class="font-bold text-xl">{{ props.title }}</div>
+        <div class="font-bold text-xl">{{ $t(props.title) }}</div>
         <div class="flex flex-row mb-3">
           <div v-if="props.years" v-for="(year, index) in props.years" :key="index" class="font-normal pr-2">
             <span v-if="year === YEARS.NOW">{{ $t(year) }}</span>
@@ -40,7 +40,7 @@ const props = defineProps<Project>();
           </div>
         </div>
         <p class="text-gray-700 dark:text-gray-50 text-base">
-          {{ props.description }}
+          {{ $t(props.description) }}
         </p>
       </div>
       <div class="px-6 py-4">
