@@ -4,7 +4,10 @@ import { PROJECT_LIST } from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
 
 interface Project {
-  image: object;
+  image: {
+    imageUrl: string;
+    alt: string;
+  };
   title: string;
   description: string;
   years?: string[];
@@ -18,6 +21,7 @@ const title = ref<HTMLElement | null>(null);
 const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
+const tagList = ref<HTMLElement | null>(null);
 
 let animationEnd = false;
 
@@ -31,7 +35,7 @@ const selectedTags = ref<string[]>([]);
 
 const uniqueTags = computed(() => {
   const tags = new Set<string>();
-  projects.forEach(project => {
+  filteredProjects.value.forEach((project: Project) => {
     project.tags.forEach(tag => {
       tags.add(tag);
     });
@@ -39,7 +43,7 @@ const uniqueTags = computed(() => {
   return Array.from(tags);
 });
 
-const filteredProjects = computed(() => {
+const filteredProjects = computed<Project[]>(() => {
   if (selectedTags.value.length === 0) return projects;
   return projects.filter(project => selectedTags.value.every(tag => project.tags.includes(tag)));
 });
@@ -129,6 +133,10 @@ onMounted(() => {
   if (projectList.value) {
     autoAnimate(projectList.value);
   }
+
+  if (tagList.value) {
+    autoAnimate(tagList.value);
+  }
 });
 
 onBeforeUnmount(() => {
@@ -190,7 +198,7 @@ onBeforeUnmount(() => {
       <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
       <div class="mb-4">
         <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
-        <div class="flex flex-wrap gap-2">
+        <div ref="tagList" class="flex flex-wrap gap-2">
           <button
               v-for="tag in uniqueTags"
               :key="tag"
