@@ -197,7 +197,7 @@ onBeforeUnmount(() => {
               @click="toggleTag(tag)"
               :class="{
             'bg-blue-500 text-white': selectedTags.includes(tag),
-            'bg-gray-200 text-gray-700': !selectedTags.includes(tag)
+            'bg-gray-200 text-gray-700 dark:bg-zinc-600 dark:text-tertiary': !selectedTags.includes(tag)
           }"
               class="px-3 py-1 rounded-full font-semibold cursor-pointer transition-colors duration-300"
           >
