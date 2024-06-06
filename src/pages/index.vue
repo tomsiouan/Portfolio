@@ -241,6 +241,7 @@ onBeforeUnmount(() => {
         <div class="w-1/2 text-justify font-kineticLight text-lg">
           <p>
             Mettre un formulaire de contact ici.
+            Test
           </p>
         </div>
         <div class="w-1/2 text-center font-kineticLight text-lg">
