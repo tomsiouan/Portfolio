@@ -32,7 +32,7 @@ export const YEARS = {
     2024: '2024',
     2023: '2023',
     2022: '2022',
-    NOW: 'Now',
+    NOW: 'today',
 };
 
 //TODO: Remplacer les champs description et titre par le nom des objets dans les fichiers de langues

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import {YEARS} from "~/server/services/projects";
 
 const localPath = useLocalePath();
 
@@ -26,7 +27,8 @@ const props = defineProps<CardProps>();
           <div class="font-bold text-xl">{{ props.title }}</div>
           <div class="flex flex-row mb-3">
             <div v-if="props.years" v-for="(year, index) in props.years" :key="index" class="font-normal pr-2">
-              {{year}}
+              <span v-if="year === YEARS.NOW">{{ $t(year) }}</span>
+              <span v-else>{{ year }} </span>
               <span v-if="index < props.years.length - 1"> - </span>
             </div>
           </div>
