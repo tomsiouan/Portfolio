@@ -272,25 +272,25 @@ onBeforeUnmount(() => {
     </section>
     <div id="projects"></div>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-projects") }}</h2>
-      <div ref="tagGroup" class="opacity-0 mb-4 text-center">
-        <h2 class="font-kineticLight font-bold text-xl mb-2">{{ $t("filter_by_tags") }}</h2>
-        <div ref="tagList" class="flex flex-wrap gap-2 justify-center">
+      <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
+      <div ref="tagGroup" class="opacity-0 mb-4">
+        <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
+        <div ref="tagList" class="flex flex-wrap gap-2">
           <button
               v-for="tag in uniqueTags"
               :key="tag"
               @click="toggleTag(tag)"
               :class="{
-              'bg-blue-500 text-white': selectedTags.includes(tag),
-              'bg-gray-200 text-gray-700 dark:bg-zinc-600 dark:text-tertiary': !selectedTags.includes(tag)
-            }"
+            'bg-blue-500 text-white': selectedTags.includes(tag),
+            'bg-gray-200 text-gray-700 dark:bg-zinc-600 dark:text-tertiary': !selectedTags.includes(tag)
+          }"
               class="px-3 py-1 rounded-full font-semibold cursor-pointer transition-colors duration-300"
           >
             #{{ tag }}
           </button>
         </div>
       </div>
-      <div class="px-4 py-5">
+      <div class="px-4 py-5 ">
         <div ref="projectList" class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <Card
               v-for="(project, index) in filteredProjects"
