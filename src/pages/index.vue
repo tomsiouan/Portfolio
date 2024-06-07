@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { PROJECT_LIST } from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
 import CustomLink from "~/components/global/customLink.vue";
-
-//TODO: Optimize this script part
 
 interface Project {
   image: {
@@ -20,45 +18,31 @@ interface Project {
 
 const localPath = useLocalePath();
 
-// First Screen
 const title = ref<HTMLElement | null>(null);
 const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
 const tagList = ref<HTMLElement | null>(null);
 const tagGroup = ref<HTMLElement | null>(null);
-
-let animationEnd = false;
-
-// AboutMe
 const aboutMeParagraph = ref<HTMLElement | null>(null);
 const aboutMeSubParagraph = ref<HTMLElement | null>(null);
-
-// TimeLine
 const bacText = ref<HTMLElement | null>(null);
 const butText = ref<HTMLElement | null>(null);
 const stage1Text = ref<HTMLElement | null>(null);
 const downloadCVButton = ref<HTMLElement | null>(null);
-
 const isDlCVDisabled = ref(true);
-
-const downloadCV = () => {
-  // Logique pour télécharger le CV
-};
-
-// Projects card list
 const projects = Object.values(PROJECT_LIST);
+const selectedTags = ref<string[]>([]);
+const projectList = ref<HTMLElement | null>(null);
 
 let observer: IntersectionObserver | null = null;
 
-const selectedTags = ref<string[]>([]);
+const animationEnd = ref(false);
 
 const uniqueTags = computed(() => {
   const tags = new Set<string>();
   filteredProjects.value.forEach((project: Project) => {
-    project.tags.forEach(tag => {
-      tags.add(tag);
-    });
+    project.tags.forEach(tag => tags.add(tag));
   });
   return Array.from(tags);
 });
@@ -69,175 +53,125 @@ const filteredProjects = computed<Project[]>(() => {
 });
 
 const toggleTag = (tag: string) => {
-  if (selectedTags.value.includes(tag)) {
-    selectedTags.value = selectedTags.value.filter(t => t !== tag);
-  } else {
-    selectedTags.value.push(tag);
+  selectedTags.value.includes(tag)
+      ? selectedTags.value = selectedTags.value.filter(t => t !== tag)
+      : selectedTags.value.push(tag);
+};
+
+const handleAnimationEnd = (element: HTMLElement, animationClass: string) => {
+  element.classList.remove(animationClass);
+  element.classList.add('opacity-100');
+};
+
+const handleIntersection = (element: HTMLElement | null, animationClass: string, observer: IntersectionObserver) => {
+  if (element) {
+    element.classList.add(animationClass);
+    element.addEventListener('animationend', () => handleAnimationEnd(element, animationClass), { once: true });
+    observer.unobserve(element);
   }
 };
 
+const downloadCV = () => {
+
+};
+
 const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
-  entries.forEach((entry) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      if (title.value instanceof HTMLElement && entry.target === title.value) {
-        title.value.classList.add('animate-slide-in-right');
-      } else if (subtitle.value instanceof HTMLElement && entry.target === subtitle.value) {
-        const spans = subtitle.value.querySelectorAll('span');
-        spans.forEach((span, index) => {
-          setTimeout(() => {
-            span.classList.add('animate-slide-in-right');
-          }, (index + 2) * 100);
-        });
-      } else if (developerText.value instanceof HTMLElement && entry.target === developerText.value) {
-        setTimeout(() => {
-          developerText?.value?.classList.add('animate-increaseOpacity');
-          developerText?.value?.addEventListener('animationend', () => {
-            developerText?.value?.classList.remove('animate-increaseOpacity');
-            developerText?.value?.classList.add('opacity-100');
-            animationEnd = true;
-          }, { once: true });
-        }, 1000);
-      } else if (mouseDown.value instanceof HTMLElement && entry.target === mouseDown.value) {
-        setTimeout(() => {
-          mouseDown?.value?.classList.add('animate-increaseOpacity');
-          mouseDown?.value?.addEventListener('animationend', () => {
-            mouseDown?.value?.classList.remove('animate-increaseOpacity');
-            mouseDown?.value?.classList.add('opacity-100');
-          }, { once: true });
-        }, 1000);
-      } else if (aboutMeParagraph.value instanceof HTMLElement && entry.target === aboutMeParagraph.value) {
-        aboutMeParagraph?.value?.classList.add('animate-increaseOpacityFast');
-        aboutMeParagraph?.value?.addEventListener('animationend', () => {
-          aboutMeParagraph?.value?.classList.remove('animate-increaseOpacityFast');
-          aboutMeParagraph?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
-      } else if (aboutMeSubParagraph.value instanceof HTMLElement && entry.target === aboutMeSubParagraph.value) {
-        aboutMeSubParagraph?.value?.classList.add('animate-increaseOpacityFast');
-        aboutMeSubParagraph?.value?.addEventListener('animationend', () => {
-          aboutMeSubParagraph?.value?.classList.remove('animate-increaseOpacityFast');
-          aboutMeSubParagraph?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
-      } else if (bacText.value instanceof HTMLElement && entry.target === bacText.value) {
-        bacText?.value?.classList.add('animate-blurSlideFromLeft');
-        bacText?.value?.addEventListener('animationend', () => {
-          bacText?.value?.classList.remove('animate-blurSlideFromLeft');
-          bacText?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
-      } else if (butText.value instanceof HTMLElement && entry.target === butText.value) {
-        butText?.value?.classList.add('animate-blurSlideFromRight');
-        butText?.value?.addEventListener('animationend', () => {
-          butText?.value?.classList.remove('animate-blurSlideFromRight');
-          butText?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
-      } else if (stage1Text.value instanceof HTMLElement && entry.target === stage1Text.value) {
-        stage1Text?.value?.classList.add('animate-blurSlideFromLeft');
-        stage1Text?.value?.addEventListener('animationend', () => {
-          stage1Text?.value?.classList.remove('animate-blurSlideFromLeft');
-          stage1Text?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
-      } else if (downloadCVButton.value instanceof HTMLElement && entry.target === downloadCVButton.value) {
-        downloadCVButton?.value?.classList.add('animate-increaseOpacity');
-        downloadCVButton?.value?.addEventListener('animationend', () => {
-          downloadCVButton?.value?.classList.remove('animate-increaseOpacity');
-          downloadCVButton?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
-      } else if (tagGroup.value instanceof HTMLElement && entry.target === tagGroup.value) {
-        tagGroup?.value?.classList.add('animate-increaseOpacity');
-        tagGroup?.value?.addEventListener('animationend', () => {
-          tagGroup?.value?.classList.remove('animate-increaseOpacity');
-          tagGroup?.value?.classList.add('opacity-100');
-        }, { once: true });
-        observer.unobserve(entry.target);
+      switch (entry.target) {
+        case title.value:
+          handleIntersection(title.value, 'animate-slide-in-right', observer);
+          break;
+        case subtitle.value:
+          subtitle.value?.querySelectorAll('span').forEach((span, index) => {
+            setTimeout(() => span.classList.add('animate-slide-in-right'), (index + 2) * 100);
+          });
+          break;
+        case developerText.value:
+          setTimeout(() => handleIntersection(developerText.value, 'animate-increaseOpacity', observer), 1000);
+          break;
+        case mouseDown.value:
+          setTimeout(() => handleIntersection(mouseDown.value, 'animate-increaseOpacity', observer), 1000);
+          break;
+        case aboutMeParagraph.value:
+          handleIntersection(aboutMeParagraph.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case aboutMeSubParagraph.value:
+          handleIntersection(aboutMeSubParagraph.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case bacText.value:
+          handleIntersection(bacText.value, 'animate-blurSlideFromLeft', observer);
+          break;
+        case butText.value:
+          handleIntersection(butText.value, 'animate-blurSlideFromRight', observer);
+          break;
+        case stage1Text.value:
+          handleIntersection(stage1Text.value, 'animate-blurSlideFromLeft', observer);
+          break;
+        case downloadCVButton.value:
+          handleIntersection(downloadCVButton.value, 'animate-increaseOpacity', observer);
+          break;
+        case tagGroup.value:
+          handleIntersection(tagGroup.value, 'animate-increaseOpacity', observer);
+          break;
       }
-      observer.unobserve(entry.target);
     }
   });
 };
 
-const projectList = ref<HTMLElement | null>(null);
-
 const handleScroll = () => {
   const scrollPosition = window.scrollY;
   const maxScroll = window.innerHeight;
-  if (developerText.value) {
-    if (animationEnd) {
+  const developer = developerText.value;
+  const mouse = mouseDown.value;
+
+  if (developer) {
+    if (animationEnd.value) {
       const opacity = 1 - Math.min(scrollPosition / (maxScroll / 2), 1);
-      developerText.value.style.opacity = opacity.toString();
+      developer.style.opacity = opacity.toString();
     }
-    developerText.value.style.transform = `translateX(-50%) translateX(${-Math.max(0, scrollPosition * 0.5)}px)`;
+    developer.style.transform = `translateX(-50%) translateX(${-Math.max(0, scrollPosition * 0.5)}px)`;
   }
-  if (mouseDown.value) {
+
+  if (mouse) {
     const opacity = 1 - Math.min(scrollPosition / 300, 1);
     const translateY = Math.min(scrollPosition / 5, 20);
-    mouseDown.value.style.opacity = opacity.toString();
-    mouseDown.value.style.transform = `translateY(-${translateY}px)`;
+    mouse.style.opacity = opacity.toString();
+    mouse.style.transform = `translateY(-${translateY}px)`;
   }
 };
 
 onMounted(() => {
   if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
     observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
-    if (title.value) observer.observe(title.value);
-    if (subtitle.value) observer.observe(subtitle.value);
-    if (developerText.value) observer.observe(developerText.value);
-    if (mouseDown.value) observer.observe(mouseDown.value);
-    if (aboutMeParagraph.value) observer.observe(aboutMeParagraph.value);
-    if (aboutMeSubParagraph.value) observer.observe(aboutMeSubParagraph.value);
-    if (bacText.value) observer.observe(bacText.value);
-    if (butText.value) observer.observe(butText.value);
-    if (stage1Text.value) observer.observe(stage1Text.value);
-    if (downloadCVButton.value) observer.observe(downloadCVButton.value);
-    if (tagGroup.value) observer.observe(tagGroup.value);
+    const elementsToObserve = [title.value, subtitle.value, developerText.value, mouseDown.value, aboutMeParagraph.value, aboutMeSubParagraph.value, bacText.value, butText.value, stage1Text.value, downloadCVButton.value, tagGroup.value];
+    elementsToObserve.forEach(element => {
+      if (element) observer?.observe(element);
+    });
     window.addEventListener('scroll', handleScroll);
   }
 
   document.querySelectorAll('a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', e => {
       e.preventDefault();
       const id = anchor.getAttribute('href');
       if (id && id.startsWith('#')) {
         const targetElement = document.querySelector(id);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        targetElement?.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
 
-  if (projectList.value) {
-    autoAnimate(projectList.value);
-  }
-
-  if (tagList.value) {
-    autoAnimate(tagList.value);
-  }
+  if (projectList.value) autoAnimate(projectList.value);
+  if (tagList.value) autoAnimate(tagList.value);
 });
 
 onBeforeUnmount(() => {
-  if (observer) {
-    if (title.value) {
-      observer.unobserve(title.value);
-      if (subtitle.value) observer.unobserve(title.value);
-    }
-    if (developerText.value) observer.unobserve(developerText.value);
-    if (mouseDown.value) observer.unobserve(mouseDown.value);
-    if (aboutMeParagraph.value) observer.unobserve(aboutMeParagraph.value);
-    if (aboutMeSubParagraph.value) observer.unobserve(aboutMeSubParagraph.value);
-    if (bacText.value) observer.unobserve(bacText.value);
-    if (butText.value) observer.unobserve(butText.value);
-    if (stage1Text.value) observer.unobserve(stage1Text.value);
-    if (downloadCVButton.value) observer.unobserve(downloadCVButton.value);
-    if (tagGroup.value) observer.unobserve(tagGroup.value);
-  }
+  observer?.disconnect();
   window.removeEventListener('scroll', handleScroll);
 });
 </script>
+
 
 <template>
   <div>
