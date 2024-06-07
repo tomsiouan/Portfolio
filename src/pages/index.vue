@@ -281,7 +281,7 @@ onBeforeUnmount(() => {
     <section class="max-w-screen-xl mx-auto mt-28 w-screen">
       <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
       <div ref="tagGroup" class="opacity-0 mb-4">
-        <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
+        <h2 class="font-kineticLight font-bold text-xl mb-2">Filter par tags</h2>
         <div ref="tagList" class="flex flex-wrap gap-2">
           <button
               v-for="tag in uniqueTags"
