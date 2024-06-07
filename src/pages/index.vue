@@ -185,9 +185,9 @@ onBeforeUnmount(() => {
     <div class="max-w-screen-xl mx-auto mt-32 w-screen">
       <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
       <section>
-        <div class="py-8">
-          <div class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
-            <div class="font-kineticLight text-lg text-justify flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12">
+        <div>
+          <div class="container mx-auto flex flex-col items-start md:flex-row">
+            <div class="font-kineticLight text-lg text-justify flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2">
               <p ref="aboutMeParagraph" class="opacity-0">
                 {{$t("section-about-me-first-paragraph")}}
               </p>
@@ -211,7 +211,7 @@ onBeforeUnmount(() => {
             </div>
             <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
               <div class="container mx-auto w-full h-full">
-                <div class="relative wrap overflow-hidden p-10 h-full">
+                <div class="relative wrap overflow-hidden pr-10 pl-10 pb-10 pt-5 h-full">
                   <div class="border-2-2 text-primary absolute h-full border border-primary"
                        style="right: 50%; border: 2px solid; border-radius: 1%;">
                   </div>
