@@ -94,10 +94,10 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
           setTimeout(() => handleIntersection(mouseDown.value, 'animate-increaseOpacity', observer), 1000);
           break;
         case aboutMeParagraph.value:
-          handleIntersection(aboutMeParagraph.value, 'animate-increaseOpacityFast', observer);
+          handleIntersection(aboutMeParagraph.value, 'animate-increaseOpacity', observer);
           break;
         case aboutMeSubParagraph.value:
-          handleIntersection(aboutMeSubParagraph.value, 'animate-increaseOpacityFast', observer);
+          handleIntersection(aboutMeSubParagraph.value, 'animate-increaseOpacity', observer);
           break;
         case bacText.value:
           handleIntersection(bacText.value, 'animate-blurSlideFromLeft', observer);
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <section class="flex lg:max-w-screen-2xl md:max-w-screen-xl mx-auto h-screen pt-40 cursor-s-resize relative">
+    <section class="flex pl-5 max-w-screen sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-screen-2xl mx-auto h-screen pt-40 cursor-s-resize relative">
       <div class="left">
         <h1 ref="title" class="text-5xl font-kineticLight font-bold opacity-0">
           {{ $t("home-title") }}
@@ -192,66 +192,58 @@ onBeforeUnmount(() => {
       <a ref="mouseDown" class="opacity-0 mouseDown absolute border-2 border-black dark:border-tertiary bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
         <span class="bg-dark dark:bg-tertiary"></span>
       </a>
-      <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 lg:text-9xl md:text-7xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
+      <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 w-full flex justify-center items-center text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-movementBlack opacity-0 whitespace-nowrap" ref="developerText">
         {{ $t("home-slogan") }}
       </div>
     </section>
     <div id="aboutMe"></div>
-    <section class="max-w-screen-xl mx-auto mt-32 w-screen">
-      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
+    <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
+      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-about-me") }}</h2>
       <section>
         <div>
-          <div class="container mx-auto flex flex-col items-start md:flex-row">
-            <div class="font-kineticLight text-lg text-justify flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2">
+          <div class="flex flex-col items-start md:flex-row">
+            <div class="font-kineticLight text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 px-4">
               <p ref="aboutMeParagraph" class="opacity-0">
                 {{$t("section-about-me-first-paragraph")}}
               </p>
-
               <p ref="aboutMeSubParagraph" class="mt-10 opacity-0">
                 {{$t("section-about-me-second-paragraph")}}
               </p>
-
               <a
                   ref="downloadCVButton"
                   href="#"
                   :class="[
-                    'opacity-0 bg-transparent mt-4 mr-auto rounded shadow py-2 px-4 border',
-                    isDlCVDisabled
-                      ? 'cursor-not-allowed opacity-50 text-gray-400 border-gray-400'
-                      : 'hover:bg-primary text-primary hover:text-white border-primary hover:border-transparent'
-                  ]"
+                  'opacity-0 bg-transparent mt-4 mr-auto rounded shadow py-2 px-4 border',
+                  isDlCVDisabled
+                    ? 'cursor-not-allowed opacity-50 text-gray-400 border-gray-400'
+                    : 'hover:bg-primary text-primary hover:text-white border-primary hover:border-transparent'
+                ]"
                   @click.prevent="isDlCVDisabled ? null : downloadCV"
               >
-                Télécharger mon CV
+                {{ $t("download_cv") }}
               </a>
             </div>
-            <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
+            <div class="ml-0 md:ml-12 w-full md:w-2/3 mt-10 md:mt-0">
               <div class="container mx-auto w-full h-full">
                 <div class="relative wrap overflow-hidden pr-10 pl-10 pb-10 pt-5 h-full">
-                  <div class="border-2-2 text-primary absolute h-full border border-primary"
-                       style="right: 50%; border: 2px solid; border-radius: 1%;">
-                  </div>
-                  <div class="border-2-2 text-primary absolute h-full border border-primary"
-                       style="left: 50%; border: 2px solid; border-radius: 1%;">
-                  </div>
+                  <div class="border-2-2 text-primary absolute h-full border border-primary" style="right: 50%; border: 2px solid; border-radius: 1%;"></div>
+                  <div class="border-2-2 text-primary absolute h-full border border-primary" style="left: 50%; border: 2px solid; border-radius: 1%;"></div>
                   <div ref="bacText" class="opacity-0 mb-8 mt-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
                       <p class="mb-3 text-base text-primary">2022</p>
-                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{$t('timeline-bac-title')}}</h4>
-                      <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
-                        {{$t('timeline-bac-description')}}
-                      </p>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{ $t("timeline-bac-title") }}</h4>
+                      <p v-html="$t('timeline-bac-description')" class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100"></p>
                     </div>
                   </div>
                   <div ref="butText" class="opacity-0 mb-8 mt-8 flex justify-between items-center w-full right-timeline">
                     <div class="order-1 w-5/12"></div>
-                    <div class="order-1  w-5/12 px-1 py-4 text-left">
+                    <div class="order-1 w-5/12 px-1 py-4 text-left">
                       <p class="mb-3 text-base text-primary">1<sup>er</sup> Septembre 2022</p>
-                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{$t('timeline-but-title')}}</h4>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{ $t("timeline-but-title") }}</h4>
                       <div class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
                         <p>
-                          {{$t('timeline-but-description')}}
+                          {{ $t("timeline-but-description") }}
                         </p>
                         <ul>
                           <li><p v-html="$t('timeline-but-sub-description')"></p></li>
@@ -262,12 +254,12 @@ onBeforeUnmount(() => {
                   <div ref="stage1Text" class="opacity-0 mb-8 mt-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
-                      <p class="mb-3 text-base text-primary"> 8 Avril - 31 Juin, 2024</p>
-                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{$t('timeline-stage-truetourism-title')}}</h4>
+                      <p class="mb-3 text-base text-primary">8 Avril - 31 Juin, 2024</p>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{ $t("timeline-stage-truetourism-title") }}</h4>
                       <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
-                        <span v-html="$t('timeline-stage-truetourism-description-first-part')"/>
-                        <CustomLink link="https://www.truetourism.fr" class="text-gray-50 dark:text-gray-300" >TrueTourism</CustomLink>
-                        <span v-html="$t('timeline-stage-truetourism-description-second-part')"/>
+                        <span v-html="$t('timeline-stage-truetourism-description-first-part')"></span>
+                        <CustomLink link="https://www.truetourism.fr" class="text-gray-50 dark:text-gray-300">TrueTourism</CustomLink>
+                        <span v-html="$t('timeline-stage-truetourism-description-second-part')"></span>
                       </p>
                     </div>
                   </div>
@@ -279,26 +271,26 @@ onBeforeUnmount(() => {
       </section>
     </section>
     <div id="projects"></div>
-    <section class="max-w-screen-xl mx-auto mt-28 w-screen">
-      <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
-      <div ref="tagGroup" class="opacity-0 mb-4">
-        <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
-        <div ref="tagList" class="flex flex-wrap gap-2">
+    <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
+      <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-projects") }}</h2>
+      <div ref="tagGroup" class="opacity-0 mb-4 text-center">
+        <h2 class="font-kineticLight font-bold text-xl mb-2">{{ $t("filter_by_tags") }}</h2>
+        <div ref="tagList" class="flex flex-wrap gap-2 justify-center">
           <button
               v-for="tag in uniqueTags"
               :key="tag"
               @click="toggleTag(tag)"
               :class="{
-            'bg-blue-500 text-white': selectedTags.includes(tag),
-            'bg-gray-200 text-gray-700 dark:bg-zinc-600 dark:text-tertiary': !selectedTags.includes(tag)
-          }"
+              'bg-blue-500 text-white': selectedTags.includes(tag),
+              'bg-gray-200 text-gray-700 dark:bg-zinc-600 dark:text-tertiary': !selectedTags.includes(tag)
+            }"
               class="px-3 py-1 rounded-full font-semibold cursor-pointer transition-colors duration-300"
           >
             #{{ tag }}
           </button>
         </div>
       </div>
-      <div class="px-4 py-5 ">
+      <div class="px-4 py-5">
         <div ref="projectList" class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <Card
               v-for="(project, index) in filteredProjects"
@@ -314,35 +306,36 @@ onBeforeUnmount(() => {
       </div>
     </section>
     <div id="stages"></div>
-    <section class="max-w-screen-xl mx-auto mt-28 w-screen">
-      <h2 ref="titleStages" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-stages")}}</h2>
-      <div class="flex flex-row">
-        <div class="w-1/2 text-justify font-kineticLight text-lg">
+    <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
+      <h2 ref="titleStages" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-stages") }}</h2>
+      <div class="flex flex-col md:flex-row">
+        <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
-            Carousel ici
+            {{ $t("carousel_here") }}
           </p>
         </div>
-        <div class="w-1/2 text-center font-kineticLight text-lg">
+        <div class="w-full md:w-1/2 text-center font-kineticLight text-lg">
           <p>test</p>
         </div>
       </div>
     </section>
     <div id="contactMe"></div>
-    <section class="max-w-screen-xl mx-auto mt-28 w-screen">
-      <h2 ref="titleContact" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-contact")}}</h2>
-      <div class="flex flex-row">
-        <div class="w-1/2 text-justify font-kineticLight text-lg">
+    <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
+      <h2 ref="titleContact" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-contact") }}</h2>
+      <div class="flex flex-col md:flex-row">
+        <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
-            Mettre un formulaire de contact ici.
+            {{ $t("contact_form_here") }}
           </p>
         </div>
-        <div class="w-1/2 text-center font-kineticLight text-lg">
+        <div class="w-full md:w-1/2 text-center font-kineticLight text-lg">
           <p>test</p>
         </div>
       </div>
     </section>
   </div>
 </template>
+
 
 
 <style scoped>
