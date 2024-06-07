@@ -26,6 +26,7 @@ const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
 const tagList = ref<HTMLElement | null>(null);
+const tagGroup = ref<HTMLElement | null>(null);
 
 let animationEnd = false;
 
@@ -146,6 +147,13 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
           downloadCVButton?.value?.classList.add('opacity-100');
         }, { once: true });
         observer.unobserve(entry.target);
+      } else if (tagGroup.value instanceof HTMLElement && entry.target === tagGroup.value) {
+        tagGroup?.value?.classList.add('animate-increaseOpacity');
+        tagGroup?.value?.addEventListener('animationend', () => {
+          tagGroup?.value?.classList.remove('animate-increaseOpacity');
+          tagGroup?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
       }
       observer.unobserve(entry.target);
     }
@@ -185,6 +193,7 @@ onMounted(() => {
     if (butText.value) observer.observe(butText.value);
     if (stage1Text.value) observer.observe(stage1Text.value);
     if (downloadCVButton.value) observer.observe(downloadCVButton.value);
+    if (tagGroup.value) observer.observe(tagGroup.value);
     window.addEventListener('scroll', handleScroll);
   }
 
@@ -224,6 +233,7 @@ onBeforeUnmount(() => {
     if (butText.value) observer.unobserve(butText.value);
     if (stage1Text.value) observer.unobserve(stage1Text.value);
     if (downloadCVButton.value) observer.unobserve(downloadCVButton.value);
+    if (tagGroup.value) observer.unobserve(tagGroup.value);
   }
   window.removeEventListener('scroll', handleScroll);
 });
@@ -336,7 +346,7 @@ onBeforeUnmount(() => {
     <div id="projects"></div>
     <section class="max-w-screen-xl mx-auto mt-28 w-screen">
       <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
-      <div class="mb-4">
+      <div ref="tagGroup" class="opacity-0 mb-4">
         <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
         <div ref="tagList" class="flex flex-wrap gap-2">
           <button

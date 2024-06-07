@@ -25,9 +25,9 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       if (card.value instanceof HTMLElement && entry.target === card.value) {
-        card.value.classList.add('animate-increaseOpacity');
+        card.value.classList.add('animate-increaseOpacityFast');
         card?.value?.addEventListener('animationend', () => {
-          card?.value?.classList.remove('animate-increaseOpacity');
+          card?.value?.classList.remove('animate-increaseOpacityFast');
           card?.value?.classList.add('opacity-100');
         }, { once: true });
         observer.unobserve(entry.target);
