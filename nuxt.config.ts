@@ -33,23 +33,27 @@ export default defineNuxtConfig({
   // i18n
   i18n: {
     lazy: true,
+    compilation: {
+      strictMessage: false,
+    },
+    baseUrl: 'https://www.tomsiouan.fr',
     langDir: 'locales/',
     strategy: 'prefix_except_default',
     locales: [
       {
-        code: "fr-FR",
+        code: "fr",
         iso: "fr-FR",
         name: "Fr",
         file: "fr-FR.json"
       },
       {
-        code: "en-US",
+        code: "en",
         iso: "en-US",
         name: "En",
         file: "en-US.json"
       }
     ],
-    defaultLocale: "fr-FR",
+    defaultLocale: "fr",
   },
   colorMode: {
     preference: 'system',
@@ -61,6 +65,7 @@ export default defineNuxtConfig({
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
+
     },
   },
 })

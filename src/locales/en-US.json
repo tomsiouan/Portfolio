@@ -14,12 +14,23 @@
   "section-about-me-first-paragraph": "Hello! To introduce myself, I am a first-year Computer Science student, where we learn many fields such as algorithms, optimization, networks, databases, and MCD and MR representations. We do a lot of projects that bring together each module to train us and become more independent. In such projects, I am used to managing time and working in a team to ensure that we progress. I also often handle task distribution, so everyone has something to do, including myself, of course.",
   "section-about-me-second-paragraph": "I started getting interested in computer science at the age of 12, and then in middle school, I got my first computer. From that time, I really started getting into the field. Programming, video games, and mathematics fascinated me. This allowed me to continue progressing in an enjoyable field where I can develop myself and work in a team.",
 
+  "timeline-bac-title": "Technological Baccalaureate STI2D",
+  "timeline-bac-description": "Sciences and Technologies of Industry and Sustainable Development, option: Information and Digital Systems",
+
+  "timeline-but-title": "Entered Computer Science BUT",
+  "timeline-but-description": "University Bachelor's Degree in Technology.",
+  "timeline-but-sub-description": "✅ 1<sup>st</sup> year validated.",
+
+  "timeline-stage-truetourism-title": "Programmer Analyst Internship",
+  "timeline-stage-truetourism-description-first-part": "Internship completed in the 2<sup>nd</sup> year of BUT at ",
+  "timeline-stage-truetourism-description-second-part": ". A Marseille-based startup in the tourism sector.",
+
   "section-title-projects": "My Projects",
   "section-title-stages": "Internships",
   "section-title-contact": "Contact me",
 
   "footer-first": "Computer sciences student",
-  "footer-second": "Based in Belfort(90), France",
+  "footer-second": "Based in Belfort (90), France",
   "footer-third": "I am currently working on side projects in addition to those for school.",
   "footer-used-techno": "Website made using",
 

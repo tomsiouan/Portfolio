@@ -238,10 +238,9 @@ onBeforeUnmount(() => {
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
                       <p class="mb-3 text-base text-primary">2022</p>
-                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Baccalauréat Technologique STI2D</h4>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{$t('timeline-bac-title')}}</h4>
                       <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
-                        Sciences et Technologies de l’Industrie et du Développement Durable, option:
-                        Système d’information et Numérique
+                        {{$t('timeline-bac-description')}}
                       </p>
                     </div>
                   </div>
@@ -249,13 +248,13 @@ onBeforeUnmount(() => {
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1  w-5/12 px-1 py-4 text-left">
                       <p class="mb-3 text-base text-primary">1<sup>er</sup> Septembre 2022</p>
-                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Entré en BUT Informatique</h4>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{$t('timeline-but-title')}}</h4>
                       <div class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
                         <p>
-                          Bachelor Universitaire de Technologie.
+                          {{$t('timeline-but-description')}}
                         </p>
                         <ul>
-                          <li>✅ 1<sup>ère</sup> année validée.</li>
+                          <li><p v-html="$t('timeline-but-sub-description')"></p></li>
                         </ul>
                       </div>
                     </div>
@@ -264,9 +263,11 @@ onBeforeUnmount(() => {
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
                       <p class="mb-3 text-base text-primary"> 8 Avril - 31 Juin, 2024</p>
-                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Stage analyste programmeur</h4>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{$t('timeline-stage-truetourism-title')}}</h4>
                       <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
-                        Stage réalisé en 2<sup>ème</sup> année de BUT chez <CustomLink link="https://www.truetourism.fr" class="text-gray-50 dark:text-gray-300" >TrueTourism</CustomLink>. Une startup marseillaise dans le monde du tourisme.
+                        <span v-html="$t('timeline-stage-truetourism-description-first-part')"/>
+                        <CustomLink link="https://www.truetourism.fr" class="text-gray-50 dark:text-gray-300" >TrueTourism</CustomLink>
+                        <span v-html="$t('timeline-stage-truetourism-description-second-part')"/>
                       </p>
                     </div>
                   </div>

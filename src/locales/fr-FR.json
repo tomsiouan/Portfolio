@@ -14,6 +14,17 @@
   "section-about-me-first-paragraph": "Bonjour! Pour me présenter, je suis étudiant en première année de BUT Informatique, où l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux, les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup de projets qui rassemblent chaque module pour nous former et devenir plus indépendants. Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe, pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches, donc tout le monde a quelque chose à faire, moi compris bien sûr.",
   "section-about-me-second-paragraph": "J'ai commencé à m'intéresser à l'informatique à l'age de 12 ans puis au collège j'ai eu mon premier ordinateur. C'est donc à partir de cette période que j'ai vraiment commencer à toucher au domaine. Programmation, jeux vidéo et mathématiques, me fascinait. Cela m'a permis de continuer à avancer dans un domaine agréable où je peux me développer, travailler en équipe.",
 
+  "timeline-bac-title": "Baccalauréat technologique STI2D",
+  "timeline-bac-description": "Sciences et Technologies de l’Industrie et du Développement Durable, option: Système d’information et Numérique",
+
+  "timeline-but-title": "Entré en BUT Informatique",
+  "timeline-but-description": "Bachelor Universitaire de Technologie.",
+  "timeline-but-sub-description": "✅ 1<sup>ère</sup> année validée.",
+
+  "timeline-stage-truetourism-title": "Stage analyste programmeur",
+  "timeline-stage-truetourism-description-first-part": "Stage réalisé en 2<sup>ème</sup> année de BUT chez ",
+  "timeline-stage-truetourism-description-second-part": ". Une startup marseillaise dans le monde du tourisme.",
+
   "section-title-projects": "Mes Projets",
   "section-title-stages": "Stages",
   "section-title-contact": "Me contacter",
