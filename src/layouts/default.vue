@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="dark:bg-gray-80 dark:text-tertiary theme-transition text-transition">
+  <div class="dark:bg-gray-80 dark:text-tertiary theme-transition text-transition overflow-x-hidden">
     <Navbar />
     <slot />
     <Footer />

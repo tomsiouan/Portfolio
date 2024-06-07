@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <footer class="bg-zinc-900 text-white text-sm leading-relaxed py-10 mt-16">
-    <div class="container mx-auto max-w-screen-xl">
+  <footer class="bg-zinc-900 text-white text-sm py-10 mt-16">
+    <div class="container max-w-48 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl mx-auto">
       <div class="mb-8">
         <div>
           <p>{{$t("footer-first")}}</p>
