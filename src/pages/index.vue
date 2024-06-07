@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <section class="flex max-w-screen-2xl mx-auto h-screen pt-40 cursor-s-resize relative">
+    <section class="flex lg:max-w-screen-2xl md:max-w-screen-xl mx-auto h-screen pt-40 cursor-s-resize relative">
       <div class="left">
         <h1 ref="title" class="text-5xl font-kineticLight font-bold opacity-0">
           {{ $t("home-title") }}
@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
       <a ref="mouseDown" class="opacity-0 mouseDown absolute border-2 border-black dark:border-tertiary bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
         <span class="bg-dark dark:bg-tertiary"></span>
       </a>
-      <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
+      <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 lg:text-9xl md:text-7xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
         {{ $t("home-slogan") }}
       </div>
     </section>
