@@ -48,11 +48,21 @@ export default {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        blurSlideFromLeft: {
+          '0%': { transform: 'translateX(-100%)', opacity: '0', filter: 'blur(5px)' },
+          '100%': { transform: 'translateX(0)', opacity: '1', filter: 'blur(0px)' },
+        },
+        blurSlideFromRight: {
+          '0%': { transform: 'translateX(100%)', opacity: '0', filter: 'blur(5px)' },
+          '100%': { transform: 'translateX(0)', opacity: '1', filter: 'blur(0px)' },
+        },
       },
       animation: {
         'slide-in-right': 'slideInFromRight 1s ease-in-out forwards',
         'increaseOpacity': 'kfOpacity 2.5s ease-in-out forwards',
-        'increaseOpacityFast': 'kfOpacity 1s ease-out forwards',
+        'increaseOpacityFast': 'kfOpacity 1.5s ease-out forwards',
+        'blurSlideFromLeft': 'blurSlideFromLeft 1s ease-in-out forwards',
+        'blurSlideFromRight': 'blurSlideFromRight 1s ease-out forwards',
       },
     },
     fontFamily: {

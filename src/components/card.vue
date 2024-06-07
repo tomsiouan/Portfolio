@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import {defineProps, onBeforeUnmount, ref} from 'vue';
 import { YEARS } from '~/server/services/projects';
+import autoAnimate from "@formkit/auto-animate";
 
 const localPath = useLocalePath();
 
@@ -16,12 +17,45 @@ interface Project {
   route: string;
 }
 
+const card = ref<HTMLElement | null>(null);
+
+let observer: IntersectionObserver | null = null;
+
+const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      if (card.value instanceof HTMLElement && entry.target === card.value) {
+        card.value.classList.add('animate-increaseOpacity');
+        card?.value?.addEventListener('animationend', () => {
+          card?.value?.classList.remove('animate-increaseOpacity');
+          card?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
+      }
+      observer.unobserve(entry.target);
+    }
+  });
+};
+
+onMounted(() => {
+  if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+    observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
+    if (card.value) observer.observe(card.value);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (observer) {
+    if (card.value) observer.unobserve(card.value);
+  }
+});
+
 const props = defineProps<Project>();
 
 </script>
 
 <template>
-  <div class="rounded-lg overflow-hidden shadow-lg dark:bg-zinc-900 transform transition-transform duration-300 hover:scale-105">
+  <div ref="card" class="opacity-0 rounded-lg overflow-hidden shadow-lg dark:bg-zinc-900 transform transition-transform duration-300 hover:scale-105">
     <NuxtLink :to="localPath(props.route)">
       <div class="relative">
         <img

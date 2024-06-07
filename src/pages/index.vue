@@ -4,6 +4,8 @@ import { PROJECT_LIST } from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
 import CustomLink from "~/components/global/customLink.vue";
 
+//TODO: Optimize this script part
+
 interface Project {
   image: {
     imageUrl: string;
@@ -18,6 +20,7 @@ interface Project {
 
 const localPath = useLocalePath();
 
+// First Screen
 const title = ref<HTMLElement | null>(null);
 const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);
@@ -26,15 +29,24 @@ const tagList = ref<HTMLElement | null>(null);
 
 let animationEnd = false;
 
+// AboutMe
 const aboutMeParagraph = ref<HTMLElement | null>(null);
+const aboutMeSubParagraph = ref<HTMLElement | null>(null);
 
-const projects = Object.values(PROJECT_LIST);
+// TimeLine
+const bacText = ref<HTMLElement | null>(null);
+const butText = ref<HTMLElement | null>(null);
+const stage1Text = ref<HTMLElement | null>(null);
+const downloadCVButton = ref<HTMLElement | null>(null);
 
 const isDlCVDisabled = ref(true);
 
 const downloadCV = () => {
   // Logique pour télécharger le CV
 };
+
+// Projects card list
+const projects = Object.values(PROJECT_LIST);
 
 let observer: IntersectionObserver | null = null;
 
@@ -84,8 +96,55 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
             animationEnd = true;
           }, { once: true });
         }, 1000);
+      } else if (mouseDown.value instanceof HTMLElement && entry.target === mouseDown.value) {
+        setTimeout(() => {
+          mouseDown?.value?.classList.add('animate-increaseOpacity');
+          mouseDown?.value?.addEventListener('animationend', () => {
+            mouseDown?.value?.classList.remove('animate-increaseOpacity');
+            mouseDown?.value?.classList.add('opacity-100');
+          }, { once: true });
+        }, 1000);
       } else if (aboutMeParagraph.value instanceof HTMLElement && entry.target === aboutMeParagraph.value) {
         aboutMeParagraph?.value?.classList.add('animate-increaseOpacityFast');
+        aboutMeParagraph?.value?.addEventListener('animationend', () => {
+          aboutMeParagraph?.value?.classList.remove('animate-increaseOpacityFast');
+          aboutMeParagraph?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
+      } else if (aboutMeSubParagraph.value instanceof HTMLElement && entry.target === aboutMeSubParagraph.value) {
+        aboutMeSubParagraph?.value?.classList.add('animate-increaseOpacityFast');
+        aboutMeSubParagraph?.value?.addEventListener('animationend', () => {
+          aboutMeSubParagraph?.value?.classList.remove('animate-increaseOpacityFast');
+          aboutMeSubParagraph?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
+      } else if (bacText.value instanceof HTMLElement && entry.target === bacText.value) {
+        bacText?.value?.classList.add('animate-blurSlideFromLeft');
+        bacText?.value?.addEventListener('animationend', () => {
+          bacText?.value?.classList.remove('animate-blurSlideFromLeft');
+          bacText?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
+      } else if (butText.value instanceof HTMLElement && entry.target === butText.value) {
+        butText?.value?.classList.add('animate-blurSlideFromRight');
+        butText?.value?.addEventListener('animationend', () => {
+          butText?.value?.classList.remove('animate-blurSlideFromRight');
+          butText?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
+      } else if (stage1Text.value instanceof HTMLElement && entry.target === stage1Text.value) {
+        stage1Text?.value?.classList.add('animate-blurSlideFromLeft');
+        stage1Text?.value?.addEventListener('animationend', () => {
+          stage1Text?.value?.classList.remove('animate-blurSlideFromLeft');
+          stage1Text?.value?.classList.add('opacity-100');
+        }, { once: true });
+        observer.unobserve(entry.target);
+      } else if (downloadCVButton.value instanceof HTMLElement && entry.target === downloadCVButton.value) {
+        downloadCVButton?.value?.classList.add('animate-increaseOpacity');
+        downloadCVButton?.value?.addEventListener('animationend', () => {
+          downloadCVButton?.value?.classList.remove('animate-increaseOpacity');
+          downloadCVButton?.value?.classList.add('opacity-100');
+        }, { once: true });
         observer.unobserve(entry.target);
       }
       observer.unobserve(entry.target);
@@ -119,7 +178,13 @@ onMounted(() => {
     if (title.value) observer.observe(title.value);
     if (subtitle.value) observer.observe(subtitle.value);
     if (developerText.value) observer.observe(developerText.value);
+    if (mouseDown.value) observer.observe(mouseDown.value);
     if (aboutMeParagraph.value) observer.observe(aboutMeParagraph.value);
+    if (aboutMeSubParagraph.value) observer.observe(aboutMeSubParagraph.value);
+    if (bacText.value) observer.observe(bacText.value);
+    if (butText.value) observer.observe(butText.value);
+    if (stage1Text.value) observer.observe(stage1Text.value);
+    if (downloadCVButton.value) observer.observe(downloadCVButton.value);
     window.addEventListener('scroll', handleScroll);
   }
 
@@ -152,7 +217,13 @@ onBeforeUnmount(() => {
       if (subtitle.value) observer.unobserve(title.value);
     }
     if (developerText.value) observer.unobserve(developerText.value);
+    if (mouseDown.value) observer.unobserve(mouseDown.value);
     if (aboutMeParagraph.value) observer.unobserve(aboutMeParagraph.value);
+    if (aboutMeSubParagraph.value) observer.unobserve(aboutMeSubParagraph.value);
+    if (bacText.value) observer.unobserve(bacText.value);
+    if (butText.value) observer.unobserve(butText.value);
+    if (stage1Text.value) observer.unobserve(stage1Text.value);
+    if (downloadCVButton.value) observer.unobserve(downloadCVButton.value);
   }
   window.removeEventListener('scroll', handleScroll);
 });
@@ -160,7 +231,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div>
-    <div class="flex max-w-screen-2xl mx-auto h-screen pt-40 cursor-s-resize relative">
+    <section class="flex max-w-screen-2xl mx-auto h-screen pt-40 cursor-s-resize relative">
       <div class="left">
         <h1 ref="title" class="text-5xl font-kineticLight font-bold opacity-0">
           {{ $t("home-title") }}
@@ -174,15 +245,15 @@ onBeforeUnmount(() => {
         </span>
         </div>
       </div>
-      <a ref="mouseDown" class="mouseDown absolute border-2 border-black dark:border-tertiary bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
+      <a ref="mouseDown" class="opacity-0 mouseDown absolute border-2 border-black dark:border-tertiary bottom-0 left-1/2 transform -translate-x-1/2 mb-5" href="#aboutMe" title="Scroll Down">
         <span class="bg-dark dark:bg-tertiary"></span>
       </a>
-    </div>
-    <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
-      {{ $t("home-slogan") }}
-    </div>
+      <div class="slogan absolute top-2/3 left-1/2 transform -translate-x-1/2 text-9xl font-movementBlack overflow-y-hidden opacity-0 whitespace-nowrap" ref="developerText">
+        {{ $t("home-slogan") }}
+      </div>
+    </section>
     <div id="aboutMe"></div>
-    <div class="max-w-screen-xl mx-auto mt-32 w-screen">
+    <section class="max-w-screen-xl mx-auto mt-32 w-screen">
       <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
       <section>
         <div>
@@ -192,14 +263,15 @@ onBeforeUnmount(() => {
                 {{$t("section-about-me-first-paragraph")}}
               </p>
 
-              <p ref="aboutMeSubParagraph" class="mt-10 opacity-100">
+              <p ref="aboutMeSubParagraph" class="mt-10 opacity-0">
                 {{$t("section-about-me-second-paragraph")}}
               </p>
 
               <a
+                  ref="downloadCVButton"
                   href="#"
                   :class="[
-                    'bg-transparent mt-4 mr-auto rounded shadow py-2 px-4 border',
+                    'opacity-0 bg-transparent mt-4 mr-auto rounded shadow py-2 px-4 border',
                     isDlCVDisabled
                       ? 'cursor-not-allowed opacity-50 text-gray-400 border-gray-400'
                       : 'hover:bg-primary text-primary hover:text-white border-primary hover:border-transparent'
@@ -218,7 +290,7 @@ onBeforeUnmount(() => {
                   <div class="border-2-2 text-primary absolute h-full border border-primary"
                        style="left: 50%; border: 2px solid; border-radius: 1%;">
                   </div>
-                  <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                  <div ref="bacText" class="opacity-0 mb-8 mt-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
                       <p class="mb-3 text-base text-primary">2022</p>
@@ -229,7 +301,7 @@ onBeforeUnmount(() => {
                       </p>
                     </div>
                   </div>
-                  <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                  <div ref="butText" class="opacity-0 mb-8 mt-8 flex justify-between items-center w-full right-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1  w-5/12 px-1 py-4 text-left">
                       <p class="mb-3 text-base text-primary">1<sup>er</sup> Septembre 2022</p>
@@ -244,7 +316,7 @@ onBeforeUnmount(() => {
                       </div>
                     </div>
                   </div>
-                  <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                  <div ref="stage1Text" class="opacity-0 mb-8 mt-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
                       <p class="mb-3 text-base text-primary"> 8 Avril - 31 Juin, 2024</p>
@@ -260,9 +332,9 @@ onBeforeUnmount(() => {
           </div>
         </div>
       </section>
-    </div>
+    </section>
     <div id="projects"></div>
-    <div class="max-w-screen-xl mx-auto mt-28 w-screen">
+    <section class="max-w-screen-xl mx-auto mt-28 w-screen">
       <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
       <div class="mb-4">
         <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
@@ -295,9 +367,9 @@ onBeforeUnmount(() => {
           />
         </div>
       </div>
-    </div>
+    </section>
     <div id="stages"></div>
-    <div class="max-w-screen-xl mx-auto mt-28 w-screen">
+    <section class="max-w-screen-xl mx-auto mt-28 w-screen">
       <h2 ref="titleStages" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-stages")}}</h2>
       <div class="flex flex-row">
         <div class="w-1/2 text-justify font-kineticLight text-lg">
@@ -309,9 +381,9 @@ onBeforeUnmount(() => {
           <p>test</p>
         </div>
       </div>
-    </div>
+    </section>
     <div id="contactMe"></div>
-    <div class="max-w-screen-xl mx-auto mt-28 w-screen">
+    <section class="max-w-screen-xl mx-auto mt-28 w-screen">
       <h2 ref="titleContact" class="font-kineticLight text-4xl font-extrabold mb-5">{{$t("section-title-contact")}}</h2>
       <div class="flex flex-row">
         <div class="w-1/2 text-justify font-kineticLight text-lg">
@@ -323,7 +395,7 @@ onBeforeUnmount(() => {
           <p>test</p>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
