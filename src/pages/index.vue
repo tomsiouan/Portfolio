@@ -30,6 +30,12 @@ const aboutMeParagraph = ref<HTMLElement | null>(null);
 
 const projects = Object.values(PROJECT_LIST);
 
+const isDlCVDisabled = ref(true);
+
+const downloadCV = () => {
+  // Logique pour télécharger le CV
+};
+
 let observer: IntersectionObserver | null = null;
 
 const selectedTags = ref<string[]>([]);
@@ -178,20 +184,6 @@ onBeforeUnmount(() => {
     <div id="aboutMe"></div>
     <div class="max-w-screen-xl mx-auto mt-32 w-screen">
       <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
-      <div class="flex flex-row">
-        <div class="w-1/2 flex flex-col text-justify font-kineticLight text-lg">
-          <p ref="aboutMeParagraph" class="opacity-0">
-            {{$t("section-about-me-first-paragraph")}}
-          </p>
-
-          <p ref="aboutMeSubParagraph" class="mt-10 opacity-100">
-            {{$t("section-about-me-second-paragraph")}}
-          </p>
-        </div>
-        <div class="w-1/2 text-center font-kineticLight text-lg">
-          <p>test</p>
-        </div>
-      </div>
       <section>
         <div class="py-8">
           <div class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
@@ -204,9 +196,17 @@ onBeforeUnmount(() => {
                 {{$t("section-about-me-second-paragraph")}}
               </p>
 
-              <a href="#"
-                 class="bg-transparent mt-4 mr-auto hover:bg-primary text-primary hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-primary hover:border-transparent">
-                Explore Now
+              <a
+                  href="#"
+                  :class="[
+                    'bg-transparent mt-4 mr-auto rounded shadow py-2 px-4 border',
+                    isDlCVDisabled
+                      ? 'cursor-not-allowed opacity-50 text-gray-400 border-gray-400'
+                      : 'hover:bg-primary text-primary hover:text-white border-primary hover:border-transparent'
+                  ]"
+                  @click.prevent="isDlCVDisabled ? null : downloadCV"
+              >
+                Télécharger mon CV
               </a>
             </div>
             <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
@@ -221,7 +221,7 @@ onBeforeUnmount(() => {
                   <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
-                      <p class="mb-3 text-base text-primary">1-6 May, 2021</p>
+                      <p class="mb-3 text-base text-primary">2022</p>
                       <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Baccalauréat Technologique STI2D</h4>
                       <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
                         Sciences et Technologies de l’Industrie et du Développement Durable, option:
@@ -232,7 +232,7 @@ onBeforeUnmount(() => {
                   <div class="mb-8 flex justify-between items-center w-full right-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1  w-5/12 px-1 py-4 text-left">
-                      <p class="mb-3 text-base text-primary">6-9 May, 2021</p>
+                      <p class="mb-3 text-base text-primary">1<sup>er</sup> Septembre 2022</p>
                       <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Entré en BUT Informatique</h4>
                       <div class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
                         <p>
@@ -247,7 +247,7 @@ onBeforeUnmount(() => {
                   <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
-                      <p class="mb-3 text-base text-primary"> 10 May, 2021</p>
+                      <p class="mb-3 text-base text-primary"> 8 Avril - 31 Juin, 2024</p>
                       <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Stage analyste programmeur</h4>
                       <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
                         Stage réalisé en 2<sup>ème</sup> année de BUT chez <CustomLink link="https://www.truetourism.fr" class="text-gray-50 dark:text-gray-300" >TrueTourism</CustomLink>. Une startup marseillaise dans le monde du tourisme.
