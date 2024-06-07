@@ -102,6 +102,7 @@ onBeforeUnmount(() => {
             <NuxtLink :to="localPath('/stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
             <NuxtLink :to="localPath('/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>-->
             <a href="#aboutMe" class="nav-link">{{ $t("nav-about") }}</a>
+            <a href="#skills" class="nav-link">{{ $t("nav-skills") }}</a>
             <a href="#projects" class="nav-link">{{ $t("nav-projects") }}</a>
             <a href="#stages" class="nav-link">{{ $t("nav-stages") }}</a>
             <a href="#contactMe" class="nav-link">{{ $t("nav-contact") }}</a>

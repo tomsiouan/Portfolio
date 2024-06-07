@@ -196,13 +196,13 @@ onBeforeUnmount(() => {
         {{ $t("home-slogan") }}
       </div>
     </section>
-    <div id="aboutMe"></div>
+    <div id="aboutMe"/>
     <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
-      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-about-me") }}</h2>
+      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl text-start font-extrabold mb-5 text-center">{{ $t("section-title-about-me") }}</h2>
       <section>
         <div>
-          <div class="flex flex-col items-start md:flex-row">
-            <div class="font-kineticLight text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 px-4">
+          <div class="flex flex-col md:flex-row">
+            <div class="font-kineticLight text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 px-4 md:sticky md:top-36">
               <p ref="aboutMeParagraph" class="opacity-0">
                 {{$t("section-about-me-first-paragraph")}}
               </p>
@@ -270,7 +270,11 @@ onBeforeUnmount(() => {
         </div>
       </section>
     </section>
-    <div id="projects"></div>
+    <div id="skills"/>
+    <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
+
+    </section>
+    <div id="projects"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
       <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
       <div ref="tagGroup" class="opacity-0 mb-4">
@@ -305,9 +309,9 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
-    <div id="stages"></div>
+    <div id="stages"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleStages" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-stages") }}</h2>
+      <h2 ref="titleStages" class="text-start font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-stages") }}</h2>
       <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
@@ -319,9 +323,9 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
-    <div id="contactMe"></div>
+    <div id="contactMe"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleContact" class="font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-contact") }}</h2>
+      <h2 ref="titleContact" class="text-start font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-contact") }}</h2>
       <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
