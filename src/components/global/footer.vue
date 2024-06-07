@@ -12,7 +12,10 @@
         </div>
       </div>
       <div class="footer-lower flex justify-between md:flex-row flex-col gap-4">
-        <small>{{$t("footer-used-techno")}} <a href="https://nuxt.com" class="text-blue-500 underline hover:text-blue-400">nuxt</a>, <a href="https://tailwindcss.com" class="text-blue-500 underline hover:text-blue-400">tailwindcss</a></small>
+        <small>{{$t("footer-used-techno")}}
+          <CustomLink link="https://nuxt.com">nuxt</CustomLink>,
+          <CustomLink link="https://tailwindcss.com">tailwindcss</CustomLink>
+        </small>
         <small>tomsiouan.fr 2024 ©</small>
       </div>
     </div>

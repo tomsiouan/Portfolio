@@ -52,6 +52,7 @@ export default {
       animation: {
         'slide-in-right': 'slideInFromRight 1s ease-in-out forwards',
         'increaseOpacity': 'kfOpacity 2.5s ease-in-out forwards',
+        'increaseOpacityFast': 'kfOpacity 1s ease-out forwards',
       },
     },
     fontFamily: {

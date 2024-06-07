@@ -2,6 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { PROJECT_LIST } from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
+import CustomLink from "~/components/global/customLink.vue";
 
 interface Project {
   image: {
@@ -78,8 +79,7 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
           }, { once: true });
         }, 1000);
       } else if (aboutMeParagraph.value instanceof HTMLElement && entry.target === aboutMeParagraph.value) {
-        aboutMeParagraph.value.classList.add('animate-slide-in-right');
-        aboutMeParagraph?.value?.classList.add('animate-increaseOpacity');
+        aboutMeParagraph?.value?.classList.add('animate-increaseOpacityFast');
         observer.unobserve(entry.target);
       }
       observer.unobserve(entry.target);
@@ -192,6 +192,74 @@ onBeforeUnmount(() => {
           <p>test</p>
         </div>
       </div>
+      <section>
+        <div class="py-8">
+          <div class="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
+            <div class="font-kineticLight text-lg text-justify flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12">
+              <p ref="aboutMeParagraph" class="opacity-0">
+                {{$t("section-about-me-first-paragraph")}}
+              </p>
+
+              <p ref="aboutMeSubParagraph" class="mt-10 opacity-100">
+                {{$t("section-about-me-second-paragraph")}}
+              </p>
+
+              <a href="#"
+                 class="bg-transparent mt-4 mr-auto hover:bg-primary text-primary hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-primary hover:border-transparent">
+                Explore Now
+              </a>
+            </div>
+            <div class="ml-0 md:ml-12 lg:w-2/3 sticky">
+              <div class="container mx-auto w-full h-full">
+                <div class="relative wrap overflow-hidden p-10 h-full">
+                  <div class="border-2-2 text-primary absolute h-full border border-primary"
+                       style="right: 50%; border: 2px solid; border-radius: 1%;">
+                  </div>
+                  <div class="border-2-2 text-primary absolute h-full border border-primary"
+                       style="left: 50%; border: 2px solid; border-radius: 1%;">
+                  </div>
+                  <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="order-1 w-5/12 px-1 py-4 text-right">
+                      <p class="mb-3 text-base text-primary">1-6 May, 2021</p>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Baccalauréat Technologique STI2D</h4>
+                      <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
+                        Sciences et Technologies de l’Industrie et du Développement Durable, option:
+                        Système d’information et Numérique
+                      </p>
+                    </div>
+                  </div>
+                  <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="order-1  w-5/12 px-1 py-4 text-left">
+                      <p class="mb-3 text-base text-primary">6-9 May, 2021</p>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Entré en BUT Informatique</h4>
+                      <div class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
+                        <p>
+                          Bachelor Universitaire de Technologie.
+                        </p>
+                        <ul>
+                          <li>✅ 1<sup>ère</sup> année validée.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="order-1 w-5/12 px-1 py-4 text-right">
+                      <p class="mb-3 text-base text-primary"> 10 May, 2021</p>
+                      <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">Stage analyste programmeur</h4>
+                      <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
+                        Stage réalisé en 2<sup>ème</sup> année de BUT chez <CustomLink link="https://www.truetourism.fr" class="text-gray-50 dark:text-gray-300" >TrueTourism</CustomLink>. Une startup marseillaise dans le monde du tourisme.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <div id="projects"></div>
     <div class="max-w-screen-xl mx-auto mt-28 w-screen">
