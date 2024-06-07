@@ -6,46 +6,29 @@ interface LinkProps {
    * @required
    */
   link: string;
-
-  /**
-   * Taille du texte.
-   * @type {string}
-   * @optional
-   */
-  textSize?: string;
-
-  /**
-   * Couleur du texte.
-   * @type {string}
-   * @optional
-   */
-  textColor?: string;
-
-  /**
-   * Couleur du texte au survol de la souris.
-   * @type {string}
-   * @optional
-   */
-  textColorHover?: string;
 }
 
 const props = defineProps<LinkProps>();
+
+const navigate = () => {
+  navigateTo(props.link, {external: true});
+};
 </script>
 
 <template>
-  <a
-      :href="props.link"
+  <NuxtLink
+      @click="navigate"
       :class="[
       'text-color-transition',
-      props.textColor ? props.textColor : 'text-blue-500',
+      'text-blue-500',
       'underline',
       'dark:hover:text-blue-400',
-      props.textColorHover ? props.textColorHover : 'hover:text-blue-400',
-      props.textSize
+      'hover:text-blue-400',
+      'cursor-pointer'
     ]"
   >
     <slot/>
-  </a>
+  </NuxtLink>
 </template>
 
 <style scoped>
