@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import {defineProps, onBeforeUnmount, ref} from 'vue';
 import { YEARS } from '~/server/services/projects';
-import autoAnimate from "@formkit/auto-animate";
 
 const localPath = useLocalePath();
 
 interface Project {
+  projectId: number;
+  title: string;
+  description: string;
+  years?: string[];
   image: {
     imageUrl: string;
     alt: string;
   };
-  title: string;
-  description: string;
-  years?: string[];
   tags: string[];
-  route: string;
 }
 
 const card = ref<HTMLElement | null>(null);
@@ -54,9 +53,19 @@ const props = defineProps<Project>();
 
 </script>
 
+function navigate(){
+return navigateTo({
+path: '/search',
+query: {
+name: 'first name',
+type: '1'
+}
+})
+}
+
 <template>
   <div ref="card" class="opacity-0 rounded-lg overflow-hidden shadow-lg dark:bg-zinc-900 transform transition-transform duration-300 hover:scale-105">
-    <NuxtLink :to="localPath(props.route)">
+    <NuxtLink :to="localPath({path: `/portfolio/project/${props.projectId}`})">
       <div class="relative">
         <img
             class="w-full"

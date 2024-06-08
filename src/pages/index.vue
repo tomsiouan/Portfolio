@@ -5,15 +5,15 @@ import autoAnimate from "@formkit/auto-animate";
 import CustomLink from "~/components/global/customLink.vue";
 
 interface Project {
+  id: number;
+  title: string;
+  description: string;
+  years?: string[];
   image: {
     imageUrl: string;
     alt: string;
   };
-  title: string;
-  description: string;
-  years?: string[];
   tags: string[];
-  route: string;
 }
 
 const localPath = useLocalePath();
@@ -198,11 +198,11 @@ onBeforeUnmount(() => {
     </section>
     <div id="aboutMe"/>
     <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
-      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl text-start font-extrabold mb-5 text-center">{{ $t("section-title-about-me") }}</h2>
+      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl text-start font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
       <section>
         <div>
           <div class="flex flex-col md:flex-row">
-            <div class="font-kineticLight text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 px-4 md:sticky md:top-36">
+            <div class="font-kineticLight text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 md:sticky md:top-36">
               <p ref="aboutMeParagraph" class="opacity-0">
                 {{$t("section-about-me-first-paragraph")}}
               </p>
@@ -297,21 +297,21 @@ onBeforeUnmount(() => {
       <div class="px-4 py-5 ">
         <div ref="projectList" class="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <Card
-              v-for="(project, index) in filteredProjects"
-              :key="index"
+              v-for="(project, key) in filteredProjects"
+              :key="key"
+              :project-id="project.id"
               :image="project.image"
               :title="project.title"
               :description="project.description"
               :years="project.years"
               :tags="project.tags"
-              :route="project.route"
           />
         </div>
       </div>
     </section>
     <div id="stages"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleStages" class="text-start font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-stages") }}</h2>
+      <h2 ref="titleStages" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-stages") }}</h2>
       <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
@@ -325,7 +325,7 @@ onBeforeUnmount(() => {
     </section>
     <div id="contactMe"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleContact" class="text-start font-kineticLight text-4xl font-extrabold mb-5 text-center">{{ $t("section-title-contact") }}</h2>
+      <h2 ref="titleContact" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-contact") }}</h2>
       <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
