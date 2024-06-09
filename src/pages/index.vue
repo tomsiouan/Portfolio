@@ -326,14 +326,30 @@ onBeforeUnmount(() => {
     <div id="contactMe"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
       <h2 ref="titleContact" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-contact") }}</h2>
-      <div class="flex flex-col md:flex-row">
+      <div class="flex flex-col items-center md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
-            {{ $t("contact_form_here") }}
+            Étudiant en 2ème année de BUT, je suis à la recherche de nouvelles opportunités pour mettre en pratique mes compétences et collaborer sur des projets innovants.
+          </p>
+          <p class="mt-5">
+            Vous pouvez m'envoyer un <custom-link link="/contact">email</custom-link> ou me contacter sur les réseau suivants →
           </p>
         </div>
-        <div class="w-full md:w-1/2 text-center font-kineticLight text-lg">
-          <p>test</p>
+        <div class="w-full md:w-1/2 text-center font-kineticLight text-lg ml-24">
+          <div class="flex flex-col gap-5">
+            <div class="flex items-center space-x-2">
+              <Icon name="devicon:linkedin" size="48" />
+              <CustomLink link="https://www.linkedin.com/in/tom-siouan/">tom-siouan</CustomLink>
+            </div>
+            <div class="flex items-center space-x-2">
+              <Icon name="skill-icons:github-dark" size="48" />
+              <CustomLink link="https://github.com/tomsnx">tomsnx</CustomLink>
+            </div>
+            <div class="flex items-center space-x-2">
+              <Icon name="fa6-brands:square-x-twitter" size="48" />
+              <CustomLink link="https://x.com/tomsiouan">@tomsiouan</CustomLink>
+            </div>
+          </div>
         </div>
       </div>
     </section>
