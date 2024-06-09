@@ -36,6 +36,13 @@ const projects = Object.values(PROJECT_LIST);
 const selectedTags = ref<string[]>([]);
 const projectList = ref<HTMLElement | null>(null);
 
+// Contact section
+const contactParagraph = ref<HTMLElement | null>(null);
+const linkedInIcon = ref<HTMLElement | null>(null);
+const githubIcon = ref<HTMLElement | null>(null);
+const xIcon = ref<HTMLElement | null>(null);
+const emailForm = ref<HTMLElement | null>(null);
+
 const { addToast } = useToast();
 
 //Email
@@ -148,6 +155,21 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
         case tagGroup.value:
           handleIntersection(tagGroup.value, 'animate-increaseOpacity', observer);
           break;
+        case contactParagraph.value:
+          handleIntersection(contactParagraph.value, 'animate-increaseOpacity', observer);
+          break;
+        case linkedInIcon.value:
+          handleIntersection(linkedInIcon.value, 'animate-increaseOpacity', observer);
+          break;
+        case githubIcon.value:
+          handleIntersection(githubIcon.value, 'animate-increaseOpacity', observer);
+          break;
+        case xIcon.value:
+          handleIntersection(xIcon.value, 'animate-increaseOpacity', observer);
+          break;
+        case emailForm.value:
+          handleIntersection(emailForm.value, 'animate-increaseOpacity', observer);
+          break;
       }
     }
   });
@@ -178,7 +200,26 @@ const handleScroll = () => {
 onMounted(() => {
   if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
     observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
-    const elementsToObserve = [title.value, subtitle.value, developerText.value, mouseDown.value, aboutMeParagraph.value, aboutMeSubParagraph.value, bacText.value, butText.value, stage1Text.value, downloadCVButton.value, tagGroup.value];
+    const elementsToObserve = [
+      title.value,
+      subtitle.value,
+      developerText.value,
+      mouseDown.value,
+      aboutMeParagraph.value,
+      aboutMeSubParagraph.value,
+      bacText.value,
+      butText.value,
+      stage1Text.value,
+      downloadCVButton.value,
+      tagGroup.value,
+
+      // Contact section
+      contactParagraph.value,
+      linkedInIcon.value,
+      githubIcon.value,
+      xIcon.value,
+      emailForm.value,
+    ];
     elementsToObserve.forEach(element => {
       if (element) observer?.observe(element);
     });
@@ -360,7 +401,7 @@ onBeforeUnmount(() => {
     <div id="contactMe"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
       <h2 ref="titleContact" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-contact") }}</h2>
-      <div class="flex flex-col items-center md:flex-row">
+      <div ref="contactParagraph" class="flex flex-col items-center md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
             Étudiant en 2ème année de BUT, je suis à la recherche de nouvelles opportunités pour mettre en pratique mes compétences et collaborer sur des projets innovants.
@@ -376,20 +417,20 @@ onBeforeUnmount(() => {
 
       <div class="flex flex-row items-center">
         <div class="flex flex-col gap-16">
-          <div class="flex items-center space-x-2">
+          <div ref="linkedInIcon"  class="flex items-center space-x-2 opacity-0">
             <a href="https://www.linkedin.com/in/tom-siouan/"><Icon name="devicon:linkedin" size="48" /></a>
             <CustomLink link="https://www.linkedin.com/in/tom-siouan/">tom-siouan</CustomLink>
           </div>
-          <div class="flex items-center space-x-2">
+          <div ref="githubIcon" class="flex items-center space-x-2 opacity-0">
             <a href="https://github.com/tomsnx"><Icon name="skill-icons:github-dark" size="48" /></a>
             <CustomLink link="https://github.com/tomsnx">tomsnx</CustomLink>
           </div>
-          <div class="flex items-center space-x-2">
+          <div ref="xIcon" class="flex items-center space-x-2 opacity-0">
             <a href="https://x.com/tomsiouan"><Icon name="fa6-brands:square-x-twitter" size="48" /></a>
             <CustomLink link="https://x.com/tomsiouan">@tomsiouan</CustomLink>
           </div>
         </div>
-        <div id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif]">
+        <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif] opacity-0">
           <form class="ml-auo space-y-4" @submit.prevent="sendEmail">
             <input type='text' placeholder='Nom' required
                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
