@@ -390,14 +390,14 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif]">
-          <form class="ml-auo space-y-4" @submit="sendEmail">
-            <input type='text' placeholder='Name' required
+          <form class="ml-auo space-y-4" @submit.prevent="sendEmail">
+            <input type='text' placeholder='Nom' required
                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
                    v-model="emailDatas.name" />
             <input type='email' placeholder='Email' required
                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
                    v-model="emailDatas.from" />
-            <input type='text' placeholder='Subject' required
+            <input type='text' placeholder='Sujet' required
                    class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
                    v-model="emailDatas.subject" />
             <textarea placeholder='Message' rows="6" required
