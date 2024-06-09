@@ -17,6 +17,7 @@ interface Project {
 }
 
 const localPath = useLocalePath();
+const mail = useMail()
 
 const title = ref<HTMLElement | null>(null);
 const subtitle = ref<HTMLElement | null>(null);
@@ -34,6 +35,39 @@ const isDlCVDisabled = ref(true);
 const projects = Object.values(PROJECT_LIST);
 const selectedTags = ref<string[]>([]);
 const projectList = ref<HTMLElement | null>(null);
+
+const { addToast } = useToast();
+
+//Email
+let emailDatas = ref({
+  name: '',
+  from: '',
+  subject: '',
+  text: '',
+});
+
+const sendEmail = async () => {
+
+  try {
+    await mail.send({
+      from: emailDatas.value.from.trim(),
+      subject: emailDatas.value.name.trim() + ' - ' + emailDatas.value.subject,
+      html: emailDatas.value.text.trim(),
+    });
+
+    emailDatas.value = {
+      name: '',
+      from: '',
+      subject: '',
+      text: '',
+    };
+
+    addToast(ToastTypes.success, 'Email envoyé avec succès !');
+  } catch (err) {
+    console.error("Erreur lors de l'envoie de l'email. Veuillez réessayer", err);
+    addToast(ToastTypes.error, "Erreur lors de l'envoi de l'email. Veuillez réessayer.");
+  };
+};
 
 let observer: IntersectionObserver | null = null;
 
@@ -220,7 +254,7 @@ onBeforeUnmount(() => {
                 ]"
                   @click.prevent="isDlCVDisabled ? null : downloadCV"
               >
-                {{ $t("download_cv") }}
+                {{ $t("download-cv") }}
               </a>
             </div>
             <div class="ml-0 md:ml-12 w-full md:w-2/3 mt-10 md:mt-0">
@@ -315,7 +349,7 @@ onBeforeUnmount(() => {
       <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
           <p>
-            {{ $t("carousel_here") }}
+            carousel_here
           </p>
         </div>
         <div class="w-full md:w-1/2 text-center font-kineticLight text-lg">
@@ -332,24 +366,49 @@ onBeforeUnmount(() => {
             Étudiant en 2ème année de BUT, je suis à la recherche de nouvelles opportunités pour mettre en pratique mes compétences et collaborer sur des projets innovants.
           </p>
           <p class="mt-5">
-            Vous pouvez m'envoyer un <custom-link link="/contact">email</custom-link> ou me contacter sur les réseau suivants →
+            Vous pouvez m'envoyer un <a href="#email-form">email</a> ou me contacter sur les réseau suivants ↓
           </p>
         </div>
         <div class="w-full md:w-1/2 text-center font-kineticLight text-lg ml-24">
-          <div class="flex flex-col gap-5">
-            <div class="flex items-center space-x-2">
-              <Icon name="devicon:linkedin" size="48" />
-              <CustomLink link="https://www.linkedin.com/in/tom-siouan/">tom-siouan</CustomLink>
-            </div>
-            <div class="flex items-center space-x-2">
-              <Icon name="skill-icons:github-dark" size="48" />
-              <CustomLink link="https://github.com/tomsnx">tomsnx</CustomLink>
-            </div>
-            <div class="flex items-center space-x-2">
-              <Icon name="fa6-brands:square-x-twitter" size="48" />
-              <CustomLink link="https://x.com/tomsiouan">@tomsiouan</CustomLink>
-            </div>
+
+        </div>
+      </div>
+
+      <div class="flex flex-row items-center">
+        <div class="flex flex-col gap-16">
+          <div class="flex items-center space-x-2">
+            <a href="https://www.linkedin.com/in/tom-siouan/"><Icon name="devicon:linkedin" size="48" /></a>
+            <CustomLink link="https://www.linkedin.com/in/tom-siouan/">tom-siouan</CustomLink>
           </div>
+          <div class="flex items-center space-x-2">
+            <a href="https://github.com/tomsnx"><Icon name="skill-icons:github-dark" size="48" /></a>
+            <CustomLink link="https://github.com/tomsnx">tomsnx</CustomLink>
+          </div>
+          <div class="flex items-center space-x-2">
+            <a href="https://x.com/tomsiouan"><Icon name="fa6-brands:square-x-twitter" size="48" /></a>
+            <CustomLink link="https://x.com/tomsiouan">@tomsiouan</CustomLink>
+          </div>
+        </div>
+        <div id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif]">
+          <form class="ml-auo space-y-4" @submit="sendEmail">
+            <input type='text' placeholder='Name' required
+                   class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
+                   v-model="emailDatas.name" />
+            <input type='email' placeholder='Email' required
+                   class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
+                   v-model="emailDatas.from" />
+            <input type='text' placeholder='Subject' required
+                   class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
+                   v-model="emailDatas.subject" />
+            <textarea placeholder='Message' rows="6" required
+                      class="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 outline-[#007bff]"
+                      v-model="emailDatas.text"></textarea>
+            <button type='submit'
+                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full"
+            >
+              Send
+            </button>
+          </form>
         </div>
       </div>
     </section>
