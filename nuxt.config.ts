@@ -1,4 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {config} from "dotenv";
+
+require('dotenv').config();
+
+const envFile = process.env.NODE_ENV === 'production' ? '/home/sephix/.env.prod' : '.env.dev';
+config({ path: envFile });
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: 'src/',
@@ -11,6 +18,22 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     'nuxt-icon',
+    ['nuxt-mail', {
+      message: {
+        to: process.env.NUXT_MAIL_TO,
+        cc: process.env.NUXT_MAIL_CC,
+        bcc: process.env.NUXT_MAIL_BCC,
+      },
+      smtp: {
+        secure: process.env.NODE_ENV === 'production',
+        host: process.env.NUXT_SMTP_HOST,
+        port: process.env.NUXT_SMTP_PORT,
+        auth: {
+          user: process.env.NUXT_SMTP_USER,
+          pass: process.env.NUXT_SMTP_PASSWORD,
+        }
+      },
+    }],
   ],
   components: [
     {
