@@ -26,7 +26,7 @@ export const useToast = () => {
 
         setTimeout(() => {
             closeToastById(id);
-        }, 1500);
+        }, 2000); // Toast display duration
     };
 
     const closeToastById = (id: number) => {
