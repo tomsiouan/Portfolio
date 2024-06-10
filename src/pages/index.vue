@@ -401,14 +401,20 @@ onBeforeUnmount(() => {
     <div id="stages"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
       <h2 ref="titleStages" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-stages") }}</h2>
+
+      <h3 class="font-kineticLight text-2xl text-start font-extrabold mt-5 mb-5">True Tourism</h3>
       <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
-          <p>
-            carousel_here
-          </p>
+        <div class="w-full flex flex-col justify-center md:w-1/2 text-justify font-kineticLight text-lg">
+          <img src="/images/truetourism.png" alt="image du site web de true tourism" class="rounded-xl" />
         </div>
-        <div class="w-full md:w-1/2 text-center font-kineticLight text-lg">
-          <p>test</p>
+        <div class="w-full md:w-1/2 font-kineticLight text-lg text-justify pl-10">
+          <p>Lors de ma 2<sup>ème</sup> année en BUT Informatique, j'ai effectué un stage sur une duré de 8 semaines dans une startup intitulée True Tourism.
+            Pendant ce stage, j'ai eu l'opportunité de travailler sur le développement d'une application mobile innovante dédiée au tourisme à Marseille.
+            Mon rôle comprenait la conception et l'implémentation de fonctionnalités clés telles que l'optimisation du cache applicatif, l'ajout de profile utilisateur
+            , l'envoie de notifications et de mails aux utilisateurs, templatiser les mails, l'ajout de google comme fournisseur d'authentification et la création de test
+            E2E. Cette expérience m'a non seulement permis de renforcer mes compétences techniques, mais m'a aussi
+            donné un aperçu précieux de l'environnement dynamique des startups.</p>
+          <CustomLink link="/portfolio/stages/true-tourism">En savoir plus</CustomLink>
         </div>
       </div>
     </section>
