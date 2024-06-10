@@ -9,6 +9,7 @@ export interface Project {
         alt: string;
     };
     tags: string[];
+    githubLink?: string;
 }
 
 export const LANGUAGES = {
@@ -66,6 +67,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             FRAMEWORKS.MONOGAME,
             PROJECTS_TYPES.GAMING,
         ],
+        githubLink: "https://github.com/tomsnx/Heldia",
     },
     portfolio: {
         id: 1,
