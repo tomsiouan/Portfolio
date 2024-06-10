@@ -60,14 +60,21 @@ const validateEmail = (email: string) => {
   return re.test(String(email).toLowerCase());
 };
 
+const isSendingEmail = ref(false);
+
 const sendEmail = async () => {
+
+  isSendingEmail.value = true;
+
+
+  //FIXME: errorMessage.value doesn't change if it already displayed
+  if (!validateEmail(emailDatas.value.from.trim())) {
+    errorMessage.value = 'Veuillez entrer une adresse email valide.';
+    return;
+  }
 
   if (!emailDatas.value.name.trim() || !emailDatas.value.from.trim() || !emailDatas.value.subject.trim() || !emailDatas.value.text.trim()) {
     errorMessage.value = 'Tous les champs doivent être remplis.';
-    return;
-  }
-  if (!validateEmail(emailDatas.value.from.trim())) {
-    errorMessage.value = 'Veuillez entrer une adresse email valide.';
     return;
   }
 
@@ -91,6 +98,8 @@ const sendEmail = async () => {
   } catch (err) {
     console.error("Erreur lors de l'envoie de l'email. Veuillez réessayer", err);
     addToast(ToastTypes.error, "Erreur lors de l'envoi de l'email. Veuillez réessayer.");
+  } finally {
+    isSendingEmail.value = false;
   }
 };
 
@@ -468,6 +477,7 @@ onBeforeUnmount(() => {
                       :class="['w-full rounded-md px-4 bg-gray-100 text-sm pt-3 outline-[#007bff]', emailDatas.text.trim() === '' && errorMessage ? 'border-red-500' : '']"
                       v-model="emailDatas.text"></textarea>
             <button type='submit'
+                    :disabled="isSendingEmail"
                     :class="[
                       'transition-all duration-200',
                       'font-semibold rounded-md text-sm px-4 py-3 w-full',
