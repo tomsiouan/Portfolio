@@ -31,6 +31,9 @@ yarn dev
 
 ## Dependencies
 
+- tailwindcss
+- color-mode
 - i18n
 - auto-animate
 - nuxt-icon
+- nuxt-mail
