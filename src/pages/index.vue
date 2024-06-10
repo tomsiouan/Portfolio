@@ -53,7 +53,25 @@ let emailDatas = ref({
   text: '',
 });
 
+const errorMessage = ref('');
+
+const validateEmail = (email: string) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
+  return re.test(String(email).toLowerCase());
+};
+
 const sendEmail = async () => {
+
+  if (!emailDatas.value.name.trim() || !emailDatas.value.from.trim() || !emailDatas.value.subject.trim() || !emailDatas.value.text.trim()) {
+    errorMessage.value = 'Tous les champs doivent être remplis.';
+    return;
+  }
+  if (!validateEmail(emailDatas.value.from.trim())) {
+    errorMessage.value = 'Veuillez entrer une adresse email valide.';
+    return;
+  }
+
+  errorMessage.value = '';
 
   try {
     await mail.send({
@@ -73,7 +91,7 @@ const sendEmail = async () => {
   } catch (err) {
     console.error("Erreur lors de l'envoie de l'email. Veuillez réessayer", err);
     addToast(ToastTypes.error, "Erreur lors de l'envoi de l'email. Veuillez réessayer.");
-  };
+  }
 };
 
 let observer: IntersectionObserver | null = null;
@@ -345,10 +363,6 @@ onBeforeUnmount(() => {
         </div>
       </section>
     </section>
-    <div id="skills"/>
-    <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
-
-    </section>
     <div id="projects"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
       <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
@@ -431,21 +445,28 @@ onBeforeUnmount(() => {
           </div>
         </div>
         <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif] opacity-0">
-          <form class="ml-auo space-y-4" @submit.prevent="sendEmail">
-            <input type='text' placeholder='Nom' required
-                   class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
+          <form class="ml-auo space-y-4" novalidate @submit.prevent="sendEmail">
+            <transition name="fade">
+              <div v-if="errorMessage" class="font-kineticLight text-lg font-bold transition-all duration-200 border-primary bg-primary bg-opacity-5 rounded-lg border-2 p-2 text-center text-red-500 mb-4">{{ errorMessage }}</div>
+            </transition>
+            <input type='text' placeholder='Nom'
+                   :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', emailDatas.name.trim() === '' && errorMessage ? 'border-red-500' : '']"
                    v-model="emailDatas.name" />
-            <input type='email' placeholder='Email' required
-                   class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
+            <input type='email' placeholder='Email'
+                   :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', (!validateEmail(emailDatas.from.trim()) || emailDatas.from.trim() === '') && errorMessage ? 'border-red-500' : '']"
                    v-model="emailDatas.from" />
-            <input type='text' placeholder='Sujet' required
-                   class="w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]"
+            <input type='text' placeholder='Sujet'
+                   :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', emailDatas.subject.trim() === '' && errorMessage ? 'border-red-500' : '']"
                    v-model="emailDatas.subject" />
-            <textarea placeholder='Message' rows="6" required
-                      class="w-full rounded-md px-4 bg-gray-100 text-sm pt-3 outline-[#007bff]"
+            <textarea placeholder='Message' rows="6"
+                      :class="['w-full rounded-md px-4 bg-gray-100 text-sm pt-3 outline-[#007bff]', emailDatas.text.trim() === '' && errorMessage ? 'border-red-500' : '']"
                       v-model="emailDatas.text"></textarea>
             <button type='submit'
-                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-3 w-full"
+                    :class="[
+                      'transition-all duration-200',
+                      'font-semibold rounded-md text-sm px-4 py-3 w-full',
+                      'text-white bg-[#007bff] hover:bg-blue-600'
+                    ]"
             >
               Send
             </button>
