@@ -31,13 +31,13 @@ const redirectTo = () => {
       <p>Loading...</p>
     </div>
   </div>
-  <div v-else-if="project" if="project" class="container max-w-screen sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl mt-32 min-h-screen mx-auto">
+  <div v-else-if="project" class="container max-w-screen sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl mt-32 min-h-screen mx-auto">
     <section>
       <div class="pb-24">
         <h1 class="font-kineticLight text-4xl text-start font-extrabold">{{ $t(project.title) }}</h1>
         <p class=" font-kineticLight text-lg">{{ $t(project.description) }}</p>
-        <button v-if="project.githubLink" @click="redirectTo" class="flex flex-row gap-2 items-center mt-2 p-1 bg-black rounded-lg text-white hover:bg-gray-80">
-          <Icon name="skill-icons:github-dark" size="22" /> GitHub
+        <button v-if="project.githubLink" @click="redirectTo" class="flex flex-row gap-2 items-center mt-2 p-1 transition-all duration-200 border text-black border-gray-20 font-kineticLight pr-2 rounded-lg hover:text-white hover:bg-black">
+          <Icon name="skill-icons:github-dark" size="22" /> Open in GitHub
         </button>
       </div>
 
