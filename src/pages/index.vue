@@ -459,7 +459,7 @@ onBeforeUnmount(() => {
             <CustomLink link="https://x.com/tomsiouan">@tomsiouan</CustomLink>
           </div>
         </div>
-        <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl bg-white text-[#333] font-[sans-serif] opacity-0">
+        <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl font-[sans-serif] opacity-0">
           <form class="ml-auo space-y-4" novalidate @submit.prevent="sendEmail">
             <transition name="fade">
               <div v-if="errorMessage" class="font-kineticLight text-lg font-bold transition-all duration-200 border-primary bg-primary bg-opacity-5 rounded-lg border-2 p-2 text-center text-red-500 mb-4">{{ errorMessage }}</div>
