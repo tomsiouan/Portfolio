@@ -385,7 +385,7 @@ onBeforeUnmount(() => {
           <Card
               v-for="(project, key) in filteredProjects"
               :key="key"
-              :project-id="project.id"
+              :id="project.id"
               :image="project.image"
               :title="project.title"
               :description="project.description"

@@ -2,10 +2,8 @@
 import {defineProps, onBeforeUnmount, ref} from 'vue';
 import { YEARS } from '~/server/services/projects';
 
-const localPath = useLocalePath();
-
-interface Project {
-  projectId: number;
+export interface Project {
+  id: number;
   title: string;
   description: string;
   years?: string[];
@@ -14,7 +12,10 @@ interface Project {
     alt: string;
   };
   tags: string[];
+  githubLink?: string;
 }
+
+const localPath = useLocalePath();
 
 const card = ref<HTMLElement | null>(null);
 
@@ -65,7 +66,7 @@ type: '1'
 
 <template>
   <div ref="card" class="opacity-0 rounded-lg overflow-hidden shadow-lg dark:bg-zinc-900 transform transition-transform duration-300 hover:scale-105">
-    <NuxtLink :to="localPath({path: `/portfolio/project/${props.projectId}`})">
+    <NuxtLink :to="localPath({path: `/portfolio/project/${props.id}`})">
       <div class="relative">
         <img
             class="w-full"
