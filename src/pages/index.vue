@@ -1,20 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
-import { PROJECT_LIST } from "~/server/services/projects";
+import {type Project, PROJECT_LIST} from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
 import CustomLink from "~/components/global/customLink.vue";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  years?: string[];
-  image: {
-    imageUrl: string;
-    alt: string;
-  };
-  tags: string[];
-}
 
 const localPath = useLocalePath();
 const mail = useMail()
