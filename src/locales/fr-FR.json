@@ -5,6 +5,10 @@
 
   "home-slogan": "Développeur full stack",
 
+  "learn-more": "En savoir plus...",
+
+  "filter-by-tag": "Filtrer par tags",
+
   "nav-about": "À propos",
   "nav-skills": "Compétences",
   "nav-projects": "Projets",
@@ -19,13 +23,16 @@
   "section-about-me-first-paragraph": "Bonjour! Pour me présenter, je suis étudiant en deuxième année de BUT Informatique, où l'on apprend pleins de domaines comme l'algorithmique, l'optimisation, les réseaux, les bases de données ou encore les représentations MCD et MR. Nous faisons beaucoup de projets qui rassemblent chaque module pour nous former et devenir plus indépendants. Dans ce genre de projet, j'ai l'habitude de gérer le temps et de travailler en équipe, pour m'assurer que nous progressons. Je gère aussi souvent la répartition des tâches, donc tout le monde a quelque chose à faire, moi compris bien sûr.",
   "section-about-me-second-paragraph": "J'ai commencé à m'intéresser à l'informatique à l'age de 12 ans puis au collège j'ai eu mon premier ordinateur. C'est donc à partir de cette période que j'ai vraiment commencer à toucher au domaine. Programmation, jeux vidéo et mathématiques, me fascinait. Cela m'a permis de continuer à avancer dans un domaine agréable où je peux me développer, travailler en équipe.",
 
+  "timeline-bac-date": "2022",
   "timeline-bac-title": "Baccalauréat technologique STI2D",
   "timeline-bac-description": "Sciences et Technologies de l’Industrie et du Développement Durable, <br/>option: Système d’information et Numérique",
 
+  "timeline-but-date": "1<sup>er</sup> Septembre 2022",
   "timeline-but-title": "Entré en BUT Informatique",
   "timeline-but-description": "Bachelor Universitaire de Technologie.",
   "timeline-but-sub-description": "✅ 1<sup>ère</sup> année validée.",
 
+  "timeline-stage-truetourism-date": "8 Avril - 31 Juin, 2024",
   "timeline-stage-truetourism-title": "Stage analyste programmeur",
   "timeline-stage-truetourism-description-first-part": "Stage réalisé en 2<sup>ème</sup> année de BUT chez ",
   "timeline-stage-truetourism-description-second-part": ". Une startup marseillaise dans le monde du tourisme.",
@@ -65,6 +72,17 @@
   "hackaton-title": "Hackaton - Belfort 2023",
   "hackaton-image-alt": "image du hackaton de belfort",
   "hackaton-description": "Résolution de problèmes.",
+
+  "index-contact-me-p1": "Étudiant en 2ème année de BUT, je suis à la recherche de nouvelles opportunités pour mettre en pratique mes compétences et collaborer sur des projets innovants.",
+  "index-contact-me-p2": "Vous pouvez m'envoyer un <a href=\"#email-form\">email</a> ou me contacter sur les réseau suivants ↓",
+
+  "form-fullname": "Nom Prénom",
+  "form-email": "Email",
+  "form-subject": "Sujet",
+  "form-message": "Message",
+  "form-send-button": "Envoyer",
+
+  "index-truetourism-paragraph": "Lors de ma 2<sup>ème</sup> année en BUT Informatique, j'ai effectué un stage sur une duré de 8 semaines dans une startup intitulée True Tourism.\n            Pendant ce stage, j'ai eu l'opportunité de travailler sur le développement d'une application mobile innovante dédiée au tourisme à Marseille.\n            Mon rôle comprenait la conception et l'implémentation de fonctionnalités clés telles que l'optimisation du cache applicatif, l'ajout de profile utilisateur\n            , l'envoie de notifications et de mails aux utilisateurs, templatiser les mails, l'ajout de google comme fournisseur d'authentification et la création de test\n            E2E. Cette expérience m'a non seulement permis de renforcer mes compétences techniques, mais m'a aussi\n            donné un aperçu précieux de l'environnement dynamique des startups...",
 
   "truetourism-title": "Stage chez True Tourism",
   "truetourism-introduction": "Lors de ma 2<sup>ème</sup> année en BUT Informatique, j'ai effectué un stage sur une duré de 8 semaines dans une startup intitulée True Tourism\n          constitué de 4 membres. Pendant ce stage, j'ai eu l'opportunité de travailler sur le développement d'une application mobile innovante dédiée au\n          tourisme à Marseille. Mon rôle comprenait la conception et l'implémentation de fonctionnalités clés telles que l'optimisation du cache applicatif,\n          l'ajout de profile utilisateur, l'envoie de notifications et de mails aux utilisateurs, templatiser les mails, l'ajout de google comme fournisseur\n          d'authentification et la création de test E2E. Cette expérience m'a non seulement permis de renforcer mes compétences techniques, mais m'a aussi\n          donné un aperçu précieux de l'environnement dynamique des startups.",

@@ -13,16 +13,29 @@ const developerText = ref<HTMLElement | null>(null);
 const mouseDown = ref<HTMLElement | null>(null);
 const tagList = ref<HTMLElement | null>(null);
 const tagGroup = ref<HTMLElement | null>(null);
+
+const titleAboutMe = ref<HTMLElement | null>(null);
 const aboutMeParagraph = ref<HTMLElement | null>(null);
 const aboutMeSubParagraph = ref<HTMLElement | null>(null);
+
 const bacText = ref<HTMLElement | null>(null);
 const butText = ref<HTMLElement | null>(null);
 const stage1Text = ref<HTMLElement | null>(null);
 const downloadCVButton = ref<HTMLElement | null>(null);
 const isDlCVDisabled = ref(true);
+
+const titleStages = ref<HTMLElement | null>(null);
+const titleContact = ref<HTMLElement | null>(null);
+
+const titleProjects = ref<HTMLElement | null>(null);
 const projects = Object.values(PROJECT_LIST);
 const selectedTags = ref<string[]>([]);
 const projectList = ref<HTMLElement | null>(null);
+
+const truetourismTitle = ref<HTMLElement | null>(null);
+const truetourismImage = ref<HTMLElement | null>(null);
+const truetourismParagraph = ref<HTMLElement | null>(null);
+const truetourismLink = ref<HTMLElement | null>(null);
 
 // Contact section
 const contactParagraph = ref<HTMLElement | null>(null);
@@ -185,6 +198,30 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
         case emailForm.value:
           handleIntersection(emailForm.value, 'animate-increaseOpacityFast', observer);
           break;
+        case truetourismTitle.value:
+          handleIntersection(truetourismTitle.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case truetourismImage.value:
+          handleIntersection(truetourismImage.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case truetourismParagraph.value:
+          handleIntersection(truetourismParagraph.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case truetourismLink.value:
+          handleIntersection(truetourismLink.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case titleAboutMe.value:
+          handleIntersection(titleAboutMe.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case titleProjects.value:
+          handleIntersection(titleProjects.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case titleStages.value:
+          handleIntersection(titleStages.value, 'animate-increaseOpacityFast', observer);
+          break;
+        case titleContact.value:
+          handleIntersection(titleContact.value, 'animate-increaseOpacityFast', observer);
+          break;
       }
     }
   });
@@ -227,6 +264,10 @@ onMounted(() => {
       stage1Text.value,
       downloadCVButton.value,
       tagGroup.value,
+      truetourismTitle.value,
+      truetourismImage.value,
+      truetourismParagraph.value,
+      truetourismLink.value,
 
       // Contact section
       contactParagraph.value,
@@ -234,6 +275,11 @@ onMounted(() => {
       githubIcon.value,
       xIcon.value,
       emailForm.value,
+
+      titleAboutMe.value,
+      titleProjects.value,
+      titleStages.value,
+      titleContact.value,
     ];
     elementsToObserve.forEach(element => {
       if (element) observer?.observe(element);
@@ -288,7 +334,7 @@ onBeforeUnmount(() => {
     </section>
     <div id="aboutMe"/>
     <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
-      <h2 ref="titleAboutMe" class="text-4xl text-start font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
+      <h2 ref="titleAboutMe" class="text-4xl text-start font-extrabold mb-5 opacity-0">{{ $t("section-title-about-me") }}</h2>
       <section>
         <div>
           <div class="flex flex-col md:flex-row">
@@ -321,7 +367,7 @@ onBeforeUnmount(() => {
                   <div ref="bacText" class="opacity-0 mb-8 mt-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
-                      <p class="mb-3 text-base text-primary">2022</p>
+                      <p class="mb-2 text-base text-primary">{{ $t('timeline-bac-date') }}</p>
                       <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{ $t("timeline-bac-title") }}</h4>
                       <p v-html="$t('timeline-bac-description')" class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100"></p>
                     </div>
@@ -329,14 +375,12 @@ onBeforeUnmount(() => {
                   <div ref="butText" class="opacity-0 mb-8 mt-8 flex justify-between items-center w-full right-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-left">
-                      <p class="mb-3 text-base text-primary">1<sup>er</sup> Septembre 2022</p>
+                      <p class="mb-2 text-base text-primary" v-html="$t('timeline-but-date')" />
                       <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{ $t("timeline-but-title") }}</h4>
                       <div class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
-                        <p>
                           {{ $t("timeline-but-description") }}
-                        </p>
                         <ul>
-                          <li><p v-html="$t('timeline-but-sub-description')"></p></li>
+                          <li v-html="$t('timeline-but-sub-description')"></li>
                         </ul>
                       </div>
                     </div>
@@ -344,7 +388,7 @@ onBeforeUnmount(() => {
                   <div ref="stage1Text" class="opacity-0 mb-8 mt-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12"></div>
                     <div class="order-1 w-5/12 px-1 py-4 text-right">
-                      <p class="mb-3 text-base text-primary">8 Avril - 31 Juin, 2024</p>
+                      <p class="mb-2 text-base text-primary">{{$t('timeline-stage-truetourism-date')}}</p>
                       <h4 class="mb-3 font-movementBlack text-lg md:text-2xl">{{ $t("timeline-stage-truetourism-title") }}</h4>
                       <p class="text-sm md:text-base leading-snug text-gray-50 dark:text-gray-300 text-opacity-100">
                         <span v-html="$t('timeline-stage-truetourism-description-first-part')"></span>
@@ -362,9 +406,9 @@ onBeforeUnmount(() => {
     </section>
     <div id="projects"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleProjects" class="text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
+      <h2 ref="titleProjects" class="text-4xl font-extrabold mb-5 opacity-0">{{ $t("section-title-projects") }}</h2>
       <div ref="tagGroup" class="opacity-0 mb-4">
-        <h2 class="font-bold text-xl mb-2">Filter by Tags</h2>
+        <h2 class="font-bold text-xl mb-2">{{ $t('filter-by-tag') }}</h2>
         <div ref="tagList" class="flex flex-wrap gap-2">
           <button
               v-for="tag in uniqueTags"
@@ -397,37 +441,30 @@ onBeforeUnmount(() => {
     </section>
     <div id="stages"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleStages" class="text-start text-4xl font-extrabold mb-5">{{ $t("section-title-stages") }}</h2>
+      <h2 ref="titleStages" class="text-start text-4xl font-extrabold mb-5 opacity-0">{{ $t("section-title-stages") }}</h2>
 
-      <h3 class="text-2xl text-start font-extrabold mt-5 mb-5">True Tourism</h3>
+      <h3 ref="truetourismTitle" class="text-2xl text-start font-extrabold mt-5 mb-5 opacity-0">True Tourism</h3>
       <div class="flex flex-col md:flex-row">
         <div class="w-full flex flex-col justify-center md:w-1/2 text-justify text-lg">
-          <img src="/images/truetourism.png" alt="image du site web de true tourism" class="rounded-xl" />
+          <img ref="truetourismImage" src="/images/truetourism.png" alt="image du site web de true tourism" class="rounded-xl opacity-0" />
         </div>
         <div class="w-full md:w-1/2 text-lg text-justify pl-10">
-          <p>
-            Lors de ma 2<sup>ème</sup> année en BUT Informatique, j'ai effectué un stage sur une duré de 8 semaines dans une startup intitulée True Tourism.
-            Pendant ce stage, j'ai eu l'opportunité de travailler sur le développement d'une application mobile innovante dédiée au tourisme à Marseille.
-            Mon rôle comprenait la conception et l'implémentation de fonctionnalités clés telles que l'optimisation du cache applicatif, l'ajout de profile utilisateur
-            , l'envoie de notifications et de mails aux utilisateurs, templatiser les mails, l'ajout de google comme fournisseur d'authentification et la création de test
-            E2E. Cette expérience m'a non seulement permis de renforcer mes compétences techniques, mais m'a aussi
-            donné un aperçu précieux de l'environnement dynamique des startups...
-          </p>
-          <CustomLink link="/portfolio/stages/true-tourism" :options="{internal: true}">En savoir plus</CustomLink>
+          <p ref="truetourismParagraph" v-html="$t('index-truetourism-paragraph')" class="opacity-0" />
+          <div ref="truetourismLink" class="opacity-0">
+            <CustomLink link="/portfolio/stages/true-tourism" :options="{internal: true}">{{ $t('learn-more') }}</CustomLink>
+          </div>
         </div>
       </div>
     </section>
     <div id="contactMe"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleContact" class="text-start text-4xl font-extrabold mb-5">{{ $t("section-title-contact") }}</h2>
-      <div ref="contactParagraph" class="flex flex-col items-center md:flex-row">
+      <h2 ref="titleContact" class="text-start text-4xl font-extrabold mb-5 opacity-0">{{ $t("section-title-contact") }}</h2>
+      <div ref="contactParagraph" class="flex flex-col items-center md:flex-row opacity-0">
         <div class="w-full md:w-1/2 text-justify text-lg">
           <p>
-            Étudiant en 2ème année de BUT, je suis à la recherche de nouvelles opportunités pour mettre en pratique mes compétences et collaborer sur des projets innovants.
+            {{$t('index-contact-me-p1')}}
           </p>
-          <p class="mt-5">
-            Vous pouvez m'envoyer un <a href="#email-form">email</a> ou me contacter sur les réseau suivants ↓
-          </p>
+          <p v-html="$t('index-contact-me-p2')" class="mt-5" />
         </div>
         <div class="w-full md:w-1/2 text-center text-lg ml-24">
 
@@ -451,19 +488,17 @@ onBeforeUnmount(() => {
         </div>
         <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl opacity-0">
           <form class="ml-auo space-y-4" novalidate @submit.prevent="sendEmail">
-            <transition name="fade">
-              <div v-if="errorMessage" class="text-lg font-bold transition-all duration-200 border-primary bg-primary bg-opacity-5 rounded-lg border-2 p-2 text-center text-red-500 mb-4">{{ errorMessage }}</div>
-            </transition>
-            <input type='text' placeholder='Nom'
+            <div v-if="errorMessage" class="text-lg font-bold transition-all duration-200 border-primary bg-primary bg-opacity-5 rounded-lg border-2 p-2 text-center text-red-500 mb-4">{{ errorMessage }}</div>
+            <input type='text' :placeholder="$t('form-fullname')"
                    :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', emailDatas.name.trim() === '' && errorMessage ? 'border-red-500' : '']"
                    v-model="emailDatas.name" />
-            <input type='email' placeholder='Email'
+            <input type='email' :placeholder="$t('form-email')"
                    :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', (!validateEmail(emailDatas.from.trim()) || emailDatas.from.trim() === '') && errorMessage ? 'border-red-500' : '']"
                    v-model="emailDatas.from" />
-            <input type='text' placeholder='Sujet'
+            <input type='text' :placeholder="$t('form-subject')"
                    :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', emailDatas.subject.trim() === '' && errorMessage ? 'border-red-500' : '']"
                    v-model="emailDatas.subject" />
-            <textarea placeholder='Message' rows="6"
+            <textarea :placeholder="$t('form-message')" rows="6"
                       :class="['w-full rounded-md px-4 bg-gray-100 text-sm pt-3 outline-[#007bff]', emailDatas.text.trim() === '' && errorMessage ? 'border-red-500' : '']"
                       v-model="emailDatas.text"></textarea>
             <button type='submit'
@@ -474,7 +509,7 @@ onBeforeUnmount(() => {
                       'text-white bg-[#007bff] hover:bg-blue-600'
                     ]"
             >
-              Send
+              {{ $t('form-send-button') }}
             </button>
           </form>
         </div>
