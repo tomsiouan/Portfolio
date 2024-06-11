@@ -96,10 +96,11 @@ export default {
     },
     fontFamily: {
       sans: ['sans-serif'],
-      serif: ['Movement', 'serif'],
+      serif: ['serif'],
       movementThin: ['Movement-thin', 'serif'],
       movementBlack: ['Movement-black', 'serif'],
       kineticLight: ['Kinetic-light', 'serif'],
+      kineticRegular: ['Kinetic-regular', 'sans'],
     },
   },
   plugins: [],
