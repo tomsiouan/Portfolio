@@ -2,13 +2,13 @@
 </script>
 
 <template>
-  <footer class="bg-zinc-900 text-white text-sm py-10 mt-16">
+  <footer class="bg-zinc-900 text-white py-10 mt-16">
     <div class="container max-w-48 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl mx-auto">
       <div class="mb-8">
         <div>
-          <p>{{$t("footer-first")}}</p>
-          <p>{{$t("footer-second")}}</p>
-          <p>{{$t("footer-third")}}</p>
+          <p class="text-tertiary">{{$t("footer-first")}}</p>
+          <p class="text-tertiary">{{$t("footer-second")}}</p>
+          <p class="text-tertiary">{{$t("footer-third")}}</p>
         </div>
       </div>
       <div class="footer-lower flex justify-between md:flex-row flex-col gap-4">
