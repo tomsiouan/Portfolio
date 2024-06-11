@@ -71,7 +71,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="fixed top-0 w-full z-30">
+  <header class="font-kineticRegular fixed top-0 w-full z-30">
     <div class="container max-w-screen sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl mx-auto">
       <div class="md:md-8 my-4 backdrop-blur-sm rounded-2xl bg-zinc-800/10 dark:bg-white/10 px-6 py-4">
         <div class="flex items-center gap-8">
