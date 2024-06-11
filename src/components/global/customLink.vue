@@ -14,6 +14,8 @@ interface LinkProps {
   options?: options;
 }
 
+const localPath = useLocalePath();
+
 const props = defineProps<LinkProps>();
 
 const navigate = () => {
@@ -24,7 +26,7 @@ const navigate = () => {
 <template>
   <NuxtLink
     v-if="options?.internal"
-    :to="props.link"
+    :to="localPath(props.link)"
     :class="[
       'text-color-transition',
       'text-blue-500',
