@@ -8,8 +8,10 @@
   "nav-about": "About",
   "nav-skills": "Skills",
   "nav-projects": "Projects",
-  "nav-stages": "Experience",
+  "nav-stages": "Internship",
   "nav-contact": "Contact",
+
+  "video-not-working": "Your browser does not support the video tag.",
 
   "download-cv": "Download my CV",
 
@@ -61,5 +63,85 @@
 
   "hackaton-title": "Hackathon - Belfort 2023",
   "hackaton-image-alt": "image of the Belfort 2023 hackathon",
-  "hackaton-description": "Problem-solving."
+  "hackaton-description": "Problem-solving.",
+
+  "truetourism-title": "Internship at True Tourism",
+  "truetourism-introduction": "During my 2<sup>nd</sup> year in the Computer Science BUT program, I completed an 8-week internship at a startup called True Tourism\n          composed of 4 members. During this internship, I had the opportunity to work on developing an innovative mobile application dedicated to\n          tourism in Marseille. My role included designing and implementing key features such as application cache optimization,\n          adding user profiles, sending notifications and emails to users, templating emails, adding Google as an authentication provider,\n          and creating E2E tests. This experience not only strengthened my technical skills but also gave me valuable insights into the dynamic startup environment.",
+  "truetourism-first-section-title": "Development of a React Native Application",
+  "truetourism-first-section-p1": "During my internship, I developed features for a mobile application using\n              <a href=\"https://reactnative.dev\" class=\"text-color-transition text-blue-500 underline dark:hover:text-blue-400 hover:text-blue-400\">React Native</a>,\n              <a href=\"https://graphql.org\" class=\"text-color-transition text-blue-500 underline dark:hover:text-blue-400 hover:text-blue-400\">GraphQL</a>, and\n              <a href=\"https://www.typescriptlang.org\" class=\"text-color-transition text-blue-500 underline dark:hover:text-blue-400 hover:text-blue-400\">TypeScript</a>.\n              I actively participated in discussions about code structure and had to overcome challenges related to the lack of technical documentation. This work involved developing a public profile page for guides on the application,\n              implementing Google as an authentication provider, and creating End-to-End tests to ensure the application's reliability.",
+  "truetourism-first-section-subtitle1": "End-to-End Tests",
+  "truetourism-first-section-p2": "The first task assigned to me was to create End-to-End tests with <a href=\"https://maestro.mobile.dev\" class=\"text-color-transition text-blue-500 underline dark:hover:text-blue-400 hover:text-blue-400\">Maestro</a>, a technology I was not familiar with at all.\n                      So I had to learn how to use this technology, which allows, through scripts, to automatically perform actions in the simulator.\n                      Thanks to comprehensive documentation, I quickly got the hang of Maestro and used it effectively.",
+  "truetourism-first-section-subtitle2": "Implementation of a Public Profile for Guides",
+  "truetourism-first-section-p3": "I was also tasked with developing a React Native profile screen dedicated to guides working with the company\n                    on the application so that tourists (application users) could access it and see what each guide offers.\n                    To do this, I first analyzed the existing components in the application\n                    to reuse or adapt them for my task to maintain component harmony within the application.\n                    This task also taught me ReactNative and some basic concepts related to navigation, as well as GraphQL, which is used\n                    to query the database.",
+  "truetourism-first-section-subtitle3": "Implementation of Google as an Authentication Provider",
+  "truetourism-first-section-subtitle4": "Skills",
+  "truetourism-first-section-sub-subtitle1": "Skills Developed:",
+  "truetourism-first-section-p4": "Recently, I implemented Google as an authentication provider. It had to be implemented with Nhost, an open-source Backend-as-a-Service.\n                    Nhost manages user account connections for the application, so it is necessary to go through it to link a Google account to a\n                    user or create an account via Google.",
+  "truetourism-first-section-p5": "The first problem encountered was an error related to the Nhost API, making the use of Nhost-provided methods impossible.\n                    An issue was created on GitHub, and it appears to be still unresolved as of this writing (June 11, 2024).\n                    So I had to find alternatives by researching online to redirect the user to the Google login interface.",
+  "truetourism-first-section-p6": "The second problem was that when a user attempted to log in with Google but the account did not exist, Nhost\n                    automatically created the account and logged the user in. However, the application uses data that the Google account cannot provide, and this data is requested from the user during registration through the application.",
+  "truetourism-first-section-p7": " I had to redesign the account creation screens to separate account creation from user profile creation.\n                    Thus, once logged in via Google (if their account did not already exist), the user is redirected to the profile creation screens.",
+  "truetourism-first-section-p8": "The first name and last name information were then transferred to the next screen, allowing account and profile separation in the screen flow.",
+  "truetourism-first-section-p9": " I also had to ensure that when a user arrives on the application, if they are logged in but their profile is not completed,\n                    they are redirected to the profile creation screens and cannot exit. I added a variable to check whether the user profile\n                    is completed or not, as well as another to know if the account was created with Google.",
+  "truetourism-first-section-p10": "Since the authentication database is linked to Nhost and thus not modifiable, all user data\n                    (related to the application/user profile) is placed in a field named metadata. This field contains an object with all\n                    the variables used by the application. I added two boolean variables: googleAccount to know if the account was\n                    created with Google or not, and completed to know if the profile is complete or not.",
+  "truetourism-first-section-p11": "Based on these variables, I had to modify the terms of service display conditions.",
+  "truetourism-first-section-p12": "When a tourist creates an account with Google, the application directly retrieves the image that Google returns, which required me to slightly modify\n                    how profile images are displayed. However, when a guide creates their account with Google, they have the choice between\n                    adding an image from their directory or keeping the Google image.",
+  "truetourism-first-section-p13": "For login, when an account already existed on Nhost with a certain email address and the user attempted to log in\n                    via Google with that same email address, Nhost automatically linked the Google account to the pre-existing account.\n                    Therefore, I did not have to handle this case. However, I had to add in the user profile options the possibility\n                    to link and unlink the Google account, in case the user account was not created by Google.",
+  "truetourism-first-section-p14": "Finally, I created a diagram to state my progress on the task, make an assessment, and enable other developers to\n                    more easily understand my work.",
+  "truetourism-first-section-p15": "This task allowed me to develop my ability to search for precise information, such as consulting issues on GitHub. I gained a better understanding of the work environment, which included a PostgreSQL database exposed via a GraphQL API running on Hasura, all connected to Nhost. This understanding of the architecture helped me identify the advantages and disadvantages of these tools. Additionally, it strengthened my ability to analyze existing code and quickly adapt to new technologies.",
+  "truetourism-first-section-skills1": "<b>Research and Analysis:</b> My ability to search for precise and relevant information was greatly improved. I used GitHub and other online resources to solve technical problems and understand best practices.",
+  "truetourism-first-section-skills2": "<b>Understanding of Architecture:</b> Working with a PostgreSQL database exposed via a GraphQL API on Hasura and connected to Nhost allowed me to better understand the strengths and limitations of these technologies. This was crucial for optimizing the application's performance and efficiency.",
+  "truetourism-first-section-skills3": "<b>Adaptation and Learning:</b> I was able to quickly adapt to technologies and tools that I did not know before. This experience reinforced my ability to learn new technologies autonomously and integrate them effectively into my projects.",
+  "truetourism-first-section-skills4": "<b>Code Analysis:</b> Analyzing pre-existing code to understand its functioning and modify it according to needs helped me develop a structured and methodical approach to programming.",
+  "truetourism-first-section-skills5": "<b>Increased proficiency with the following technologies/tools:</b> React Native, TypeScript, GraphQL, Nhost, Hasura.",
+
+  "truetourism-second-section-title": "Setting Up a Notion to Centralize Management Tools",
+  "truetourism-second-section-p1": "One of my tasks was to create a Notion space to coordinate the technical teams with the marketing and communication departments.\n                  The company used various software, including Retool, Trello, and HubSpot (CRM, customer management tool),\n                  with the goal of automatically centralizing all data on Notion. This project being secondary, I worked on it one\n                  afternoon per week from my 5<sup>th</sup> week of internship, totaling 4 afternoons. I did not have\n                  time to develop all aspects of the company. For this, I had to take into account everyone's expectations\n                  to create a Notion space adapted and in line with the company's image.",
+  "truetourism-second-section-p2": "This Notion brings together all the data (business, operational, processes, communication). For my part, I focused solely on the\n                  operational and business aspects (user part).",
+  "truetourism-second-section-p3": "I first created a global space to set the company's objectives (simple Kanban view) and another dedicated to weekly meetings.",
+  "truetourism-second-section-p4": "Then, I set up a space for each team member with a Kanban view to manage each person's tasks, similar to Trello.\n                  The company already used Trello, but it was restrictive because, for example, to get a Gantt chart, you had to pay. On Notion, by configuring it correctly,\n                  you can view a Gantt chart for free. Cost is a crucial factor in this type of structure with limited funds.",
+  "truetourism-second-section-p5": "I centralized the list of users, distinguishing two types: guides and tourists.\n                  What interested César, the general and marketing director, was mainly the guides because the company closely follows them.\n                  It was therefore essential for César to have access to different views to classify \"guide\" users in various ways.",
+  "truetourism-second-section-p6": "Here is an image of a part of the Notion. For confidentiality reasons, I cannot show more on this site.",
+  "truetourism-second-section-p7": "This project allowed me to develop my project management skills by setting up a Notion (management tool) and\n                    understanding the users' needs, namely the team. It also allowed me to develop essential interpersonal skills for working in a multidisciplinary team, such as communication, collaboration,\n                    conflict management, and adaptability.",
+  "truetourism-second-section-skills1": "<b>Understanding Client and User Needs:</b> I learned to gather and formalize the needs of different departments to create a centralized and effective management tool on Notion.",
+  "truetourism-second-section-skills2": "<b>Setting Up Project Management Tools:</b> By creating a space on Notion, I implemented project management tools adapted to the team's needs, facilitating coordination and task tracking.",
+  "truetourism-second-section-skills3": "<b>Identifying Stakeholders and Development Phases:</b> I identified the roles and responsibilities of each team member to ensure a clear distribution of tasks and better collaboration.",
+  "truetourism-second-section-skills4": "<b>Project Monitoring:</b> I applied a project monitoring approach using Kanban views and Gantt charts, allowing effective and transparent activity management.",
+  "truetourism-second-section-skills5": "<b>Communication and Collaboration:</b> Working on this project allowed me to develop crucial interpersonal skills, such as effective communication, conflict management, and collaboration within a multidisciplinary team.",
+  "truetourism-second-section-subtitle1": "Skills",
+  "truetourism-second-section-sub-subtitle2": "Skills Developed:",
+
+  "truetourism-ccl-section-title": "Conclusion",
+  "truetourism-ccl-section-p1": "This internship at True Tourism allowed me to develop flexibility and adaptability\n                essential due to the diversity of projects carried out over a short period of eight weeks.\n                This experience enriched my technical and interpersonal skills, essential for evolving\n                in the field of computer science and project management.",
+  "truetourism-ccl-section-skills1": "<b>Research and Analysis:</b> I improved my ability to search for precise and relevant information.\n                        Using GitHub and other online resources to solve technical problems and understand\n                        best practices was crucial.",
+  "truetourism-ccl-section-skills2": "<b>Understanding of Architecture:</b> Working with a PostgreSQL database exposed via a GraphQL API\n                      on Hasura and connected to Nhost allowed me to better understand the strengths and limitations of these technologies,\n                      optimizing the application's performance and efficiency.",
+  "truetourism-ccl-section-skills3": "<b>Adaptation and Learning:</b> I quickly learned and integrated new technologies like React Native,\n                      TypeScript, and GraphQL. This experience reinforced my ability to learn autonomously and integrate\n                      these technologies effectively into my projects.",
+  "truetourism-ccl-section-skills4": "<b>Code Analysis:</b> I developed a structured and methodical approach to analyze and modify\n                      pre-existing code, which was essential to successfully complete my tasks.",
+  "truetourism-ccl-section-subtitle1": "Technical Skills Developed:",
+  "truetourism-ccl-section-subtitle2": "Interpersonal Skills Developed:",
+  "truetourism-ccl-section-skills5": "<b>Communication and Collaboration:</b> Working on this project allowed me to develop crucial interpersonal skills,\n                      such as effective communication, conflict management, and collaboration within a multidisciplinary team.",
+  "truetourism-ccl-section-skills6": "<b>Project Management:</b> By setting up project management tools on Notion, I learned to coordinate technical teams\n                      with the marketing and communication departments, ensuring effective and transparent activity management.",
+  "truetourism-ccl-section-skills7": "<b>Adaptability:</b> The necessity to quickly adapt to the tools and technologies used as well as the changing needs\n                      of the team demonstrated my flexibility in a dynamic environment.",
+
+  "truetourism-img-maestro-code-label": "Maestro Script",
+  "truetourism-img-maestro-code-alt": "Image of Maestro code",
+
+  "truetourism-video-maestro-label": "Maestro in Action",
+
+  "truetourism-img-guide-profile-label": "",
+  "truetourism-img-guide-profile-alt": "Image of a guide's profile on the app.",
+
+  "truetourism-img-google-signin-code-label": "Code for redirecting to Google login",
+  "truetourism-img-google-signin-code-alt": "Image of the code redirecting to Google login.",
+
+  "truetourism-img-old-signup-screen-label": "Old account creation screen (screen 1)",
+  "truetourism-img-old-signup-screen-alt": "Image of the old account creation screen.",
+
+  "truetourism-img-new-signup-screen-label": "New account creation screen (screen 1)",
+  "truetourism-img-new-signup-screen-alt": "Image of the new account creation screen.",
+
+  "truetourism-img-diagram-label": "Diagram",
+  "truetourism-img-diagram-alt": "Image of the diagram",
+
+  "truetourism-img-notion-label": "Excerpt from TrueTourism's Notion",
+  "truetourism-img-notion-alt": "Image of TrueTourism's Notion."
 }
