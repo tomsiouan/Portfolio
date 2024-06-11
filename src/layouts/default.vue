@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="dark:bg-gray-80 dark:text-tertiary theme-transition text-transition overflow-x-hidden">
+  <div class="font-kineticRegular dark:bg-gray-80 dark:text-tertiary theme-transition">
     <Navbar />
     <slot />
     <Footer />
@@ -13,9 +13,5 @@
 <style scoped>
 .theme-transition {
   transition: background-color 0.5s, color 0.5s;
-}
-
-.text-transition {
-  transition: color 0.5s, color 0.5s;
 }
 </style>
