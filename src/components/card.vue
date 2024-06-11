@@ -77,7 +77,7 @@ type: '1'
       <div class="px-6 py-4">
         <div class="font-bold text-xl">{{ $t(props.title) }}</div>
         <div class="flex flex-row mb-3">
-          <div v-if="props.years" v-for="(year, index) in props.years" :key="index" class="font-normal pr-2">
+          <div v-if="props.years" v-for="(year, index) in props.years" :key="index" class="font-normal font-kineticRegular pr-2">
             <span v-if="year === YEARS.NOW">{{ $t(year) }}</span>
             <span v-else>{{ year }}</span>
             <span v-if="index < props.years.length - 1"> - </span>
