@@ -171,19 +171,19 @@ const handleIntersect: IntersectionObserverCallback = (entries, observer) => {
           handleIntersection(tagGroup.value, 'animate-increaseOpacity', observer);
           break;
         case contactParagraph.value:
-          handleIntersection(contactParagraph.value, 'animate-increaseOpacity', observer);
+          handleIntersection(contactParagraph.value, 'animate-increaseOpacityFast', observer);
           break;
         case linkedInIcon.value:
-          handleIntersection(linkedInIcon.value, 'animate-increaseOpacity', observer);
+          handleIntersection(linkedInIcon.value, 'animate-increaseOpacityFast', observer);
           break;
         case githubIcon.value:
-          handleIntersection(githubIcon.value, 'animate-increaseOpacity', observer);
+          handleIntersection(githubIcon.value, 'animate-increaseOpacityFast', observer);
           break;
         case xIcon.value:
-          handleIntersection(xIcon.value, 'animate-increaseOpacity', observer);
+          handleIntersection(xIcon.value, 'animate-increaseOpacityFast', observer);
           break;
         case emailForm.value:
-          handleIntersection(emailForm.value, 'animate-increaseOpacity', observer);
+          handleIntersection(emailForm.value, 'animate-increaseOpacityFast', observer);
           break;
       }
     }
@@ -288,11 +288,11 @@ onBeforeUnmount(() => {
     </section>
     <div id="aboutMe"/>
     <section class="max-w-screen-xl mx-auto mt-32 w-full px-4">
-      <h2 ref="titleAboutMe" class="font-kineticLight text-4xl text-start font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
+      <h2 ref="titleAboutMe" class="text-4xl text-start font-extrabold mb-5">{{ $t("section-title-about-me") }}</h2>
       <section>
         <div>
           <div class="flex flex-col md:flex-row">
-            <div class="font-kineticLight text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 md:sticky md:top-36">
+            <div class="text-lg text-justify flex flex-col w-full md:w-1/3 mt-2 md:sticky md:top-36">
               <p ref="aboutMeParagraph" class="opacity-0">
                 {{$t("section-about-me-first-paragraph")}}
               </p>
@@ -362,9 +362,9 @@ onBeforeUnmount(() => {
     </section>
     <div id="projects"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleProjects" class="font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
+      <h2 ref="titleProjects" class="text-4xl font-extrabold mb-5">{{ $t("section-title-projects") }}</h2>
       <div ref="tagGroup" class="opacity-0 mb-4">
-        <h2 class="font-kineticLight font-bold text-xl mb-2">Filter by Tags</h2>
+        <h2 class="font-bold text-xl mb-2">Filter by Tags</h2>
         <div ref="tagList" class="flex flex-wrap gap-2">
           <button
               v-for="tag in uniqueTags"
@@ -397,29 +397,31 @@ onBeforeUnmount(() => {
     </section>
     <div id="stages"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleStages" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-stages") }}</h2>
+      <h2 ref="titleStages" class="text-start text-4xl font-extrabold mb-5">{{ $t("section-title-stages") }}</h2>
 
-      <h3 class="font-kineticLight text-2xl text-start font-extrabold mt-5 mb-5">True Tourism</h3>
+      <h3 class="text-2xl text-start font-extrabold mt-5 mb-5">True Tourism</h3>
       <div class="flex flex-col md:flex-row">
-        <div class="w-full flex flex-col justify-center md:w-1/2 text-justify font-kineticLight text-lg">
+        <div class="w-full flex flex-col justify-center md:w-1/2 text-justify text-lg">
           <img src="/images/truetourism.png" alt="image du site web de true tourism" class="rounded-xl" />
         </div>
-        <div class="w-full md:w-1/2 font-kineticLight text-lg text-justify pl-10">
-          <p>Lors de ma 2<sup>ème</sup> année en BUT Informatique, j'ai effectué un stage sur une duré de 8 semaines dans une startup intitulée True Tourism.
+        <div class="w-full md:w-1/2 text-lg text-justify pl-10">
+          <p>
+            Lors de ma 2<sup>ème</sup> année en BUT Informatique, j'ai effectué un stage sur une duré de 8 semaines dans une startup intitulée True Tourism.
             Pendant ce stage, j'ai eu l'opportunité de travailler sur le développement d'une application mobile innovante dédiée au tourisme à Marseille.
             Mon rôle comprenait la conception et l'implémentation de fonctionnalités clés telles que l'optimisation du cache applicatif, l'ajout de profile utilisateur
             , l'envoie de notifications et de mails aux utilisateurs, templatiser les mails, l'ajout de google comme fournisseur d'authentification et la création de test
             E2E. Cette expérience m'a non seulement permis de renforcer mes compétences techniques, mais m'a aussi
-            donné un aperçu précieux de l'environnement dynamique des startups.</p>
-          <CustomLink link="/portfolio/stages/true-tourism">En savoir plus</CustomLink>
+            donné un aperçu précieux de l'environnement dynamique des startups...
+          </p>
+          <CustomLink link="/portfolio/stages/true-tourism" :options="{internal: true}">En savoir plus</CustomLink>
         </div>
       </div>
     </section>
     <div id="contactMe"/>
     <section class="max-w-screen-xl mx-auto mt-28 w-full px-4">
-      <h2 ref="titleContact" class="text-start font-kineticLight text-4xl font-extrabold mb-5">{{ $t("section-title-contact") }}</h2>
+      <h2 ref="titleContact" class="text-start text-4xl font-extrabold mb-5">{{ $t("section-title-contact") }}</h2>
       <div ref="contactParagraph" class="flex flex-col items-center md:flex-row">
-        <div class="w-full md:w-1/2 text-justify font-kineticLight text-lg">
+        <div class="w-full md:w-1/2 text-justify text-lg">
           <p>
             Étudiant en 2ème année de BUT, je suis à la recherche de nouvelles opportunités pour mettre en pratique mes compétences et collaborer sur des projets innovants.
           </p>
@@ -427,7 +429,7 @@ onBeforeUnmount(() => {
             Vous pouvez m'envoyer un <a href="#email-form">email</a> ou me contacter sur les réseau suivants ↓
           </p>
         </div>
-        <div class="w-full md:w-1/2 text-center font-kineticLight text-lg ml-24">
+        <div class="w-full md:w-1/2 text-center text-lg ml-24">
 
         </div>
       </div>
@@ -447,10 +449,10 @@ onBeforeUnmount(() => {
             <CustomLink link="https://x.com/tomsiouan">@tomsiouan</CustomLink>
           </div>
         </div>
-        <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl font-[sans-serif] opacity-0">
+        <div ref="emailForm" id="email-form" class="items-center gap-16 mt-10 my-6 mx-auto max-w-4xl opacity-0">
           <form class="ml-auo space-y-4" novalidate @submit.prevent="sendEmail">
             <transition name="fade">
-              <div v-if="errorMessage" class="font-kineticLight text-lg font-bold transition-all duration-200 border-primary bg-primary bg-opacity-5 rounded-lg border-2 p-2 text-center text-red-500 mb-4">{{ errorMessage }}</div>
+              <div v-if="errorMessage" class="text-lg font-bold transition-all duration-200 border-primary bg-primary bg-opacity-5 rounded-lg border-2 p-2 text-center text-red-500 mb-4">{{ errorMessage }}</div>
             </transition>
             <input type='text' placeholder='Nom'
                    :class="['w-full rounded-md py-3 px-4 bg-gray-100 text-sm outline-[#007bff]', emailDatas.name.trim() === '' && errorMessage ? 'border-red-500' : '']"
