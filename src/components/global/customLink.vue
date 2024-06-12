@@ -19,27 +19,16 @@ const localPath = useLocalePath();
 const props = defineProps<LinkProps>();
 
 const navigate = () => {
-  navigateTo(props.link, {external: true});
+  if(props.options?.internal) {
+    navigateTo(props.link);
+  } else {
+    window.open(props.link, '_blank');
+  }
 };
 </script>
 
 <template>
   <NuxtLink
-    v-if="options?.internal"
-    :to="localPath(props.link)"
-    :class="[
-      'text-color-transition',
-      'text-blue-500',
-      'underline',
-      'dark:hover:text-blue-400',
-      'hover:text-blue-400',
-      'cursor-pointer'
-    ]"
-  >
-    <slot/>
-  </NuxtLink>
-  <NuxtLink
-      v-else
       @click="navigate"
       :class="[
         'text-color-transition',
