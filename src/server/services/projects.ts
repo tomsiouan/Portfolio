@@ -28,6 +28,7 @@ export const LANGUAGES = {
 
 export const FRAMEWORKS = {
     VUE: 'Vue.JS',
+    QT: 'QT',
     NUXT: 'Nuxt.JS',
     FLASK: 'Flask',
     REACT: 'React',
@@ -96,7 +97,7 @@ export const PROJECT_LIST: Record<string, Project> = {
         ],
     },
     HabitTracker: {
-        id: 5,
+        id: 2,
         title: "habit-tracker-title",
         description: "habit-tracker-description",
         content: "habit-tracker-content",
@@ -105,12 +106,52 @@ export const PROJECT_LIST: Record<string, Project> = {
         ],
         image: {
             imageUrl: "/images/habitsTracker.png",
-            alt: 'hackaton-image-alt'
+            alt: 'habit-tracker-image-alt'
         },
         tags: [
             LANGUAGES.SWIFT,
             PROJECTS_TYPES.MOBILE,
         ],
         githubLink: 'https://github.com/tomsnx/HabitsTracker_IOS'
+    },
+    MediaPlayer: {
+        id: 3,
+        title: "mediaplayer-title",
+        description: "mediaplayer-description",
+        content: "mediaplayer-content",
+        years: [
+            YEARS["2024"]
+        ],
+        image: {
+            imageUrl: "/images/qt-mediaplayer/logo.png",
+            alt: 'mediaplayer-image-alt'
+        },
+        tags: [
+            LANGUAGES.CPP,
+            FRAMEWORKS.QT,
+            PROJECTS_TYPES.SYSTEM,
+        ],
+        githubLink: 'https://github.com/tomsnx/QT_MediaPlayer'
+    },
+    EZCON: {
+        id: 4,
+        title: "ezcon-title",
+        description: "ezcon-description",
+        content: "ezcon-content",
+        years: [
+            YEARS["2024"]
+        ],
+        image: {
+            imageUrl: "/images/ezcon/home.png",
+            alt: 'ezcon-image-alt'
+        },
+        tags: [
+            LANGUAGES.JS,
+            LANGUAGES.HTML,
+            LANGUAGES.CSS,
+            FRAMEWORKS.VUE,
+            PROJECTS_TYPES.WEB,
+        ],
+        githubLink: 'https://github.com/SunoWhere/Chokbar-Project'
     },
 }
