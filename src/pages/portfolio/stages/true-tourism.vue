@@ -33,7 +33,7 @@ const datas = ref();
                 </div>
                 <div class="flex w-2/3 flex-col items-center gap-4">
                   <video id="maestroVideo" class="w-full" autoplay loop muted playsinline>
-                    <source src="/videos/maestro.mov" type="video/mp4">
+                    <source src="/videos/maestro.webm" type="video/webm">
                     {{ $t('video-not-working') }}
                   </video>
                   <label for="maestroVideo" class="font-kineticLight">{{$t('truetourism-video-maestro-label')}}</label>

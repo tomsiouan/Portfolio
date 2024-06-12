@@ -51,7 +51,7 @@ const redirectTo = () => {
             muted
             playsinline
         >
-          <source :src="project.videoPath" type="video/mp4">
+          <source :src="project.videoPath" type="video/webm">
           {{ $t('video-not-working') }}
         </video>
       </div>

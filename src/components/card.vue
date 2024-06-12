@@ -69,7 +69,7 @@ type: '1'
             muted
             playsinline
         >
-          <source :src="props.project.videoPath" type="video/mp4">
+          <source :src="props.project.videoPath" type="video/webm">
           {{ $t('video-not-working') }}
         </video>
       </div>

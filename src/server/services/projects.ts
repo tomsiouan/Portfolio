@@ -68,7 +68,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             imageUrl: "/images/heldia.png",
             alt: 'heldia-image-alt'
         },
-        videoPath: "/videos/heldia.mp4",
+        videoPath: "/videos/heldia.webm",
         tags: [
             LANGUAGES.CSHARP,
             FRAMEWORKS.MONOGAME,
@@ -88,7 +88,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             imageUrl: "/images/portfolio.png",
             alt: 'portfolio-image-alt'
         },
-        videoPath: '/videos/portfolio.mov',
+        videoPath: '/videos/portfolio.webm',
         tags: [
             LANGUAGES.JS,
             LANGUAGES.TS,
