@@ -36,8 +36,8 @@ const redirectTo = () => {
       <div class="pb-24">
         <h1 class="text-4xl text-start font-extrabold">{{ $t(project.title) }}</h1>
         <p class="text-lg">{{ $t(project.description) }}</p>
-        <button v-if="project.githubLink" @click="redirectTo" class="flex flex-row gap-2 items-center mt-2 p-1 transition-all duration-200 border text-black border-gray-20 pr-2 rounded-lg hover:text-white hover:bg-black">
-          <Icon name="skill-icons:github-dark" size="22" /> Open in GitHub
+        <button v-if="project.githubLink" @click="redirectTo" class="flex flex-row gap-2 items-center mt-2 p-1 transition-all duration-200 border dark:bg-tertiary dark:hover:bg-black dark:hover:border-black text-black border-gray-20 pr-2 rounded-lg hover:text-white hover:bg-black">
+          <Icon name="skill-icons:github-dark" size="22" /> <span>Open in GitHub</span>
         </button>
       </div>
 
