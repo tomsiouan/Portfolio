@@ -139,6 +139,7 @@ export const PROJECT_LIST: Record<string, Project> = {
         description: "ezcon-description",
         content: "ezcon-content",
         years: [
+            YEARS["2023"],
             YEARS["2024"]
         ],
         image: {
