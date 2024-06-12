@@ -43,17 +43,15 @@ const redirectTo = () => {
 
       <div class="flex justify-center w-full">
         <img v-if="!project.videoPath" class="w-2/3 rounded-lg" :src="project.image.imageUrl" :alt="$t(project.image.alt)" />
-        <video
+        <HlsVideo
             v-else
+            :src="project.videoPath"
+            :autoplay="true"
+            :muted="true"
+            :loop="true"
+            :plays-inline="true"
             class="w-2/3 rounded-lg"
-            autoplay
-            loop
-            muted
-            playsinline
-        >
-          <source :src="project.videoPath" type="video/webm">
-          {{ $t('video-not-working') }}
-        </video>
+        />
       </div>
     </section>
 

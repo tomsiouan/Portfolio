@@ -61,17 +61,15 @@ type: '1'
             :src="props.project.image.imageUrl"
             :alt="$t(props.project.image.alt)"
         >
-        <video
+        <HlsVideo
             v-else
+            :src="props.project.videoPath"
+            :autoplay="true"
+            :muted="true"
+            :loop="true"
+            :plays-inline="true"
             class="w-full"
-            autoplay
-            loop
-            muted
-            playsinline
-        >
-          <source :src="props.project.videoPath" type="video/webm">
-          {{ $t('video-not-working') }}
-        </video>
+        />
       </div>
       <div class="px-6 py-4">
         <div class="font-bold text-xl">{{ $t(props.project.title) }}</div>
