@@ -343,9 +343,9 @@ onBeforeUnmount(() => {
               <p ref="aboutMeParagraph" class="opacity-0">
                 {{$t("section-about-me-first-paragraph")}}
               </p>
-              <p ref="aboutMeSubParagraph" class="mt-10 opacity-0">
-                {{$t("section-about-me-second-paragraph")}}
-              </p>
+
+              <p ref="aboutMeSubParagraph" class="mt-10 opacity-0" v-html="$t('section-about-me-second-paragraph')" />
+
               <a
                   ref="downloadCVButton"
                   href="#"
