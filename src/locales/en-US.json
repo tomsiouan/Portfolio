@@ -51,6 +51,7 @@
   "heldia-title": "Heldia",
   "heldia-image-alt": "image of the game titled Heldia",
   "heldia-description": "Project involving the creation of a 2D RPG video game.",
+  "heldia-content": "<section id=\"introduction\">\n      <h2 class=\"font-kineticRegular text-3xl text-start font-extrabold mb-5\">Introduction</h2>\n      <p class=\"text-justify\" >\n        Having always been passionate about video games since I was young, I decided in 2022 to create a game. Being a fan of 2D games (with Pokémon and Zelda being a big part of my childhood),\n        I decided to create a game. I didn't know where to start because I barely knew programming at that time. However, what I knew was that I wanted to create\n        a game where I could recapture the atmosphere of the old Pokémon and Zelda games. Since I already had some basic knowledge of C# at that time, I quickly came across the framework\n        <a class=\"text-color-transition text-blue-500 underline dark:hover:text-blue-400 hover:text-blue-400\" href=\"https://monogame.net/\">Monogame</a> (formerly XNA), a framework used for the development of Terraria and Stardew Valley. I then began to document myself\n        on this framework using YouTube videos, although they were not numerous, and on the architecture needed to run a game from scratch. This is where my project truly begins.\n      </p>\n    </section>\n    <section id=\"development\">\n      <h2 class=\"font-kineticRegular text-3xl text-start font-extrabold mt-10 mb-5\">Development</h2>\n      <div class=\"text-justify\">\n        <h3 class=\"font-kineticRegular text-2xl text-start font-extrabold mb-2\">Game Engine</h3>\n        <p>\n          I started by creating the game's architecture based on a screen system (which I call pages), meaning there is a class that manages my screens, defining which screen to display or not.\n          It handles the screen refresh accordingly. Then, each page has its own <span style=\"background-color: lightgray; padding: 3px 5px 3px 5px; border-radius: 3px\">Object Manager</span>.\n          This is a class that manages the elements to be displayed on the screen. This is where the initial design of my game engine stops. I then continued with the development of a player.\n        </p>\n\n        <h3 class=\"font-KineticRegular text-2xl text-start font-extrabold mt-5 mb-2\">Player</h3>\n        <p>\n          The next goal was to develop a player to move around the screen. I faced several challenges.\n          Creating a system to play animations using a spritesheet, having a camera to follow my player,\n          a system for stamina and health, managing keybinds...\n          A multitude of things were in front of me. So, I started by rendering a spritesheet.\n        </p>\n\n        <h3 class=\"font-kineticRegular text-xl text-start font-extrabold mt-5 mb-2\">Spritesheet Manager</h3>\n        <p>\n          I didn't achieve this result right away, but when I started implementing the tiles that make up the environment,\n          I thought that creating a manager to handle which sprites to display would be efficient. So, I created this TilesManager.\n        </p>\n      </div>\n    </section>",
 
   "portfolio-title": "Portfolio",
   "portfolio-image-alt": "image of the portfolio (current site)",
@@ -68,9 +69,9 @@
   "vm-image-alt": "image of the virtual machine",
   "vm-description": "Virtual machine created as part of a tutored project.",
 
-  "hackaton-title": "Hackathon - Belfort 2023",
-  "hackaton-image-alt": "image of the Belfort 2023 hackathon",
-  "hackaton-description": "Problem-solving.",
+  "habit-tracker-title": "HabitTracker",
+  "habit-tracker-image-alt": "Image of the application",
+  "habit-tracker-description": "Swift application for habit management.",
 
   "index-contact-me-p1": "As a second-year Computer Science student, I am looking for new opportunities to apply my skills and collaborate on innovative projects.",
   "index-contact-me-p2": "You can send me an <a href=\"#email-form\">email</a> or contact me on the following networks ↓",

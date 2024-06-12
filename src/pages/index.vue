@@ -4,7 +4,6 @@ import {type Project, PROJECT_LIST} from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
 import CustomLink from "~/components/global/customLink.vue";
 
-const localPath = useLocalePath();
 const mail = useMail()
 
 const title = ref<HTMLElement | null>(null);
@@ -28,7 +27,7 @@ const titleStages = ref<HTMLElement | null>(null);
 const titleContact = ref<HTMLElement | null>(null);
 
 const titleProjects = ref<HTMLElement | null>(null);
-const projects = Object.values(PROJECT_LIST);
+const projects = ref<Project[]>(Object.values(PROJECT_LIST));
 const selectedTags = ref<string[]>([]);
 const projectList = ref<HTMLElement | null>(null);
 
@@ -117,8 +116,10 @@ const uniqueTags = computed(() => {
 });
 
 const filteredProjects = computed<Project[]>(() => {
-  if (selectedTags.value.length === 0) return projects;
-  return projects.filter(project => selectedTags.value.every(tag => project.tags.includes(tag)));
+  if (selectedTags.value.length === 0) return projects.value;
+  return projects.value.filter(project =>
+      selectedTags.value.every(tag => project.tags.includes(tag))
+  );
 });
 
 const toggleTag = (tag: string) => {
@@ -429,12 +430,7 @@ onBeforeUnmount(() => {
           <Card
               v-for="(project, key) in filteredProjects"
               :key="key"
-              :id="project.id"
-              :image="project.image"
-              :title="project.title"
-              :description="project.description"
-              :years="project.years"
-              :tags="project.tags"
+              :project="project"
           />
         </div>
       </div>
@@ -465,9 +461,6 @@ onBeforeUnmount(() => {
             {{$t('index-contact-me-p1')}}
           </p>
           <p v-html="$t('index-contact-me-p2')" class="mt-5" />
-        </div>
-        <div class="w-full md:w-1/2 text-center text-lg ml-24">
-
         </div>
       </div>
 

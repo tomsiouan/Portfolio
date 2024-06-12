@@ -3,11 +3,13 @@ export interface Project {
     id: number;
     title: string;
     description: string;
+    content: string;
     years?: string[];
     image: {
         imageUrl: string;
         alt: string;
     };
+    videoPath?: string;
     tags: string[];
     githubLink?: string;
 }
@@ -21,6 +23,7 @@ export const LANGUAGES = {
     TS: 'TypeScript',
     HTML: 'HTML',
     CSS: 'CSS',
+    SWIFT: 'Swift',
 };
 
 export const FRAMEWORKS = {
@@ -35,6 +38,7 @@ export const FRAMEWORKS = {
 
 export const PROJECTS_TYPES = {
     GAMING: 'Gaming',
+    MOBILE: 'Mobile',
     WEB: 'Web',
     SYSTEM: 'System',
     VIRTUAL_MACHINE: 'VM',
@@ -54,6 +58,7 @@ export const PROJECT_LIST: Record<string, Project> = {
         id: 0,
         title: "heldia-title",
         description: "heldia-description",
+        content: "heldia-content",
         years: [
             YEARS["2023"],
             YEARS.NOW
@@ -62,6 +67,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             imageUrl: "/images/heldia.png",
             alt: 'heldia-image-alt'
         },
+        videoPath: "/videos/heldia.mp4",
         tags: [
             LANGUAGES.CSHARP,
             FRAMEWORKS.MONOGAME,
@@ -73,6 +79,7 @@ export const PROJECT_LIST: Record<string, Project> = {
         id: 1,
         title: "portfolio-title",
         description: "portfolio-description",
+        content: 'portfolio-content',
         years: [
             YEARS["2024"]
         ],
@@ -80,6 +87,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             imageUrl: "/images/portfolio.png",
             alt: 'portfolio-image-alt'
         },
+        videoPath: '/videos/portfolio.mov',
         tags: [
             LANGUAGES.JS,
             LANGUAGES.TS,
@@ -87,71 +95,22 @@ export const PROJECT_LIST: Record<string, Project> = {
             PROJECTS_TYPES.WEB,
         ],
     },
-    stuckwin: {
-        id: 2,
-        title: "stuckwin-title",
-        description: "stuckwin-description",
-        years: [
-            YEARS["2023"]
-        ],
-        image: {
-            imageUrl: "/images/stuckwin.png",
-            alt: "stuckwin-image-alt"
-        },
-        tags: [
-            LANGUAGES.JAVA,
-            PROJECTS_TYPES.GAMING,
-        ],
-    },
-    flaskWebsite: {
-        id: 3,
-        title: "flask-website-title",
-        description: "flask-website-description",
-        years: [
-            YEARS["2023"]
-        ],
-        image: {
-            imageUrl: "/images/flask_ecommerce_website.png",
-            alt: 'flask-website-image-alt'
-        },
-        tags: [
-            LANGUAGES.JS,
-            LANGUAGES.HTML,
-            LANGUAGES.CSS,
-            FRAMEWORKS.FLASK,
-            PROJECTS_TYPES.WEB,
-        ],
-    },
-    virtualMachine: {
-        id: 4,
-        title: "vm-title",
-        description: "vm-description",
-        years: [
-            YEARS["2023"]
-        ],
-        image: {
-            imageUrl: "/images/vm.png",
-            alt: 'vm-image-alt',
-        },
-        tags: [
-            PROJECTS_TYPES.SYSTEM,
-            PROJECTS_TYPES.VIRTUAL_MACHINE,
-        ],
-    },
-    hackatonBelfort2023: {
+    HabitTracker: {
         id: 5,
-        title: "hackaton-title",
-        description: "hackaton-description",
+        title: "habit-tracker-title",
+        description: "habit-tracker-description",
+        content: "habit-tracker-content",
         years: [
-            YEARS["2023"]
+            YEARS["2024"]
         ],
         image: {
-            imageUrl: "/images/hackaton.png",
+            imageUrl: "/images/habitsTracker.png",
             alt: 'hackaton-image-alt'
         },
         tags: [
-            PROJECTS_TYPES.HACKATON,
-            PROJECTS_TYPES.CHALLENGE,
+            LANGUAGES.SWIFT,
+            PROJECTS_TYPES.MOBILE,
         ],
+        githubLink: 'https://github.com/tomsnx/HabitsTracker_IOS'
     },
 }
