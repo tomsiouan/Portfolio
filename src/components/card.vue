@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import {defineProps, onBeforeUnmount, ref} from 'vue';
-import { YEARS } from '~/server/services/projects';
-
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  years?: string[];
-  image: {
-    imageUrl: string;
-    alt: string;
-  };
-  tags: string[];
-  githubLink?: string;
-}
+import {type Project, YEARS } from '~/server/services/projects';
 
 const localPath = useLocalePath();
 
@@ -50,7 +37,7 @@ onBeforeUnmount(() => {
   }
 });
 
-const props = defineProps<Project>();
+const props = defineProps<{ project: Project }>();
 
 </script>
 
@@ -66,30 +53,42 @@ type: '1'
 
 <template>
   <div ref="card" class="opacity-0 rounded-lg overflow-hidden shadow-lg dark:bg-zinc-900 transform transition-transform duration-300 hover:scale-105">
-    <NuxtLink :to="localPath({path: `/portfolio/project/${props.id}`})">
+    <NuxtLink :to="localPath({path: `/portfolio/project/${props.project.id}`})">
       <div class="relative">
         <img
+            v-if="!props.project.videoPath"
             class="w-full"
-            :src="props.image.imageUrl"
-            :alt="$t(props.image.alt)"
+            :src="props.project.image.imageUrl"
+            :alt="$t(props.project.image.alt)"
         >
+        <video
+            v-else
+            class="w-full"
+            autoplay
+            loop
+            muted
+            playsinline
+        >
+          <source :src="props.project.videoPath" type="video/mp4">
+          {{ $t('video-not-working') }}
+        </video>
       </div>
       <div class="px-6 py-4">
-        <div class="font-bold text-xl">{{ $t(props.title) }}</div>
+        <div class="font-bold text-xl">{{ $t(props.project.title) }}</div>
         <div class="flex flex-row mb-3">
-          <div v-if="props.years" v-for="(year, index) in props.years" :key="index" class="font-normal font-kineticRegular pr-2">
+          <div v-if="props.project.years" v-for="(year, index) in props.project.years" :key="index" class="font-normal font-kineticRegular pr-2">
             <span v-if="year === YEARS.NOW">{{ $t(year) }}</span>
             <span v-else>{{ year }}</span>
-            <span v-if="index < props.years.length - 1"> - </span>
+            <span v-if="index < props.project.years.length - 1"> - </span>
           </div>
         </div>
         <p class="text-gray-700 dark:text-gray-50 text-base">
-          {{ $t(props.description) }}
+          {{ $t(props.project.description) }}
         </p>
       </div>
       <div class="px-6 py-4">
         <span
-            v-for="(tag, index) in props.tags"
+            v-for="(tag, index) in props.project.tags"
             :key="index"
             class="inline-block bg-gray-200 dark:bg-zinc-600 dark:text-tertiary rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
         >
