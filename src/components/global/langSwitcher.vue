@@ -11,7 +11,7 @@ const language = computed({
 
 const hoveredLocale = ref(null);
 
-const handleMouseEnter = (code) => {
+const handleMouseEnter = (code: any) => {
   hoveredLocale.value = code;
 };
 
