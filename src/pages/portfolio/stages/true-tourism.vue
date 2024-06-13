@@ -26,7 +26,7 @@ definePageMeta({
             <p v-html="$t('truetourism-first-section-p1')" />
 
             <section id="tests">
-              <h3 class="text-2xl text-start font-extrabold mt-10 mb-2">{{$t('truetourism-first-section-subtitle1')}}</h3>
+              <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle1')}}</h3>
               <div class="flex  flex-col items-center">
                 <div class="flex md:flex-row gap-4 items-start relative mb-10">
                   <div class="w-1/2 pr-10 md:sticky top-36">
@@ -43,9 +43,109 @@ definePageMeta({
                 </div>
               </div>
             </section>
+            <section id="reactQueryOptimization">
+              <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle5')}}</h3>
+              <div class="flex flex-col gap-4 items-start">
+                <p>
+                  {{$t('truetourism-first-section-p16')}}
+                </p>
+
+                <p>
+                  {{$t('truetourism-first-section-p17')}}
+                </p>
+
+                <p>
+                  {{$t('truetourism-first-section-p18')}}
+                </p>
+
+                <img src="/images/true-tourism/reactQuery1.webp" :alt="$t('truetourism-first-section-react-query-alt')" />
+
+                <p v-html="$t('truetourism-first-section-p19')" />
+
+                <div class="flex flex-col items-center mt-10 mb-10">
+                  <img
+                      id="fetchPriceDetailsCallbackImage"
+                      src="/images/true-tourism/fetchPriceDetailsCallback.webp"
+                      :alt="$t('truetourism-first-section-fetchPriceDetailsCallback-alt')"
+                      class="w-2/4"
+                  />
+                  <label for="fetchPriceDetailsCallbackImage" class="font-kineticLight"> {{$t('truetourism-first-section-fetchPriceDetailsCallback-label')}}</label>
+                </div>
+
+                <p v-html="$t('truetourism-first-section-p20')" />
+
+                <div class="flex flex-col items-center mt-10 mb-10">
+                  <img
+                      id="useQueryImage"
+                      src="/images/true-tourism/useQuery.webp"
+                      :alt="$t('truetourism-first-section-useQuery-alt')"
+                      class="w-2/4"
+                  />
+                  <label for="useQueryImage" class="font-kineticLight">{{$t('truetourism-first-section-useQuery-label')}}</label>
+                </div>
+
+                <div>
+                  <p v-html="$t('truetourism-first-section-p21')" />
+
+                  <ul class="flex flex-col gap-4 list-disc ml-10">
+                    <li>
+                      <p v-html="$t('truetourism-first-section-p22')" />
+                    </li>
+                    <li>
+                      <p v-html="$t('truetourism-first-section-p23')" />
+                    </li>
+                    <li>
+                      <p v-html="$t('truetourism-first-section-p24')" />
+                      <ul class="list-disc ml-10">
+                        <li>
+                          <p v-html="$t('truetourism-first-section-p25')" />
+                        </li>
+                        <li>
+                          <p v-html="$t('truetourism-first-section-p26')" />
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p v-html="$t('truetourism-first-section-p27')" />
+                  <ul class="list-disc ml-10">
+                    <li>
+                      <p v-html="$t('truetourism-first-section-p28')" />
+                    </li>
+                    <li>
+                      <p v-html="$t('truetourism-first-section-p29')" />
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="text-xl text-start font-extrabold mb-2">{{$t('truetourism-first-section-sub-subtitle2')}}</h4>
+                  <div>
+                    <ul class="list-disc ml-10">
+                      <li>
+                        <p v-html="$t('truetourism-first-section-p30')" />
+                      </li>
+                      <li>
+                        <p v-html="$t('truetourism-first-section-p31')" />
+                      </li>
+                      <li>
+                        <p v-html="$t('truetourism-first-section-p32')" />
+                      </li>
+                      <li>
+                        <p v-html="$t('truetourism-first-section-p33')" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <p>{{$t('truetourism-first-section-p34')}}</p>
+              </div>
+            </section>
             <section id="guideProfile">
-              <h3 class="text-2xl text-start font-extrabold mt-10 mb-2">{{$t('truetourism-first-section-subtitle2')}}</h3>
-              <div class="flex flex-row gap-4 items-start relative">
+              <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle2')}}</h3>
+              <div class="flex flex-row gap-4 items-start relative mt-10">
                 <div class="w-1/2 flex flex-col gap-4">
                   <img src="/images/true-tourism/guide-profile.webp" :alt="$t('truetourism-img-guide-profile-alt')" class="w-1/2" />
                 </div>
@@ -57,7 +157,7 @@ definePageMeta({
               </div>
             </section>
             <section id="googleAuth">
-              <h3 class="text-2xl text-start font-extrabold mt-10 mb-2">{{$t('truetourism-first-section-subtitle3')}}</h3>
+              <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle3')}}</h3>
               <div class="flex flex-col gap-4 items-start relative">
                 <div class="flex flex-col gap-4">
                   <p>
@@ -143,7 +243,7 @@ definePageMeta({
                 </div>
 
                 <section>
-                  <h3 class="text-2xl text-start font-extrabold mb-2">{{$t('truetourism-first-section-subtitle4')}}</h3>
+                  <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle4')}}</h3>
                   <div class="pl-4">
                     <p>
                       {{$t('truetourism-first-section-p15')}}
@@ -210,7 +310,7 @@ definePageMeta({
               </div>
 
               <div>
-                <h3 class="text-2xl text-start font-extrabold mb-2">{{$t('truetourism-second-section-subtitle1')}}</h3>
+                <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-second-section-subtitle1')}}</h3>
                 <div class="pl-4">
                   <p>
                     {{$t('truetourism-second-section-p7')}}
@@ -250,7 +350,7 @@ definePageMeta({
                 {{$t('truetourism-ccl-section-p1')}}
               </p>
               <div class="mt-2">
-                <h3 class="text-2xl text-start font-extrabold mt-10 mb-2">{{$t('truetourism-ccl-section-subtitle1')}}</h3>
+                <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-ccl-section-subtitle1')}}</h3>
                   <ul class="pl-10 list-disc">
                     <li class="pt-4">
                       <p v-html="$t('truetourism-ccl-section-skills1')" />
@@ -268,7 +368,7 @@ definePageMeta({
               </div>
 
               <div class="mt-2">
-                <h3 class="text-2xl text-start font-extrabold mt-10 mb-2">{{$t('truetourism-ccl-section-subtitle2')}}</h3>
+                <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-ccl-section-subtitle2')}}</h3>
                 <div>
                   <ul class="pl-10 list-disc">
                     <li class="pt-4">
