@@ -9,7 +9,7 @@ const datas = ref();
       <div class="pb-24 text-justify text-lg">
         <h1 class="text-4xl text-start font-extrabold mb-10">{{ $t('truetourism-title') }}</h1>
 
-        <img src="/images/true-tourism/banner.png" alt="Bannière True Tourism" class="mb-10" />
+        <img src="/images/true-tourism/banner.webp" alt="Bannière True Tourism" class="mb-10" />
 
         <p class="mb-10" v-html="$t('truetourism-introduction')" />
 
@@ -27,12 +27,12 @@ const datas = ref();
                     <p v-html="$t('truetourism-first-section-p2')" />
                   </div>
                   <div class="w-1/2 flex flex-col items-center gap-4">
-                    <img id="maestroCode" src="/images/true-tourism/maestro-code.png" :alt="$t('truetourism-img-maestro-code-alt')" />
+                    <img id="maestroCode" src="/images/true-tourism/maestro-code.webp" :alt="$t('truetourism-img-maestro-code-alt')" />
                     <label for="maestroCode" class="font-kineticLight">{{ $t('truetourism-img-maestro-code-label') }}</label>
                   </div>
                 </div>
                 <div class="flex w-2/3 flex-col items-center gap-4">
-                  <HlsVideo id="maestroVideo" src="/videos/hls/maestro.m3u8" :autoplay="true" :muted="true" :loop="true" />
+                  <HlsVideo id="maestroVideo" src="/videos/maestro/maestro.m3u8" :autoplay="true" :muted="true" :loop="true" />
                   <label for="maestroVideo" class="font-kineticLight">{{$t('truetourism-video-maestro-label')}}</label>
                 </div>
               </div>
@@ -41,7 +41,7 @@ const datas = ref();
               <h3 class="text-2xl text-start font-extrabold mt-10 mb-2">{{$t('truetourism-first-section-subtitle2')}}</h3>
               <div class="flex flex-row gap-4 items-start relative">
                 <div class="w-1/2 flex flex-col gap-4">
-                  <img src="/images/true-tourism/guide-profile.jpeg" :alt="$t('truetourism-img-guide-profile-alt')" class="w-1/2" />
+                  <img src="/images/true-tourism/guide-profile.webp" :alt="$t('truetourism-img-guide-profile-alt')" class="w-1/2" />
                 </div>
                 <div class="w-1/2 pr-10 md:sticky top-36">
                   <p>
@@ -65,7 +65,7 @@ const datas = ref();
                   <div class="flex flex-col items-center mt-10 mb-10">
                     <img
                         id="imageCodeGoogleSignIn"
-                        src="/images/true-tourism/googleSignIn.png"
+                        src="/images/true-tourism/googleSignIn.webp"
                         :alt="$t('truetourism-img-google-signin-code-alt')"
                         class="w-1/2"
                     />
@@ -84,7 +84,7 @@ const datas = ref();
                     <div class="flex flex-col items-center md:mr-20 mt-10 mb-10">
                       <img
                           id="imageCodeGoogleSignUp"
-                          src="/images/true-tourism/ancienne-creation-compte.png"
+                          src="/images/true-tourism/ancienne-creation-compte.webp"
                           :alt="$t('truetourism-img-old-signup-screen-alt')"
                           class="w-auto max-h-128"
                       />
@@ -94,7 +94,7 @@ const datas = ref();
                     <div class="flex flex-col items-center md:ml-20 mt-10 mb-10">
                       <img
                           id="imageNewGoogleSignUp"
-                          src="/images/true-tourism/newAccountCreationScreen.png"
+                          src="/images/true-tourism/newAccountCreationScreen.webp"
                           :alt="$t('truetourism-img-new-signup-screen-alt')"
                           class="w-auto max-h-128"
                       />
@@ -131,7 +131,7 @@ const datas = ref();
                   </p>
 
                   <div class="flex flex-col items-center mt-10 mb-10">
-                    <img id="diagrammeImage" src="/images/true-tourism/diagramme.png" :alt="$t('truetourism-img-diagram-alt')" />
+                    <img id="diagrammeImage" src="/images/true-tourism/diagramme.webp" :alt="$t('truetourism-img-diagram-alt')" />
                     <label for="diagrammeImage" class="font-kineticLight">{{ $t('truetourism-img-diagram-label') }}</label>
                   </div>
                 </div>
@@ -198,7 +198,7 @@ const datas = ref();
                 </p>
 
                 <div class="flex flex-col items-center mt-10 mb-10">
-                  <img src="/images/true-tourism/notion.png" :alt="$t('truetourism-img-notion-alt')" class="w-2/3"/>
+                  <img src="/images/true-tourism/notion.webp" :alt="$t('truetourism-img-notion-alt')" class="w-2/3"/>
                   <label for="diagrammeImage" class="font-kineticLight">{{ $t('truetourism-img-notion-label')}}</label>
                 </div>
               </div>

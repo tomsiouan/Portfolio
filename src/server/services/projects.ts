@@ -65,10 +65,10 @@ export const PROJECT_LIST: Record<string, Project> = {
             YEARS.NOW
         ],
         image: {
-            imageUrl: "/images/heldia.png",
+            imageUrl: "/images/heldia.webp",
             alt: 'heldia-image-alt'
         },
-        videoPath: "/videos/hls/heldia.m3u8",
+        videoPath: "/videos/heldia/heldia.m3u8",
         tags: [
             LANGUAGES.CSHARP,
             FRAMEWORKS.MONOGAME,
@@ -85,10 +85,10 @@ export const PROJECT_LIST: Record<string, Project> = {
             YEARS["2024"]
         ],
         image: {
-            imageUrl: "/images/portfolio.png",
+            imageUrl: "/images/portfolio.webp",
             alt: 'portfolio-image-alt'
         },
-        videoPath: '/videos/hls/portfolio.m3u8',
+        videoPath: '/videos/portfolio/portfolio.m3u8',
         tags: [
             LANGUAGES.JS,
             LANGUAGES.TS,
@@ -105,7 +105,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             YEARS["2024"]
         ],
         image: {
-            imageUrl: "/images/habitsTracker.png",
+            imageUrl: "/images/habitsTracker.webp",
             alt: 'habit-tracker-image-alt'
         },
         tags: [
@@ -123,7 +123,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             YEARS["2024"]
         ],
         image: {
-            imageUrl: "/images/qt-mediaplayer/logo.png",
+            imageUrl: "/images/qt-mediaplayer/logo.webp",
             alt: 'mediaplayer-image-alt'
         },
         tags: [
@@ -143,7 +143,7 @@ export const PROJECT_LIST: Record<string, Project> = {
             YEARS["2024"]
         ],
         image: {
-            imageUrl: "/images/ezcon/home.png",
+            imageUrl: "/images/ezcon/home.webp",
             alt: 'ezcon-image-alt'
         },
         tags: [

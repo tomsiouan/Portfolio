@@ -442,7 +442,7 @@ onBeforeUnmount(() => {
       <h3 ref="truetourismTitle" class="text-2xl text-start font-extrabold mt-5 mb-5 opacity-0">True Tourism</h3>
       <div class="flex flex-col md:flex-row">
         <div class="w-full flex flex-col justify-center md:w-1/2 text-justify text-lg">
-          <img ref="truetourismImage" src="/images/truetourism.png" alt="image du site web de true tourism" class="rounded-xl opacity-0" />
+          <img ref="truetourismImage" src="/images/truetourism.webp" alt="image du site web de true tourism" class="rounded-xl opacity-0" />
         </div>
         <div class="w-full md:w-1/2 text-lg text-justify pl-10">
           <p ref="truetourismParagraph" v-html="$t('index-truetourism-paragraph')" class="opacity-0" />
