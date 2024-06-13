@@ -3,10 +3,11 @@
     transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
 }
 
+/* FIXME translateX made a glitch */
 .page-enter-from,
 .page-leave-to {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(0px);
     filter: blur(10px);
 }
 
