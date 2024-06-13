@@ -10,10 +10,12 @@ const { t } = useI18n();
 
 useHead({
   meta: [
-    {property: "og:title", content: t('meta-index.portfolio-title')},
-    {name: "og:description", content: t('meta-index.portfolio-content')},
+    {property: "og:title", content: t('meta-index.portfolio-og-title')},
+    {name: "og:description", content: t('meta-index.portfolio-og-content')},
     {name: "og:url", content: t('https://www.tomsiouan.fr/')},
     {name: "og:site-name", content: t('Tom Siouan')},
+    {name: "twitter:title", content: 'Tom Siouan - Portfolio'},
+    {name: "keywords", content: 'Nuxt.JS, Vue.js, portfolio, tom siouan, but informatique, competénces, skills, web projects, projets web'},
   ],
 })
 
