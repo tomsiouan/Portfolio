@@ -12,8 +12,8 @@ useHead({
   meta: [
     {property: "og:title", content: t('meta-index.portfolio-og-title')},
     {name: "og:description", content: t('meta-index.portfolio-og-content')},
-    {name: "og:url", content: t('https://www.tomsiouan.fr/')},
-    {name: "og:site-name", content: t('Tom Siouan')},
+    {name: "og:url", content: 'https://www.tomsiouan.fr/'},
+    {name: "og:site-name", content: 'Tom Siouan'},
 
     {name: "keywords", content: 'Nuxt.JS, Vue.js, portfolio, tom siouan, but informatique, competénces, skills, web projects, projets web'},
 

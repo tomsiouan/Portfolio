@@ -3,6 +3,19 @@ import { onMounted, onBeforeUnmount } from 'vue';
 
 const localPath = useLocalePath();
 
+const route = useRoute();
+const router = useRouter();
+
+const isOnHomePage = ref(route.path === '/');
+
+router.afterEach((to) => {
+  isOnHomePage.value = to.path === '/';
+});
+
+const goBack = () => {
+  router.go(-1);
+}
+
 const handleScroll = () => {
   const scrollPosition = window.scrollY;
   const letters = document.querySelectorAll<HTMLElement>('.letter');
@@ -77,7 +90,6 @@ onBeforeUnmount(() => {
         <div class="flex items-center gap-8">
           <!-- Logo à gauche -->
           <h1 class="uppercase text-2xl flex-1 max-w-fit">
-            <!--<NuxtLink :to="localPath('/')" class="router-link-active router-link-exact-active">-->
             <a @click="redirectOnPageOrHome" class="cursor-pointer">
               <span class="relative" id="logo">
                 <span class="letter letter-t relative">T</span>
@@ -92,19 +104,23 @@ onBeforeUnmount(() => {
                 <span class="letter letter-n active relative" style="opacity: 1;">n</span>
               </span>
             </a>
-            <!--</NuxtLink>-->
           </h1>
 
           <!-- Liens de navigation au centre -->
           <nav class="flex-1 md:flex hidden justify-center gap-8" aria-label="desktop-navbar">
-            <!--<NuxtLink :to="localPath('/about')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
-            <NuxtLink :to="localPath('/projects')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
-            <NuxtLink :to="localPath('/stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
-            <NuxtLink :to="localPath('/contact')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>-->
-            <a href="#aboutMe" class="nav-link">{{ $t("nav-about") }}</a>
-            <a href="#projects" class="nav-link">{{ $t("nav-projects") }}</a>
-            <a href="#stages" class="nav-link">{{ $t("nav-stages") }}</a>
-            <a href="#contactMe" class="nav-link">{{ $t("nav-contact") }}</a>
+            <a v-if="isOnHomePage" href="#aboutMe" class="nav-link">{{ $t("nav-about") }}</a>
+            <NuxtLink v-else :to="localPath('/#aboutMe')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
+
+            <a v-if="isOnHomePage" href="#projects" class="nav-link">{{ $t("nav-projects") }}</a>
+            <NuxtLink v-else :to="localPath('/#aboutMe')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
+
+            <a v-if="isOnHomePage" href="#stages" class="nav-link">{{ $t("nav-stages") }}</a>
+            <NuxtLink v-else :to="localPath('/#aboutMe')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
+
+            <a v-if="isOnHomePage" href="#contactMe" class="nav-link">{{ $t("nav-contact") }}</a>
+            <NuxtLink v-else :to="localPath('/#aboutMe')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>
+
+            <NuxtLink v-if="!isOnHomePage" @click="goBack" class="nav-link cursor-pointer">{{ $t('go-back') }}</NuxtLink>
           </nav>
 
           <div class="flex-3 md:flex hidden">

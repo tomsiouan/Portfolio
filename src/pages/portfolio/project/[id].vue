@@ -31,31 +31,33 @@ const redirectTo = () => {
       <p>Loading...</p>
     </div>
   </div>
-  <div v-else-if="project" class="container max-w-screen sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl pt-32 min-h-screen mx-auto text-lg">
-    <section class="mb-10">
-      <div class="pb-24">
-        <h1 class="text-4xl text-start font-extrabold">{{ $t(project.title) }}</h1>
-        <p class="text-lg">{{ $t(project.description) }}</p>
-        <button v-if="project.githubLink" @click="redirectTo" class="flex flex-row gap-2 items-center mt-2 p-1 transition-all duration-200 border dark:bg-tertiary dark:hover:bg-black dark:hover:border-black text-black border-gray-20 pr-2 rounded-lg hover:text-white hover:bg-black">
-          <Icon name="skill-icons:github-dark" size="22" /> <span>Open in GitHub</span>
-        </button>
-      </div>
+  <div v-else-if="project">
+    <section class="container max-w-screen sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-screen-xl pt-32 min-h-screen mx-auto text-lg">
+      <section class="mb-10">
+        <div class="pb-24">
+          <h1 class="text-4xl text-start font-extrabold">{{ $t(project.title) }}</h1>
+          <p class="text-lg">{{ $t(project.description) }}</p>
+          <button v-if="project.githubLink" @click="redirectTo" class="flex flex-row gap-2 items-center mt-2 p-1 transition-all duration-200 border dark:bg-tertiary dark:hover:bg-black dark:hover:border-black text-black border-gray-20 pr-2 rounded-lg hover:text-white hover:bg-black">
+            <Icon name="skill-icons:github-dark" size="22" /> <span>{{ $t('open-in-github') }}</span>
+          </button>
+        </div>
 
-      <div class="flex justify-center w-full">
-        <img v-if="!project.videoPath" class="w-2/3 rounded-lg" :src="project.image.imageUrl" :alt="$t(project.image.alt)" />
-        <HlsVideo
-            v-else
-            :src="project.videoPath"
-            :autoplay="true"
-            :muted="true"
-            :loop="true"
-            :plays-inline="true"
-            class="w-2/3 rounded-lg"
-        />
-      </div>
+        <div class="flex justify-center w-full">
+          <img v-if="!project.videoPath" class="w-2/3 rounded-lg" :src="project.image.imageUrl" :alt="$t(project.image.alt)" />
+          <HlsVideo
+              v-else
+              :src="project.videoPath"
+              :autoplay="true"
+              :muted="true"
+              :loop="true"
+              :plays-inline="true"
+              class="w-2/3 rounded-lg"
+          />
+        </div>
+      </section>
+
+      <section v-html="$t(project.content)" />
     </section>
-
-    <section v-html="$t(project.content)" />
   </div>
   <div v-else class="text-lg">
     <p>Project not found</p>
