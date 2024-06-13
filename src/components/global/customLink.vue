@@ -20,7 +20,7 @@ const props = defineProps<LinkProps>();
 
 const navigate = () => {
   if(props.options?.internal) {
-    navigateTo(props.link);
+    if(props.link) navigateTo(localPath(props.link));
   } else {
     window.open(props.link, '_blank');
   }
