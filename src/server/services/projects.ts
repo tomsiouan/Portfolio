@@ -61,7 +61,7 @@ export const PROJECT_LIST: Record<string, Project> = {
         description: "heldia-description",
         content: "heldia-content",
         years: [
-            YEARS["2023"],
+            YEARS["2022"],
             YEARS.NOW
         ],
         image: {
