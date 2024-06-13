@@ -45,9 +45,14 @@ export default defineNuxtConfig({
       mode: 'out-in'
     },
     head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
       title: 'Tom SIOUAN',
       meta: [
-        { name: 'description', content: 'Portfolio rassemblant mes projets, mes compétences et plus encore.' }
+        {
+          name: 'description',
+          content: 'Site rassemblant mon portfolio et d\'autres side projects.',
+        },
       ]
     },
   },

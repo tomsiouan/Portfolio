@@ -6,6 +6,17 @@ import CustomLink from "~/components/global/customLink.vue";
 
 const mail = useMail()
 
+const { t } = useI18n();
+
+useHead({
+  meta: [
+    {property: "og:title", content: t('meta-index.portfolio-title')},
+    {name: "og:description", content: t('meta-index.portfolio-content')},
+    {name: "og:url", content: t('https://www.tomsiouan.fr/')},
+    {name: "og:site-name", content: t('Tom Siouan')},
+  ],
+})
+
 const title = ref<HTMLElement | null>(null);
 const subtitle = ref<HTMLElement | null>(null);
 const developerText = ref<HTMLElement | null>(null);

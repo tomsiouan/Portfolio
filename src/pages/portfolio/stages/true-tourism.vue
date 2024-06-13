@@ -1,6 +1,12 @@
 <script setup lang="ts">
 
-const datas = ref();
+import {definePageMeta} from "#imports";
+
+definePageMeta({
+  title: 'Stage chez True Tourism',
+  content: 'Récapitulatif de mon stage chez True Tourism',
+})
+
 </script>
 
 <template>
