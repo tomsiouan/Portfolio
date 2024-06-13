@@ -14,8 +14,12 @@ useHead({
     {name: "og:description", content: t('meta-index.portfolio-og-content')},
     {name: "og:url", content: t('https://www.tomsiouan.fr/')},
     {name: "og:site-name", content: t('Tom Siouan')},
-    {name: "twitter:title", content: 'Tom Siouan - Portfolio'},
+
     {name: "keywords", content: 'Nuxt.JS, Vue.js, portfolio, tom siouan, but informatique, competénces, skills, web projects, projets web'},
+
+    {name: "twitter:title", content:  t('meta-index.portfolio-og-title')},
+    {name: "twitter:description", content: t('meta-index.portfolio-og-content')},
+    {name: "twitter:creator", content: '@tomsiouan'},
   ],
 })
 
