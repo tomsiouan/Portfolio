@@ -80,6 +80,12 @@ export default defineNuxtConfig({
       }
     ],
     defaultLocale: "fr",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      alwaysRedirect: false,
+      fallbackLocale: 'fr'
+    },
   },
   colorMode: {
     preference: 'system',

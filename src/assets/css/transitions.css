@@ -7,13 +7,11 @@
 .page-enter-from,
 .page-leave-to {
     opacity: 0;
-    transform: translateX(0px);
     filter: blur(10px);
 }
 
 .page-enter-to,
 .page-leave-from {
     opacity: 1;
-    transform: translateX(0);
     filter: blur(0);
 }
