@@ -17,6 +17,8 @@ definePageMeta({
 
         <img src="/images/true-tourism/banner.webp" alt="Bannière True Tourism" class="mb-10" />
 
+        <p class="mb-10" v-html="$t('truetourism-introduction-p2')" />
+
         <p class="mb-10" v-html="$t('truetourism-introduction')" />
 
         <div>
@@ -46,17 +48,11 @@ definePageMeta({
             <section id="reactQueryOptimization">
               <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle5')}}</h3>
               <div class="flex flex-col gap-4 items-start">
-                <p>
-                  {{$t('truetourism-first-section-p16')}}
-                </p>
+                <p v-html="$t('truetourism-first-section-p16')" />
 
-                <p>
-                  {{$t('truetourism-first-section-p17')}}
-                </p>
+                <p v-html="$t('truetourism-first-section-p17')" />
 
-                <p>
-                  {{$t('truetourism-first-section-p18')}}
-                </p>
+                <p v-html="$t('truetourism-first-section-p18')" />
 
                 <img src="/images/true-tourism/reactQuery1.webp" :alt="$t('truetourism-first-section-react-query-alt')" />
 
@@ -150,9 +146,7 @@ definePageMeta({
                   <img src="/images/true-tourism/guide-profile.webp" :alt="$t('truetourism-img-guide-profile-alt')" class="w-1/2" />
                 </div>
                 <div class="w-1/2 pr-10 md:sticky top-36">
-                  <p>
-                    {{$t('truetourism-first-section-p3')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p3')" />
                 </div>
               </div>
             </section>
@@ -160,13 +154,9 @@ definePageMeta({
               <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle3')}}</h3>
               <div class="flex flex-col gap-4 items-start relative">
                 <div class="flex flex-col gap-4">
-                  <p>
-                    {{$t('truetourism-first-section-p4')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p4')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p5')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p5')" />
 
                   <div class="flex flex-col items-center mt-10 mb-10">
                     <img
@@ -178,13 +168,9 @@ definePageMeta({
                     <label for="imageCodeGoogleSignIn" class="font-kineticLight">{{ $t('truetourism-img-google-signin-code-label') }}</label>
                   </div>
 
-                  <p>
-                    {{$t('truetourism-first-section-p6')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p6')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p7')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p7')" />
 
                   <div class="flex flex-row gap-4 w-full justify-center">
                     <div class="flex flex-col items-center md:mr-20 mt-10 mb-10">
@@ -208,33 +194,19 @@ definePageMeta({
                     </div>
                   </div>
 
-                  <p>
-                    {{$t('truetourism-first-section-p8')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p8')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p9')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p9')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p10')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p10')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p11')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p11')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p12')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p12')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p13')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p13')" />
 
-                  <p>
-                    {{$t('truetourism-first-section-p14')}}
-                  </p>
+                  <p v-html="$t('truetourism-first-section-p14')" />
 
                   <div class="flex flex-col items-center mt-10 mb-10">
                     <img id="diagrammeImage" src="/images/true-tourism/diagramme.webp" :alt="$t('truetourism-img-diagram-alt')" />
@@ -245,9 +217,7 @@ definePageMeta({
                 <section>
                   <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-first-section-subtitle4')}}</h3>
                   <div class="pl-4">
-                    <p>
-                      {{$t('truetourism-first-section-p15')}}
-                    </p>
+                    <p v-html="$t('truetourism-first-section-p15')" />
 
                     <div class="mt-2">
                       <h4><b>{{$t('truetourism-first-section-sub-subtitle1')}}</b></h4>
@@ -283,25 +253,15 @@ definePageMeta({
               <div class="flex flex-col gap-4">
                 <p v-html="$t('truetourism-second-section-p1')" />
 
-                <p>
-                  {{$t('truetourism-second-section-p2')}}
-                </p>
+                <p v-html="$t('truetourism-second-section-p2')" />
 
-                <p class="mb-2">
-                  {{$t('truetourism-second-section-p3')}}
-                </p>
+                <p class="mb-2" v-html="$t('truetourism-second-section-p3')" />
 
-                <p>
-                  {{$t('truetourism-second-section-p4')}}
-                </p>
+                <p v-html="$t('truetourism-second-section-p4')" />
 
-                <p>
-                  {{$t('truetourism-second-section-p5')}}
-                </p>
+                <p v-html="$t('truetourism-second-section-p5')" />
 
-                <p>
-                  {{$t('truetourism-second-section-p6')}}
-                </p>
+                <p v-html="$t('truetourism-second-section-p6')" />
 
                 <div class="flex flex-col items-center mt-10 mb-10">
                   <img src="/images/true-tourism/notion.webp" :alt="$t('truetourism-img-notion-alt')" class="w-2/3"/>
@@ -312,9 +272,7 @@ definePageMeta({
               <div>
                 <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-second-section-subtitle1')}}</h3>
                 <div class="pl-4">
-                  <p>
-                    {{$t('truetourism-second-section-p7')}}
-                  </p>
+                  <p v-html="$t('truetourism-second-section-p7')" />
 
                   <div class="mt-2">
                     <h4><b>{{$t('truetourism-second-section-sub-subtitle2')}}</b></h4>
@@ -346,9 +304,8 @@ definePageMeta({
           <section id="conclusion">
             <h2 class="text-3xl text-start font-extrabold mt-10 mb-5">{{ $t('truetourism-ccl-section-title') }}</h2>
             <div class="flex flex-col gap-4">
-              <p>
-                {{$t('truetourism-ccl-section-p1')}}
-              </p>
+              <p v-html="$t('truetourism-ccl-section-p1')" />
+
               <div class="mt-2">
                 <h3 class="text-2xl text-start font-extrabold mt-14 mb-2">{{$t('truetourism-ccl-section-subtitle1')}}</h3>
                   <ul class="pl-10 list-disc">

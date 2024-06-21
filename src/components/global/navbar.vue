@@ -116,18 +116,14 @@ onBeforeUnmount(() => {
           <!-- Liens de navigation au centre -->
           <nav class="flex-1 md:flex hidden justify-center gap-8" aria-label="desktop-navbar">
             <a v-if="isOnHomePage" href="#aboutMe" class="nav-link">{{ $t("nav-about") }}</a>
-            <NuxtLink v-else :to="localPath('/#aboutMe')" class="nav-link">{{ $t("nav-about") }}</NuxtLink>
 
             <a v-if="isOnHomePage" href="#projects" class="nav-link">{{ $t("nav-projects") }}</a>
-            <NuxtLink v-else :to="localPath('/#projects')" class="nav-link">{{ $t("nav-projects") }}</NuxtLink>
 
             <a v-if="isOnHomePage" href="#stages" class="nav-link">{{ $t("nav-stages") }}</a>
-            <NuxtLink v-else :to="localPath('/#stages')" class="nav-link">{{ $t("nav-stages") }}</NuxtLink>
 
             <a v-if="isOnHomePage" href="#contactMe" class="nav-link">{{ $t("nav-contact") }}</a>
-            <NuxtLink v-else :to="localPath('/#contactMe')" class="nav-link">{{ $t("nav-contact") }}</NuxtLink>
 
-            <NuxtLink v-if="!isOnHomePage" @click="router.back()" class="nav-link cursor-pointer">{{ $t('go-back') }}</NuxtLink>
+            <NuxtLink v-if="!isOnHomePage" @click="router.push('/')" class="nav-link cursor-pointer">{{ $t('go-back-home') }}</NuxtLink>
           </nav>
 
           <div class="flex-3 md:flex hidden">
