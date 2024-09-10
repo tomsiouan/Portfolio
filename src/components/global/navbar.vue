@@ -7,10 +7,12 @@ const localPath = useLocalePath();
 const route = useRoute();
 const router = useRouter();
 
-const isOnHomePage = ref(route.path === '/');
+const isOnHomePage = ref(() => {
+  return router.path === "/" || router.path === "/en";
+});
 
 router.afterEach((to) => {
-  isOnHomePage.value = to.path === '/';
+  isOnHomePage.value = to.path === '/' || to.path === '/en';
 });
 
 const handleScroll = () => {
