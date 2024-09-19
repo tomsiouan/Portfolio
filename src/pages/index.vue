@@ -7,6 +7,8 @@ import anime from 'animejs/lib/anime.es.js';
 
 const mail = useMail();
 
+const localPath = useLocalePath();
+
 const { t } = useI18n();
 
 useHead({
@@ -146,6 +148,8 @@ const sendEmail = async () => {
 let observer: IntersectionObserver | null = null;
 
 const animationEnd = ref(false);
+
+const localizedRoute = localPath('/portfolio/stages/true-tourism');
 
 const uniqueTags = computed(() => {
     const tags = new Set<string>();
@@ -792,7 +796,10 @@ onBeforeUnmount(() => {
             </h3>
             <div class="flex flex-col md:flex-row">
                 <div class="relative w-full flex flex-col justify-center md:w-1/2 text-justify text-lg">
-                  <a href="/portfolio/stages/true-tourism" class="block relative group">
+                  <NuxtLink
+                      :to="localizedRoute"
+                      class="block relative group"
+                  >
                     <!-- L'image -->
                     <img
                         ref="truetourismImage"
@@ -808,7 +815,7 @@ onBeforeUnmount(() => {
                     >
                       <span class="text-dark text-lg font-semibold">Cliquez pour en savoir plus</span>
                     </div>
-                  </a>
+                  </NuxtLink>
                 </div>
                 <div class="w-full md:w-1/2 text-lg text-justify pl-10">
                     <p
