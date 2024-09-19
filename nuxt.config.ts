@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     'nuxt-icon',
+    '@hypernym/nuxt-anime',
     ['nuxt-mail', {
       message: {
         to: process.env.NUXT_MAIL_TO,

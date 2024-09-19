@@ -3,6 +3,7 @@ import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { type Project, PROJECT_LIST } from "~/server/services/projects";
 import autoAnimate from "@formkit/auto-animate";
 import CustomLink from "~/components/global/customLink.vue";
+import anime from 'animejs/lib/anime.es.js';
 
 const mail = useMail();
 
@@ -60,6 +61,7 @@ const projectList = ref<HTMLElement | null>(null);
 
 const truetourismTitle = ref<HTMLElement | null>(null);
 const truetourismImage = ref<HTMLElement | null>(null);
+const hoverOverlay = ref<HTMLElement | null>(null);
 const truetourismParagraph = ref<HTMLElement | null>(null);
 const truetourismLink = ref<HTMLElement | null>(null);
 
@@ -407,7 +409,47 @@ onMounted(() => {
         observer = new IntersectionObserver(handleIntersect, {
             threshold: 0.1,
         });
-        const elementsToObserve = [
+      if (truetourismImage.value) {
+        truetourismImage.value.addEventListener('mouseover', () => {
+          anime({
+            targets: truetourismImage.value,
+            scale: 1.1,  // Agrandir légèrement
+            filter: ['blur(0px)', 'blur(5px)'],
+            rotate: '-3deg',
+            duration: 200,
+            easing: 'easeOutQuad',
+          });
+
+          anime({
+            targets: hoverOverlay.value,
+            scale: 1.1,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeOutQuad',
+          });
+        });
+
+        truetourismImage.value.addEventListener('mouseout', () => {
+          anime({
+            targets: truetourismImage.value,
+            scale: 1,
+            rotate: '0deg',
+            filter: ['blur(5px)', 'blur(0px)'],
+            duration: 500,
+            easing: 'easeOutQuad',
+          });
+
+          anime({
+            targets: hoverOverlay.value,
+            opacity: 0,
+            scale: 1,
+            duration: 500,
+            easing: 'easeOutQuad',
+          });
+        });
+      }
+
+      const elementsToObserve = [
             title.value,
             subtitle.value,
             developerText.value,
@@ -749,15 +791,24 @@ onBeforeUnmount(() => {
                 True Tourism
             </h3>
             <div class="flex flex-col md:flex-row">
-                <div
-                    class="w-full flex flex-col justify-center md:w-1/2 text-justify text-lg"
-                >
+                <div class="relative w-full flex flex-col justify-center md:w-1/2 text-justify text-lg">
+                  <a href="/portfolio/stages/true-tourism" class="block relative group">
+                    <!-- L'image -->
                     <img
                         ref="truetourismImage"
                         src="/images/truetourism.webp"
                         alt="image du site web de true tourism"
-                        class="rounded-xl opacity-0"
+                        class="rounded-xl cursor-pointer transform transition-transform duration-300 ease-in-out group-hover:scale-105"
                     />
+
+                    <!-- Overlay avec texte pour indiquer à l'utilisateur de cliquer -->
+                    <div
+                        ref="hoverOverlay"
+                        class="absolute rounded-xl inset-0 flex justify-center items-center opacity-0 transition-opacity duration-300 pointer-events-none group-hover:opacity-100"
+                    >
+                      <span class="text-dark text-lg font-semibold">Cliquez pour en savoir plus</span>
+                    </div>
+                  </a>
                 </div>
                 <div class="w-full md:w-1/2 text-lg text-justify pl-10">
                     <p
@@ -765,14 +816,15 @@ onBeforeUnmount(() => {
                         v-html="$t('index-truetourism-paragraph')"
                         class="opacity-0"
                     />
-                    <div ref="truetourismLink" class="opacity-0 pt-2">
-                        <CustomLink
-                            link="/portfolio/stages/true-tourism"
-                            :options="{ internal: true }"
-                            class="p-2 rounded bg-amber-500 hover:bg-amber-300"
-                        >{{ $t("learn-more") }}
-                        </CustomLink>
-                    </div>
+                  <div ref="truetourismLink" class="opacity-0 pt-2">
+                    <CustomLink
+                        link="/portfolio/stages/true-tourism"
+                        :options="{ internal: true }"
+                    >
+                      {{ $t("learn-more") }}
+                    </CustomLink>
+                  </div>
+
                 </div>
             </div>
         </section>

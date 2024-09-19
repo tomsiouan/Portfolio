@@ -49,8 +49,8 @@ const handleScroll = () => {
 };
 
 const redirectOnPageOrHome = async () => {
-  if (location.pathname !== '/') {
-    await navigateTo(localPath('/'))
+  if (location.pathname !== '/' && location.pathname !== '/en') {
+    await navigateTo(localPath(location.pathname.includes('/en') ? '/en' : '/'));
   } else {
     window.scrollTo({
       top: 0,
@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
 
             <a v-if="isOnHomePage" href="#contactMe" class="nav-link">{{ $t("nav-contact") }}</a>
 
-            <NuxtLink v-if="!isOnHomePage" @click="router.push('/')" class="nav-link cursor-pointer">{{ $t('go-back-home') }}</NuxtLink>
+            <NuxtLink v-if="!isOnHomePage" @click="redirectOnPageOrHome()" class="nav-link cursor-pointer">{{ $t('go-back-home') }}</NuxtLink>
           </nav>
 
           <div class="flex-3 md:flex hidden">
