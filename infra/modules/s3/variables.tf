@@ -1,5 +1,5 @@
 
 variable "oai_iam_arn" {
-  type = string
+  type     = string
   nullable = false
 }

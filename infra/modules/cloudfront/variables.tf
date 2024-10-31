@@ -1,4 +1,4 @@
 variable "s3_bucket_id" {
-  type = string
+  type     = string
   nullable = false
 }

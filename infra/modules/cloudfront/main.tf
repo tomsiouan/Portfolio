@@ -63,9 +63,9 @@ resource "aws_cloudfront_distribution" "cf-dist" {
   }
 
   viewer_certificate {
-    acm_certificate_arn       = aws_acm_certificate_validation.await_cert_validation.certificate_arn
-    ssl_support_method        = "sni-only"
-    minimum_protocol_version  = "TLSv1.2_2021"
+    acm_certificate_arn      = aws_acm_certificate_validation.await_cert_validation.certificate_arn
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = {
@@ -74,9 +74,9 @@ resource "aws_cloudfront_distribution" "cf-dist" {
 }
 
 resource "aws_acm_certificate" "cert" {
-  provider                  = aws.us_east_1
-  domain_name               = "tomsiouan.fr"
-  validation_method         = "DNS"
+  provider          = aws.us_east_1
+  domain_name       = "tomsiouan.fr"
+  validation_method = "DNS"
 
   subject_alternative_names = ["www.tomsiouan.fr"]
 
@@ -94,7 +94,7 @@ resource "ovh_domain_zone_record" "record" {
       type   = dvo.resource_record_type
     }
   }
-  
+
   zone      = "tomsiouan.fr"
   subdomain = each.value.name
   fieldtype = each.value.type
@@ -103,8 +103,8 @@ resource "ovh_domain_zone_record" "record" {
 }
 
 resource "aws_acm_certificate_validation" "await_cert_validation" {
-  provider                = aws.us_east_1
-  certificate_arn         = aws_acm_certificate.cert.arn
+  provider        = aws.us_east_1
+  certificate_arn = aws_acm_certificate.cert.arn
 }
 
 # Add the cloudfront domain_name in OVH

@@ -1,7 +1,7 @@
 resource "random_string" "suffix" {
   length  = 8
   special = false
-  upper = false
+  upper   = false
 }
 
 data "aws_iam_policy_document" "s3_policy" {
@@ -82,13 +82,13 @@ resource "aws_s3_object" "provision_source_files" {
 
   for_each = fileset("${path.module}/../../../website/.output/public/", "**/**")
 
-  key          = each.value
-  source       = "${path.module}/../../../website/.output/public/${each.value}"
-  etag         = filemd5("${path.module}/../../../website/.output/public/${each.value}")
+  key    = each.value
+  source = "${path.module}/../../../website/.output/public/${each.value}"
+  etag   = filemd5("${path.module}/../../../website/.output/public/${each.value}")
 
   content_type = lookup(
-    local.content_type_map, 
-    split(".", basename("${path.module}/../../../website/.output/public/${each.value}"))[length(split(".", basename("${path.module}/../../../website/.output/public/${each.value}"))) - 1], 
+    local.content_type_map,
+    split(".", basename("${path.module}/../../../website/.output/public/${each.value}"))[length(split(".", basename("${path.module}/../../../website/.output/public/${each.value}"))) - 1],
     "application/octet-stream"
   )
 
