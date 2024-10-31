@@ -29,7 +29,29 @@ Start the development server on `http://localhost:3000`:
 yarn dev
 ```
 
-## Dependencies
+## Static website
+
+The website is now static.
+
+It can be generate with the following command :
+
+```bash
+npx nuxt generate --dotenv .env.dev # or an other .env 
+```
+
+# Infrastructure
+
+The infrastructure is managed by Terraform which do the link between bucket S3, Cloudfront and OVH.
+
+## Hosting
+
+The website files are stocked on a bucket S3 which is coupled with the Cloudfront (CDN).
+
+## DNS
+
+The DNS (www.tomsiouan.fr) is provided by OVH.
+
+## Nuxt Dependencies
 
 - tailwindcss
 - color-mode

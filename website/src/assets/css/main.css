@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Movement-black';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(../fonts/Movement-Black.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Movement-thin';
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(../fonts/Movement-DirectThin.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Kinetic-light';
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(../fonts/Kinetic-Light.woff2) format('woff2');
+    }
+    @font-face {
+        font-family: 'Kinetic-regular';
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(../fonts/Kinetic-Regular.woff2) format('woff2');
+    }
+
+    p {
+        @apply text-neutral-700;
+    }
+
+    .dark p {
+        @apply text-tertiary
+    }
+
+    p {
+        transition: color 0.5s, color 0.5s;
+    }
+}
