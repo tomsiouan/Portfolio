@@ -1,0 +1,13 @@
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: "v1.74.1"
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_validate
+  -   repo: https://github.com/pre-commit/mirrors-eslint
+      rev: 'v7.18.0'
+      hooks:
+      -   id: eslint
+          types_or: [javascript, jsx, ts, tsx, vue]
+          additional_dependencies:
+          -   eslint-plugin-vue@v7.5.0
