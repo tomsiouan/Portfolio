@@ -1,12 +1,12 @@
 
 module "s3" {
- source       =  "./modules/s3"
- oai_iam_arn  = module.cloudfront.oai_iam_arn
+  source      = "./modules/s3"
+  oai_iam_arn = module.cloudfront.oai_iam_arn
 }
 
 module "cloudfront" {
-  source        = "./modules/cloudfront"
-  s3_bucket_id  = module.s3.s3_bucket_id
+  source       = "./modules/cloudfront"
+  s3_bucket_id = module.s3.s3_bucket_id
 }
 
 module "iam" {
