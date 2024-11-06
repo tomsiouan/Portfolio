@@ -13,12 +13,17 @@ on:
     paths:
       - 'website/**'
   pull_request:
+    branches:
+      - 'dev'
+    paths:
+      - 'website/**'
 
 permissions:
   contents: read
 
 jobs:
    build:
+    if: github.event.pull_request.merged == true
     name: 'Nuxt Build'
     runs-on: ubuntu-latest
 
@@ -64,6 +69,7 @@ jobs:
         path: website/.output
 
    terraform:
+       if: github.event.pull_request.merged == true
        name: 'Terraform'
        needs: build
        runs-on: ubuntu-latest

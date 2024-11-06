@@ -34,11 +34,6 @@ resource "aws_s3_bucket" "portfolio_bucket" {
   }
 }
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.portfolio_bucket.id
-  policy = data.aws_iam_policy_document.s3_policy.json
-}
-
 # Configurer le blocage d'accès public séparément
 resource "aws_s3_bucket_public_access_block" "portfolio_bucket_access_block" {
   bucket = aws_s3_bucket.portfolio_bucket.id

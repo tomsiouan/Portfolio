@@ -4,6 +4,11 @@ terraform {
       source = "ovh/ovh"
     }
   }
+  backend "s3" {
+    bucket = "terraform-states-erg0987"
+    key    = "website"
+    region = "eu-central-1"
+  }
 }
 
 provider "aws" {
