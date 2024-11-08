@@ -1,6 +1,6 @@
 
-output "aws_cloudfront_distribution_arn" {
-  value = aws_cloudfront_distribution.cf-dist.arn
+output "aws_cloudfront_distribution" {
+  value = aws_cloudfront_distribution.cf-dist
 }
 
 output "domain_name" {
