@@ -5,7 +5,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "terraform-states-6i62lv8r"
+    bucket = "terraform-states-6i62lv8u"
     key    = "website"
     region = "eu-central-1"
   }
