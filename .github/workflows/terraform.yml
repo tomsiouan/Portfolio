@@ -116,4 +116,4 @@ jobs:
          if: ${{ failure() }}
          uses: mxschmitt/action-tmate@v3
          with:
-          connect-timeout-seconds: 120
+          connect-timeout-seconds: 60
